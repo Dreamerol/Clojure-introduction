@@ -1,0 +1,612 @@
+; This is the Calva REPL Window.
+; It's just a file, really, with some special treatment from Calva.
+; Use it as a REPL input prompt if you like. (When the REPL is connected.)
+; TIPS: The keyboard shortcut `ctrl+alt+o r` shows and focuses this window
+; Please see https://calva.io/repl-window/ for more info.
+; Happy coding! ♥️
+
+; TIPS: As with any Clojure file when the REPL is connected:
+; - `alt+enter` evaluates the current top level form.
+; - `ctrl+enter` evaluates the current form.
+; Special for this file:
+; - `alt+up` and `alt+down` traverse up and down the REPL command history
+;    when the cursor is after the last contents at the prompt
+; 
+; See also the Calva Inspector: https://calva.io/inspector/
+
+PLEASE NOTE
+We will update the default location of this file.
+The new default location will be
+  "<projectRootPath>/.calva/repl.calva-repl"
+For now the legacy path is used by default.
+To give yourself a smooth transition, you can opt in
+to the change, by configuring this setting as false:
+  "calva.useLegacyReplWindowPath"
+and then add "**/.calva/repl.calva-repl" to your ".gitignore" file.
+
+
+This file is configured as the output destination for all REPL output.
+You can configure this with the setting:
+  "calva.outputDestinations"
+
+
+; Jacking in...
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Starting Jack-in: pushd c:\ZigiWaveOnboarding\onboarding & cmd.exe /d /c lein update-in :dependencies conj [nrepl,"1.3.1"] -- update-in :plugins conj [cider/cider-nrepl,"0.55.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless & popd
+; Using host:port 127.0.0.1:50116 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+nil
+clj꞉onboarding.core꞉> 
+"Please see https://calva.io/output/#about-stdout-in-the-repl-window
+about why stdout printed to this file is prepended with `;` to be line comments."
+clj꞉onboarding.core꞉> 
+; Jack-in done.
+clj꞉onboarding.core꞉> 
+(addNumber 3)
+; Syntax error compiling at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\ex1.clj:12:1).
+; Unable to resolve symbol: addNumber in this context
+clj꞉user꞉> 
+(defn addNumber
+  [x]
+  (+ x 100)
+  )
+#'user/addNumber
+clj꞉user꞉> 
+(addNumber 3)
+103
+clj꞉user꞉> 
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting connect.
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting connect.
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting connect.
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting connect.
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting connect.
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting connect.
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting connect.
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting connect.
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting connect.
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting connect.
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting connect.
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting connect.
+; nREPL connection failed: Error: read ECONNRESET
+; Failed connecting.
+; nREPL Connection was closed
+; Jacking in...
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Starting Jack-in: pushd c:\ZigiWaveOnboarding\onboarding & cmd.exe /d /c lein update-in :dependencies conj [nrepl,"1.3.1"] -- update-in :plugins conj [cider/cider-nrepl,"0.55.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless & popd
+; Using host:port 127.0.0.1:56163 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+nil
+clj꞉onboarding.core꞉> 
+; Jack-in done.
+clj꞉onboarding.core꞉> 
+; Evaluating file: ex1.clj
+; 
+; ; clj  user 
+; Execution error (ClassCastException) at onboarding.core/eval9513 (ex1.clj:44).
+; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+; Evaluation of file ex1.clj failed: class clojure.lang.Compiler$CompilerException
+clj꞉user꞉> 
+(kaval {:a 1 :b 2 :cfdrtddt 67})
+; Syntax error compiling at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:207:1).
+; Unable to resolve symbol: kaval in this context
+clj꞉onboarding.example꞉> 
+(defn kaval [{:keys [a b c]}]
+  (+ a b c)
+  )
+#'onboarding.example/kaval
+clj꞉onboarding.example꞉> 
+(kaval {:a 1 :b 2 :cfdrtddt 67})
+; Execution error (NullPointerException) at onboarding.example/kaval (REPL:204).
+; Cannot invoke "Object.getClass()" because "x" is null
+clj꞉onboarding.example꞉> 
+(defn kaval [{:keys [a b c]}]
+  (prn a b c)
+  )
+#'onboarding.example/kaval
+clj꞉onboarding.example꞉> 
+(kaval {:a 1 :b 2 :cfdrtddt 67})
+; 1 2 nil
+nil
+clj꞉onboarding.example꞉> 
+(defn reverseOrder
+  [els]
+  (loop [remaining els
+         result []]
+    (if (empty? remaining) result
+        (recur (butlast remaining) (conj result (last remaining))))))
+#'onboarding.example/reverseOrder
+clj꞉onboarding.example꞉> 
+(reverseOrder [1 2 3 4])
+[4 3 2 1]
+clj꞉onboarding.example꞉> 
+(defn sum 
+  [els] 
+  (loop [remaining els result 0] 
+    (if (empty? remaining) result
+        (recur (rest remaining) (+ result (first remaining))))))
+#'onboarding.example/sum
+clj꞉onboarding.example꞉> 
+(sum [1 2 3 4])
+10
+clj꞉onboarding.example꞉> 
+(sum [1 2 3 4 45 0])
+55
+clj꞉onboarding.example꞉> 
+(defn isOdd
+  [x]
+  (zero? (mode 2 x)))
+; Syntax error compiling at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:232:10).
+; Unable to resolve symbol: mode in this context
+clj꞉onboarding.example꞉> 
+(defn isOdd
+  [x]
+  (zero? (mode 2 x))
+  )
+; Syntax error compiling at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:232:10).
+; Unable to resolve symbol: mode in this context
+clj꞉onboarding.example꞉> 
+(defn isOdd
+  [x]
+  (zero? (mod x 2))
+  )
+#'onboarding.example/isOdd
+clj꞉onboarding.example꞉> 
+(isOdd 89)
+false
+clj꞉onboarding.example꞉> 
+(defn isOdd (contemplent isEven))
+; Syntax error macroexpanding clojure.core/defn at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:235:1).
+; contemplent - failed: vector? at: [:fn-tail :arity-n :bodies :params] spec: :clojure.core.specs.alpha/param-list
+; (contemplent isEven) - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
+clj꞉onboarding.example꞉> 
+(def isOdd (contemplent isEven))
+; Syntax error compiling at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:235:12).
+; Unable to resolve symbol: contemplent in this context
+clj꞉onboarding.example꞉> 
+(defn isEven
+  [x]
+  (zero? (mod x 2))
+  )
+#'onboarding.example/isEven
+clj꞉onboarding.example꞉> 
+(def isOdd (contemplent isEven))
+; Syntax error compiling at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:235:12).
+; Unable to resolve symbol: contemplent in this context
+clj꞉onboarding.example꞉> 
+(def isOdd (complement isEven))
+#'onboarding.example/isOdd
+clj꞉onboarding.example꞉> 
+(isOdd 67)
+true
+clj꞉onboarding.example꞉> 
+(isOdd 89)
+true
+clj꞉onboarding.example꞉> 
+(defn oddNums
+  [els]
+  (loop [remaining els result []]
+    (if (empty? remaining) result 
+         (do
+           (if (isOdd (first remaining))
+                      (conj result (first remaining)))
+           (recur (rest remaining) result)
+             )
+           )
+        ))
+#'onboarding.example/oddNums
+clj꞉onboarding.example꞉> 
+(oddNums [25652 6276 216 51 16 1])
+[]
+clj꞉onboarding.example꞉> 
+(isOdd 67)
+true
+clj꞉onboarding.example꞉> 
+(defn oddNums
+  [els]
+  (loop [remaining els result []]
+  (if (empty? remaining) result
+      (recur (rest remaining) (
+                               (if (isOdd (first remaining))
+                                 (conj result (first remaining))
+                                 result)
+      ))
+        )))
+#'onboarding.example/oddNums
+clj꞉onboarding.example꞉> 
+(oddNums [25652 6276 216 51 16 1])
+; Execution error (ArityException) at onboarding.example/oddNums (REPL:243).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+clj꞉onboarding.example꞉> 
+(oddNums [25652 6276 216 51 16 1])
+; Execution error (ArityException) at onboarding.example/oddNums (REPL:243).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+clj꞉onboarding.example꞉> 
+(defn oddNums
+  [els]
+  (loop [remaining els result []]
+  (if (empty? remaining) result
+      (recur (rest remaining) (
+                               (if (isOdd (first remaining))
+                                 (conj result (first remaining))
+                                 result)
+      ))
+        )))
+#'onboarding.example/oddNums
+clj꞉onboarding.example꞉> 
+(oddNums [1 2 3 4 5 2 3 6 6 7])
+; Execution error (ArityException) at onboarding.example/oddNums (REPL:243).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+clj꞉onboarding.example꞉> 
+(oddNums [1 2 3 4 5 2 3 6 6 7])
+; Execution error (ArityException) at onboarding.example/oddNums (REPL:243).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+clj꞉onboarding.example꞉> 
+(defn oddNums
+  [els]
+  (loop [remaining els result []]
+  (if (empty? remaining)
+    result
+      (recur (rest remaining)
+             (if (isOdd (first remaining))
+                                 (conj result (first remaining))
+                                 result)
+      ))
+        ))
+#'onboarding.example/oddNums
+clj꞉onboarding.example꞉> 
+(oddNums [1 2 3 4 5 2 3 6 6 7])
+[1 3 5 3 7]
+clj꞉onboarding.example꞉> 
+(oddNums [1 2 3 4 5 2 3 6 6 7])
+[1 3 5 3 7]
+clj꞉onboarding.example꞉> 
+(defn oddNums
+        [els]
+        (loop [remaining els result []]
+          (if (empty? remaining)
+            result
+            (recur (rest remaining)
+                   (if (isEven (first remaining)
+                               result 
+                               (conj result (first remaining)))))
+            )))
+; Syntax error compiling if at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:266:20).
+; Too few arguments to if
+clj꞉onboarding.example꞉> 
+(defn isEven
+        [x]
+        (zero? (mod x 2)))
+#'onboarding.example/isEven
+clj꞉onboarding.example꞉> 
+(defn oddNums
+        [els]
+        (loop [remaining els result []]
+          (if (empty? remaining)
+            result
+            (recur (rest remaining)
+                   (if (isEven (first remaining))
+                               result 
+                               (conj result (first remaining)))))
+            ))
+#'onboarding.example/oddNums
+clj꞉onboarding.example꞉> 
+(oddNums [1 2 3 4])
+[1 3]
+clj꞉onboarding.example꞉> 
+(defn oddNums
+        [els]
+        (loop [remaining els result ()]
+          (if (empty? remaining)
+            result
+            (recur (rest remaining)
+                   (if (isEven (first remaining))
+                     result 
+                     (conj result (first remaining)))))
+          ))
+#'onboarding.example/oddNums
+clj꞉onboarding.example꞉> 
+(oddNums [1 2 3 4])
+(3 1)
+clj꞉onboarding.example꞉> 
+(oddNums [1 2 3 4 5])
+(5 3 1)
+clj꞉onboarding.example꞉> 
+(defn oddNums
+        [els]
+        (loop [remaining els result ()]
+          (if (empty? remaining)
+            result
+            (recur (butlast remaining)
+                   (if (isEven (last remaining))
+                     result 
+                     (conj result (last remaining)))))
+          ))
+#'onboarding.example/oddNums
+clj꞉onboarding.example꞉> 
+(oddNums [1 2 3 4 5])
+(1 3 5)
+clj꞉onboarding.example꞉> 
+(defn firstFibonacciNumbers
+  [x] 
+  (loop [t1 1 t2 1 result []]
+    (if (== (count result) x) 
+      result
+   (recur t1 (+ t1 t2) (conj result(t1))))
+    ))
+#'onboarding.example/firstFibonacciNumbers
+clj꞉onboarding.example꞉> 
+(firstFibonacciNumbers 7)
+; Execution error (ClassCastException) at onboarding.example/firstFibonacciNumbers (REPL:282).
+; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉onboarding.example꞉> 
+(defn firstFibonacciNumbers
+  [x] 
+  (loop [t1 1 t2 1 result []]
+    (if (== (count result) x) 
+      result
+   (recur t1 (+ t1 t2) (conj result t1)))
+    ))
+#'onboarding.example/firstFibonacciNumbers
+clj꞉onboarding.example꞉> 
+(firstFibonacciNumbers 7)
+[1 1 1 1 1 1 1]
+clj꞉onboarding.example꞉> 
+(defn firstFibonacciNumbers
+  [x] 
+  (loop [t1 1 t2 1 result []]
+    (if (== (count result) x) 
+      result
+   (recur t2 (+ t1 t2) (conj result t1)))
+    ))
+#'onboarding.example/firstFibonacciNumbers
+clj꞉onboarding.example꞉> 
+(firstFibonacciNumbers 7)
+[1 1 2 3 5 8 13]
+clj꞉onboarding.example꞉> 
+(loop [remaining seq]
+    (or (== (count remaining) 1 (== (count remaining) 0)) true
+    (if (not= (first remaining) (last remaining))
+      false
+      (recur (butlast (rest remaining)))
+      )))
+; Execution error (UnsupportedOperationException) at onboarding.example/eval10361 (REPL:292).
+; count not supported on this type: core$seq__5488
+clj꞉onboarding.example꞉> 
+(defn PalindromeDetector
+  [seq]
+  (loop [remaining seq]
+    (or (== (count remaining) 1 (== (count remaining) 0)) true
+    (if (not= (first remaining) (last remaining))
+      false
+      (recur (butlast (rest remaining)))
+      )))
+)
+#'onboarding.example/PalindromeDetector
+clj꞉onboarding.example꞉> 
+(PalindromeDetector [1 1 12 2 ])
+true
+clj꞉onboarding.example꞉> 
+(defn PalindromeDetector
+  [seq]
+  (loop [remaining seq]
+    (or (== (count remaining) 1) (== (count remaining) 0)) true
+    (if (not= (first remaining) (last remaining))
+      false
+      (recur (butlast (rest remaining)))
+      )))
+#'onboarding.example/PalindromeDetector
+clj꞉onboarding.example꞉> 
+(PalindromeDetector [1 1 12 2 ])
+false
+clj꞉onboarding.example꞉> 
+(PalindromeDetector [1 2 1])
+(PalindromeDetector [1 2 1])
+(defn PalindromeDetector
+  [seq]
+  (loop [remaining seq]
+    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
+    (if (not= (first remaining) (last remaining))
+      false
+      (recur (butlast (rest remaining)))
+      ))))
+(defn PalindromeDetector
+  [seq]
+  (loop [remaining seq]
+    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
+    (if (not= (first remaining) (last remaining))
+      false
+      (recur (butlast (rest remaining)))
+      ))))
+(defn PalindromeDetector
+  [seq]
+  (loop [remaining seq]
+    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
+    (if (not= (first remaining) (last remaining))
+      false
+      (recur (butlast (rest remaining)))
+      ))))
+[seq]
+(PalindromeDetector [1 2 1])
+(PalindromeDetector [1 2 1])
+(oddNums [1 2 3 4 5])
+(oddNums [1 2 3 4 5])
+(+ 1 2)
+(defn PalindromeDetector
+  [seq]
+  (loop [remaining seq]
+    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
+    (if (not= (first remaining) (last remaining))
+      false
+      (recur (butlast (rest remaining)))
+      ))))
+(defn PalindromeDetector
+  [seq]
+  (loop [remaining seq]
+    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
+    (if (not= (first remaining) (last remaining))
+      false
+      (recur (butlast (rest remaining)))
+      ))))
+(defn PalindromeDetector
+  [seq]
+  (loop [remaining seq]
+    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
+    (if (not= (first remaining) (last remaining))
+      false
+      (recur (butlast (rest remaining)))
+      ))))
+(defn PalindromeDetector
+  [seq]
+  (loop [remaining seq]
+    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
+    (if (not= (first remaining) (last remaining))
+      false
+      (recur (butlast (rest remaining)))
+      ))))
+(firstFibonacciNumbers 7)
+(firstFibonacciNumbers 7)
+(firstFibonacciNumbers 7)
+(firstFibonacciNumbers 7)
+(firstFibonacciNumbers 7)
+(PalindromeDetector [1 2 1])
+(+ 1 2)
+(+ 1 2)
+; nREPL connection failed: Error: read ECONNRESET
+; Failed connecting.
+; nREPL Connection was closed
+; Jacking in...
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting jack-in.
+; Jacking in...
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Starting Jack-in: pushd c:\ZigiWaveOnboarding\onboarding & cmd.exe /d /c lein update-in :dependencies conj [nrepl,"1.3.1"] -- update-in :plugins conj [cider/cider-nrepl,"0.55.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless & popd
+; Using host:port 127.0.0.1:60703 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+nil
+clj꞉onboarding.core꞉> 
+; Jack-in done.
+clj꞉onboarding.core꞉> 
+(+ 1 2)
+3
+clj꞉onboarding.example꞉> 
+(defn PalindromeDetector
+  [seq]
+  (loop [remaining seq]
+    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
+    (if (not= (first remaining) (last remaining))
+      false
+      (recur (butlast (rest remaining)))
+      ))))
+#'onboarding.example/PalindromeDetector
+clj꞉onboarding.example꞉> 
+(PalindromeDetector [1 2 1])
+; Execution error (ClassCastException) at onboarding.example/PalindromeDetector (REPL:292).
+; class java.lang.Boolean cannot be cast to class clojure.lang.IFn (java.lang.Boolean is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉onboarding.example꞉> 
+(PalindromeDetector [1 990 87 1])
+; Execution error (ClassCastException) at onboarding.example/PalindromeDetector (REPL:292).
+; class java.lang.Boolean cannot be cast to class clojure.lang.IFn (java.lang.Boolean is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉onboarding.example꞉> 
+(defn PalindromeDetector
+  [seq]
+  (loop [re    (if (or (== (count remaining) 1) (== (count remaining) 0)) true
+maining seq]
+    (if (or ((== (count remaining) 1) (== (count remaining) 0))) true
+    (if (not= (first remaining) (last remaining))
+      false
+      (recur (butlast (rest remaining)))
+      ))))
+#'onboarding.example/PalindromeDetector
+clj꞉onboarding.example꞉> 
+(PalindromeDetector [1 990 87 1])
+; Execution error (ClassCastException) at onboarding.example/PalindromeDetector (REPL:292).
+; class java.lang.Boolean cannot be cast to class clojure.lang.IFn (java.lang.Boolean is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉onboarding.example꞉> 
+(defn PalindromeDetector
+  [seq]
+  (loop [remaining seq]
+    (if (not= (first remaining) (last remaining))
+      false
+      (recur (butlast (rest remaining)))
+      ))))
+#'onboarding.example/PalindromeDetector
+clj꞉onboarding.example꞉> 
+(PalindromeDetector [1 990 87 1])
+false
+clj꞉onboarding.example꞉> 
+(PalindromeDetector [1 2 1])
+true
+clj꞉onboarding.example꞉> 
+(PalindromeDetector [1 2 2 1])
+true
+clj꞉onboarding.example꞉> 
+(PalindromeDetector "ada")
+true
+clj꞉onboarding.example꞉> 
+(defn flattenSeq
+  [seq]
+  (loop [remaining seq reslt []]
+    (if (empty? remaining)
+      result
+      (recur (rest remaining) (into result (first remaining))))
+    )
+  )
+; Syntax error compiling at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:307:5).
+; Unable to resolve symbol: result in this context
+clj꞉onboarding.example꞉> 
+(defn flattenSeq
+  [seq]
+  (loop [remaining seq result []]
+    (if (empty? remaining)
+      result
+      (recur (rest remaining) (into result (first remaining))))
+    )
+  )
+#'onboarding.example/flattenSeq
+clj꞉onboarding.example꞉> 
+(flattenSeq [[1 2 3] [ 2 3 4 5]])
+[1 2 3 2 3 4 5]
+clj꞉onboarding.example꞉> 
+(flattenSeq '((1 2 3) [ 1 2]))
+[1 2 3 1 2]
+clj꞉onboarding.example꞉> 
+(flattenSeq '((1 2 3) 7 [ 1 2]))
+; Execution error (IllegalArgumentException) at onboarding.example/flattenSeq (REPL:309).
+; Don't know how to create ISeq from: java.lang.Long
+clj꞉onboarding.example꞉> 
+; nREPL connection failed: Error: read ECONNRESET
+; Failed connecting.
+; nREPL Connection was closed
