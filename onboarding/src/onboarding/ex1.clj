@@ -82,3 +82,4 @@
   (let [cnt (count els)]
     (nth els (- cnt 2))))
 
+(defn random-function [])
