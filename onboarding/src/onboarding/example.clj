@@ -301,14 +301,102 @@ failed-protagonist-names
 (PalindromeDetector "ada")
 (PalindromeDetector [1 2 2 1])
 
+;; (defn flattenSeq
+;;   [seq]
+;;   (loop [remaining seq result []]
+;;     (if (empty? remaining)`
+;;       result
+;;       (recur (rest remaining) (into result (first remaining))))
+;;     )
+;;   )
+
+
 (defn flattenSeq
   [seq]
   (loop [remaining seq result []]
-    (if (empty? remaining)`
+    (if (empty? remaining)
       result
-      (recur (rest remaining) (into result (first remaining))))
-    )
-  )
+      (recur (rest remaining) (into result  (if (number? (first remaining)) [(first remaining)]
+                                                (first remaining)
+                                              ))))))
 
-(flattenSeq [[1 2 3] [ 2 3 4 5]])
+
+;;zad 28 solution from archive
+(defn f [c]
+  (if (empty? c)
+    '()
+    (if (coll? (first c))
+      (concat (f (first c)) (f (rest c)))
+      (cons (first c) (f (rest c))))))
+
+(f [[1 2 3] [ 2 3 4 5]])
 (flattenSeq '((1 2 3) 7 [ 1 2]))
+
+
+;;zad 29
+
+(defn getCapital
+  [text];;podavane na parametyr za funkciqta - string
+  (loop [remaining text newText ""] ;;vyrtim cikyl v kojto podavame ostanalata chast ot teksta, a newText syhranqva zapazenite golemi bukvi
+    ;;kato za bazova stojnost mu podavame prazen string
+  (if (empty? remaining);;proverqvame dali ne e ostanal prazen string, tyj kato vsqko vyrtene vzimame pyrviq simvol
+    newText ;;ako e prazen vryshtame noviq texts golemite bukvi
+    (let [ch (first remaining)];;destructing - vzimame ch = pyrviq simvol
+      (recur (rest remaining);;v cikyla podavame ostatyka ot dumata
+             (if (Character/isUpperCase ch) ;; ako vzetiq simvol e uppercase togava -> add kym newText
+               (str newText ch);;konkatenirame simvola s newText
+               newText);;ako statementa v ifa e falsely togava podavame newText, a inache ako ch e Uppercase podavame (ch+newText)
+             )))))
+
+(getCapital "fafaDFAFAF")
+
+;;zad 30
+;;Function to remove sequential duplicates
+(defn removeDuplicates
+  [seq]
+  (loop [remaining seq newSeq []];;подажаме старата колекция и нова - има базова стойнот []
+    (if (empty? remaining)
+      newSeq
+      (recur (rest remaining) (if (= (last newSeq) (first remaining))
+                                ;;ако първият елемент от remaining сравнява с последния елемент на новата ни
+                                ;;колекция и ако са равни просто си връщаме колекцията без да добавяме новия елемент, тъй като ще стане поредица 
+                                ;;от еднакви числа
+                                newSeq
+                                (conj newSeq (first remaining))))));;ако са различни обаче пример - [1 2 3]-new Seq [4 4 5]-remaining
+                                                                    ;;[можем да го добавим без да нарушаваме уникалността
+  )
+(removeDuplicates [1 1 2 2 2 2 3 3])
+
+;;zad 31
+;; (defn diffCollections 
+;;   [els]
+;;   (loop [remaining els res []]
+;;     (if (empty? remaining)
+;;       res
+;;       (do (if (= (first remaining) (last (last res)))
+;;             (conj (last res) (first remaining))
+;;             (conj res '((first remaining))))
+;;           (recur (rest remaining) res)
+;;       ))))
+
+
+(defn diffCollections
+  [els];;подаваме параметър seq
+  (loop [remaining els res []]
+    (if (empty? remaining)
+      res;;ако сме обходили remaining връщаме res
+      (let [x (first remaining);;ако не - destructing като x <- първия елемент от поредицата
+               newRes (if (empty? res) ;;и newRes <- ако res е empty първият елемент ще бъде [[x]]
+                        [[x]]
+                        (if (= x (last (last res)));;ако следващият подаден елемент съвпада с последния елемент от последното подвекторче 
+                          (conj (vec (butlast res));;vec (butlast res) -> преобразува във вектор всички без последния вектор
+                                (conj (last res) x)) ;;и фо свързва с (към последния вектор last res добавяме елемента х) - (1, 1) 1 -> (1, 1, 1)
+                          (conj res [x])))];;ако х е различен - направо към res [x] - подвекторчето (2, 2) 1->(2, 2) (1) 
+        (recur (rest remaining) newRes)))));;подаваме newRes, който чрез destructing е присвоил преобразуваните вектори
+;;подаваме newRes , а не res, тъй като структурите в clojure са immutable->следователно не можем да ги променяме в хода на процеса
+;;трябва да създадем нова структура, върху която да извършим промените и после тази нова преобразувана структура да я подадем като параметър
+;;извиканата рекурентна функция
+
+(diffCollections [1 2 2 3 3 3 4 5])
+
+;;git add ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\example.clj
