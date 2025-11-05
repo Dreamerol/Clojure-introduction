@@ -83,3 +83,8 @@
     (nth els (- cnt 2))))
 
 (defn random-function [])
+
+
+;IMPORTANT LINKS
+;https://www.braveclojure.com/core-functions-in-depth/
+;https://4clojure.oxal.org/#/problem/24

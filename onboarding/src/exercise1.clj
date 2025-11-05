@@ -26,12 +26,30 @@
           (recur (rest remaining) next);;if the next is older we pass it as oldest
           (recur (rest remaining) oldest))))));;else we keep with the oldest one
 
+;;Better version-> we find the max-key(max value of the key age)
+(defn findOldestBetterVersion
+  [players]
+  ;;get all the values behind the key "age"
+  (apply max-key #(get %"age") players))
+
+(findOldestBetterVersion players)
 ;;as max if max > cur -> passing max
 ;;else max = current or in our case we pass current
 
 (findOldest players)
 
 ;; find the average age of the gamers -----------------------------------------------------------------------------------------------------------
+;;Better version
+(defn AverageAgeBetterVersion
+  [players]
+  (let [sumAges (reduce + (map #(get % "age") players))
+        ;;we let sumAges = reduce + allAges
+    countPlayers (count players)];;the count
+  (/ sumAges countPlayers)))
+;;and then we calculate the result with the local bindings
+
+(AverageAgeBetterVersion players)
+
 (def sumAges (reduce + (map #(get % "age") players)))
 ;;reduce will get a collection and return after the execution only one value "reducing"
 ;;map is just applying a func to the els of the collection and returns the new collection 
@@ -42,8 +60,18 @@
 (def findAverageAge (/ sumAges countPlayers))
 findAverageAge
 
+;;another sum function just to exercise myself
+(defn sumAllages
+  [players]
+  (loop [remaining players res 0]
+    (if (empty? remaining)
+      res
+      (recur (rest remaining) (+ res (get (first remaining) "age"))))))
+
+(sumAllages players)
 ;; [players]
 ;; (loop))
+
 ;; find all games-----------------------------------------------------------------------------------------------------------------------------------
 (map #(get % "ownedGames") players)
 ;;map creates a collections of subvectors of ownedGames by get% we take all these games and put it into the new collection
@@ -56,7 +84,7 @@ findAverageAge
 ;;2. fn takes player by player and then it uses agan map on each's subcollection of games
 ;;the idea is to get the name of the ownedGames, so the inner map just returns the executional result ofthe applied func
 ;;which just gets the value behind the key
-;;so inner map ->["nmae1", "name2"...]
+;;so inner map ->["name1", "name2"...]
 ;;the outer map->we apply to each player of the players so->[name1, name2], [name3, name4]...
 ;;finally we want to combine them in one struct if we want to place all the names into one place
 games
@@ -73,12 +101,67 @@ games
 gamesFinal
 
 ;; find the games that are being played for over 150 hours------------------------------------------------------------------------------------
+(defn gamesOver150
+  [players]
+  (filter #(> (get % "timePlayed") 150);;get % -> gets all the elements behind the key "ownedGames" and then returns those
+          ;;objects (games) whose timePlayed is bigger 150
+          (let [ownedGames #(get % "ownedGames")]
+          (mapcat ownedGames players))))
+;;mapcat concatenates into a map all the owned games -> then from the owned Games it checks the nested
 
-;; find the cheapest game
-;; find the total playtime of each person
-;; find the total playtime of everyone
-;; find the the least popular game
-;; find the most expensive game
+(gamesOver150 players)
+
+;; find the cheapest game----------------------------------------------------------------------------------------------------------------------
+(def gameCol (let [ownedGames  #(get % "ownedGames")] (mapcat ownedGames players)))
+;;i just changed ownedGames = #(get % "ownedGames")
+gameCol
+;;first I define a new collection, because it will be easier to compare the prices if i create a new list
+;;consisting only of the ownedGames
+(defn findCheapestGame
+  [els]
+  (loop [remaining els res (first remaining)];;then i loop through the list and set the base element to be the firts one
+    (if (empty? remaining)
+      res;;if we have iterated through all the elements return res - that's the obj with cheapest price
+      (recur (rest remaining) (if ( > (get (first remaining) "price") (get res "price"))
+                                ;;with the get function we take the value behind the key "price" from the first el of remaining
+                                res;;if fisrt price > res price then we know that the price of res is lower so we pass res
+                                (first remaining);;else firts remainig has a lower price and we pass it
+                                )))))
+;;here in the recur func we pass the rest of the remaining and if
+(findCheapestGame gameCol)
+;; find the total playtime of each person-------------------------------------------------------------------------------------------------------
+;;first we take map and then we get the key - (map key)
+(def hoursPerGamer (map
+ (fn [player];;we create an anonymous function that returns a dictionary with the name and the total played hours
+              {:name (get player "name")
+               ;;we use the func to reduce - from a collection we want to return the sum of the hours, so we are "reducing"
+               :totalPlayedHours (reduce + (map #(get  % "timePlayed") (get player "ownedGames")));;gets the games played by the player
+               ;;get all the values behind the key "timePLayed" and apply to them the func + 
+               ;;when we have (reduce (func) collection) -> we apply this func to all the elements in the collection and return the result 
+               }
+
+ ) 
+ players))
+hoursPerGamer
+;; find the total playtime of everyone------------------------------------------------------------------------------------------------------------------
+(reduce + (map #(get % :totalPlayedHours) hoursPerGamer))
+;;we use reduce to return from our new collection the total hours of everyone;
+;;the new col only holds the total played hours per player
+;; find the the least popular game-----------------------------------------------------------------------------------------------------------------------
+(def allGames (mapcat #(get % "ownedGames") players))
+allGames
+
+(def allGames (mapcat #(get % "ownedGames") players))
+allGames
+(reduce (fn [acc m]
+          (merge-with + acc {(get m "name") (get m "timePlayed")})) {} allGames)
+;; acc -> keeps the result 
+;; m -> passed element from the collection
+;; we want to merge the different games in {name of the game : all time played}
+;; merge-with combines all the games into a result {} where the function (+) is applied so we group the data by 
+;; game name and then we sum the timesPlayed for each name 
+;; find the most expensive game---------------------------------------------------------------------------------------------------------------------------
+(apply max-key #(get % "price") allGames) ;;finding the max value of the key price from allGames
 ;; find total amount of money spent on a game
 ;; find the price/time-played average of each game
 
@@ -146,3 +229,6 @@ Write a solution which squashes the following data structures
    "label" "bug",
    "description" "Huston we have a problem",
    "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]}]]
+
+
+

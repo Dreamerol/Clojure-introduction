@@ -188,16 +188,6 @@ failed-protagonist-names
 ; => Iteration 4
 ; => Goodbye!
 
-(defn matching-part
-  [part]
-  {:name (clojure.string/replace (:name part) #"^left-" "right-")
-   :size (:size part)})
-(matching-part {:name "left-eye" :size 1})
-; => {:name "right-eye" :size 1}]
-
-(matching-part {:name "head" :size 3})
-; => {:name "head" :size 3}]
-
 (reduce + 15 [1 2 3 4])
 
 (defn kaval [{:keys [a b c]}]
@@ -216,7 +206,42 @@ failed-protagonist-names
     (if (empty? remaining) result
         (recur (butlast remaining) (conj result (last remaining))))))
 (reverseOrder [1 2 3 4])
+;;zad 23 better version
+(defn revone
+  [els] 
+    (reduce conj '() els))
 
+
+
+(defn revThree
+  [els]
+  (reduce (fn [res x]
+              (conj res x)) els '()))
+
+
+(defn conj-two-lists [res x]
+  (conj res x))
+
+(defn rev-four [els]
+  (reduce conj-two-lists '() els))
+
+(rev-four [1 2 3 4 5])
+
+
+
+(revone [1 2 3])
+
+(defn reverseOrderBetterVersion
+  [els]
+  (loop [remaining els result '()]
+    (if (empty? remaining) result
+        (recur (rest remaining)(conj result (first remaining))))))
+
+(defn reverseEls
+  [els]
+  (reverse els))
+(reverse [2 3 4 5])
+(reverseOrderBetterVersion [2  3 4])
 ;;zad 24
 (defn sum 
   [els] 
@@ -228,6 +253,17 @@ failed-protagonist-names
 
 ;;zad 
 ;;Printing odd numbers
+
+(defn oddNums
+  [els]
+  (filter #(odd? %) els))
+
+(defn evenNums
+  [els]
+  (filter #(even? %) els))
+
+(evenNums [1 2 3 4 5])
+
 (defn isEven
   [x]
   (zero? (mod x 2))
@@ -285,9 +321,26 @@ failed-protagonist-names
     ))
 
 (firstFibonacciNumbers 7)
+
+(defn Fibonacci
+  [n];;we pass as a parameter to which n number wewant to iterate
+  (take n (map first (iterate (fn [[a b]] [b (+ a b)]) [0 1]))))
+;; we teka the first n numbers
+;;we create an anonyous fn wich accepts as a parameter vetcor of [a b] -> and returns the next [b (a+b)] ->which 
+;;is our next fibonacci pair
+;;map first to take the first el cause our format is [a b]
+;;and [0 1] are the base values for our fn when starting iterating
+(Fibonacci 6)
   
 ;;zad 27
 ;;Palindrome Detector
+(defn palindromeDecBetter
+  [text]
+  (= text (reverse text)))
+;;we check whether the text is equal to it's reverse
+;if text = reverse text -> is a palindrome
+(palindromeDecBetter [1 2 3 2 1])
+
 (defn PalindromeDetector
   [seq]
   (loop [remaining seq]
@@ -334,7 +387,13 @@ failed-protagonist-names
 
 
 ;;zad 29
+;;better version
+(defn getCapitalsBetter
+  [text]
+  (apply str (filter #(Character/isUpperCase %) text)))
+;;we apply str only on the filtered chars that are upperCase
 
+(getCapitalsBetter "gayfafFFAFFGFGfagfc")
 (defn getCapital
   [text];;podavane na parametyr za funkciqta - string
   (loop [remaining text newText ""] ;;vyrtim cikyl v kojto podavame ostanalata chast ot teksta, a newText syhranqva zapazenite golemi bukvi
@@ -354,7 +413,7 @@ failed-protagonist-names
 ;;Function to remove sequential duplicates
 (defn removeDuplicates
   [seq]
-  (loop [remaining seq newSeq []];;подажаме старата колекция и нова - има базова стойнот []
+  (loop [remaining seq newSeq []];;подаваме старата колекция и нова - има базова стойнот []
     (if (empty? remaining)
       newSeq
       (recur (rest remaining) (if (= (last newSeq) (first remaining))
@@ -399,4 +458,10 @@ failed-protagonist-names
 
 (diffCollections [1 2 2 3 3 3 4 5])
 
-;;git add ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\example.clj
+;;better sum function
+(defn SumNums
+  [els]
+  (reduce + els)
+  )
+
+(SumNums [2 3 4 4])
