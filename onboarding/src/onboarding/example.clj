@@ -23,11 +23,10 @@
   "jhhhd")
 
 (if true
-  (do (println "shhss") 
-         "hjshjs" )
+  (do (println "shhss")
+      "hjshjs")
   (do (println "failure")
-      "lol")
-)
+      "lol"))
 
 (if true
   (do (println "Success!")
@@ -38,18 +37,16 @@
 ;;   do (println "failure!"))
 
 (when true
-  (println "jhshjhs")"kjskjsk"
-)
+  (println "jhshjhs") "kjskjsk")
 
 (= 1 2)
 
-(def nums 
+(def nums
   [1 2 3 3 4])
 nums
 
 (def failed-protagonist-names
-  ["Larry Potter" "Doreen the Explorer" "The Incredible Bulk"]
-  )
+  ["Larry Potter" "Doreen the Explorer" "The Incredible Bulk"])
 
 failed-protagonist-names
 
@@ -191,8 +188,7 @@ failed-protagonist-names
 (reduce + 15 [1 2 3 4])
 
 (defn kaval [{:keys [a b c]}]
-  (prn a b c)
-  )
+  (prn a b c))
 
 (kaval {:a 1 :b 2 :cfdrtddt 67})
 
@@ -206,17 +202,18 @@ failed-protagonist-names
     (if (empty? remaining) result
         (recur (butlast remaining) (conj result (last remaining))))))
 (reverseOrder [1 2 3 4])
+
 ;;zad 23 better version
 (defn revone
-  [els] 
-    (reduce conj '() els))
+  [els]
+  (reduce conj '() els))
 
 
 
 (defn revThree
   [els]
   (reduce (fn [res x]
-              (conj res x)) els '()))
+            (conj res x)) els '()))
 
 
 (defn conj-two-lists [res x]
@@ -235,7 +232,7 @@ failed-protagonist-names
   [els]
   (loop [remaining els result '()]
     (if (empty? remaining) result
-        (recur (rest remaining)(conj result (first remaining))))))
+        (recur (rest remaining) (conj result (first remaining))))))
 
 (defn reverseEls
   [els]
@@ -243,9 +240,9 @@ failed-protagonist-names
 (reverse [2 3 4 5])
 (reverseOrderBetterVersion [2  3 4])
 ;;zad 24
-(defn sum 
-  [els] 
-  (loop [remaining els result 0] 
+(defn sum
+  [els]
+  (loop [remaining els result 0]
     (if (empty? remaining) result
         (recur (rest remaining) (+ result (first remaining))))))
 
@@ -266,8 +263,7 @@ failed-protagonist-names
 
 (defn isEven
   [x]
-  (zero? (mod x 2))
-  )
+  (zero? (mod x 2)))
 
 (def isOdd (complement isEven))
 (isOdd 67)
@@ -276,49 +272,45 @@ failed-protagonist-names
 (defn oddNums
   [els]
   (loop [remaining els result []]
-  (if (empty? remaining)
-    result
+    (if (empty? remaining)
+      result
       (recur (rest remaining)
              (if (isOdd (first remaining))
-                                 (conj result (first remaining))
-                                 result)
-      ))
-        ))
-  
+               (conj result (first remaining))
+               result)))))
+
 (oddNums [1 2 3 4 5 2 3 6 6 7])
 
 
 (defn isEven
-        [x]
-        (zero? (mod x 2)))
-      
-      ;;(def isOdd (complement isEven))
-      
-      (defn oddNums
-        [els]
-        (loop [remaining els result ()]
-          (if (empty? remaining)
-            result
-            (recur (butlast remaining)
-                   (if (isEven (last remaining))
-                     result 
-                     (conj result (last remaining)))))
-          ))
+  [x]
+  (zero? (mod x 2)))
+
+;;(def isOdd (complement isEven))
+
+(defn oddNums
+  [els]
+  (loop [remaining els result ()]
+    (if (empty? remaining)
+      result
+      (recur (butlast remaining)
+             (if (isEven (last remaining))
+               result
+               (conj result (last remaining)))))))
 (oddNums [1 2 3 4 5])
 
 (defn oddNums
   [seq]
   (filter odd? seq))
-      
+
 ;;zad 26
 ;;Fibonacci Sequence
 (defn firstFibonacciNumbers
-  [x] 
+  [x]
   (loop [t1 1 t2 1 result []]
-    (if (== (count result) x) 
+    (if (== (count result) x)
       result
-   (recur t2 (+ t1 t2) (conj result t1)))
-    ))
+      (recur t2 (+ t1 t2) (conj result t1)))))
 
 (firstFibonacciNumbers 7)
 
@@ -331,12 +323,16 @@ failed-protagonist-names
 ;;map first to take the first el cause our format is [a b]
 ;;and [0 1] are the base values for our fn when starting iterating
 (Fibonacci 6)
-  
+
 ;;zad 27
 ;;Palindrome Detector
 (defn palindromeDecBetter
   [text]
   (= text (reverse text)))
+
+(defn palindromeDecBetter
+  [text]
+  (= text (revone text)))
 ;;we check whether the text is equal to it's reverse
 ;if text = reverse text -> is a palindrome
 (palindromeDecBetter [1 2 3 2 1])
@@ -345,10 +341,9 @@ failed-protagonist-names
   [seq]
   (loop [remaining seq]
     (if (or (== (count remaining) 1) (== (count remaining) 0)) true
-    (if (not= (first remaining) (last remaining))
-      false
-      (recur (butlast (rest remaining)))
-      ))))
+        (if (not= (first remaining) (last remaining))
+          false
+          (recur (butlast (rest remaining)))))))
 
 (+ 1 2)
 (PalindromeDetector "ada")
@@ -370,8 +365,7 @@ failed-protagonist-names
     (if (empty? remaining)
       result
       (recur (rest remaining) (into result  (if (number? (first remaining)) [(first remaining)]
-                                                (first remaining)
-                                              ))))))
+                                                (first remaining)))))))
 
 
 ;;zad 28 solution from archive
@@ -382,8 +376,8 @@ failed-protagonist-names
       (concat (f (first c)) (f (rest c)))
       (cons (first c) (f (rest c))))))
 
-(f [[1 2 3] [ 2 3 4 5]])
-(flattenSeq '((1 2 3) 7 [ 1 2]))
+(f [[1 2 3] [2 3 4 5]])
+(flattenSeq '((1 2 3) 7 [1 2]))
 
 
 ;;zad 29
@@ -391,6 +385,13 @@ failed-protagonist-names
 (defn getCapitalsBetter
   [text]
   (apply str (filter #(Character/isUpperCase %) text)))
+
+;;get Capitals with string join
+(defn getCapitals [text]
+  (clojure.string/join "" (filter #(Character/isUpperCase %) text)))
+
+(getCapitals "ahgDFDAGFF")
+
 ;;we apply str only on the filtered chars that are upperCase
 
 (getCapitalsBetter "gayfafFFAFFGFGfagfc")
@@ -398,14 +399,14 @@ failed-protagonist-names
   [text];;podavane na parametyr za funkciqta - string
   (loop [remaining text newText ""] ;;vyrtim cikyl v kojto podavame ostanalata chast ot teksta, a newText syhranqva zapazenite golemi bukvi
     ;;kato za bazova stojnost mu podavame prazen string
-  (if (empty? remaining);;proverqvame dali ne e ostanal prazen string, tyj kato vsqko vyrtene vzimame pyrviq simvol
-    newText ;;ako e prazen vryshtame noviq texts golemite bukvi
-    (let [ch (first remaining)];;destructing - vzimame ch = pyrviq simvol
-      (recur (rest remaining);;v cikyla podavame ostatyka ot dumata
-             (if (Character/isUpperCase ch) ;; ako vzetiq simvol e uppercase togava -> add kym newText
-               (str newText ch);;konkatenirame simvola s newText
-               newText);;ako statementa v ifa e falsely togava podavame newText, a inache ako ch e Uppercase podavame (ch+newText)
-             )))))
+    (if (empty? remaining);;proverqvame dali ne e ostanal prazen string, tyj kato vsqko vyrtene vzimame pyrviq simvol
+      newText ;;ako e prazen vryshtame noviq texts golemite bukvi
+      (let [ch (first remaining)];;destructing - vzimame ch = pyrviq simvol
+        (recur (rest remaining);;v cikyla podavame ostatyka ot dumata
+               (if (Character/isUpperCase ch) ;; ako vzetiq simvol e uppercase togava -> add kym newText
+                 (str newText ch);;konkatenirame simvola s newText
+                 newText);;ako statementa v ifa e falsely togava podavame newText, a inache ako ch e Uppercase podavame (ch+newText)
+               )))))
 
 (getCapital "fafaDFAFAF")
 
@@ -422,9 +423,18 @@ failed-protagonist-names
                                 ;;от еднакви числа
                                 newSeq
                                 (conj newSeq (first remaining))))));;ако са различни обаче пример - [1 2 3]-new Seq [4 4 5]-remaining
-                                                                    ;;[можем да го добавим без да нарушаваме уникалността
+  ;;[можем да го добавим без да нарушаваме уникалността
   )
+
 (removeDuplicates [1 1 2 2 2 2 3 3])
+
+(defn removeDupl
+  [els]
+  (vec (into #{} els)))
+
+
+;;we add the elements in a set with the into func and then we transfrom it into a vector
+(removeDupl [1 2 3 33 4 3 3 5])
 
 ;;zad 31
 ;; (defn diffCollections 
@@ -445,12 +455,12 @@ failed-protagonist-names
     (if (empty? remaining)
       res;;ако сме обходили remaining връщаме res
       (let [x (first remaining);;ако не - destructing като x <- първия елемент от поредицата
-               newRes (if (empty? res) ;;и newRes <- ако res е empty първият елемент ще бъде [[x]]
-                        [[x]]
-                        (if (= x (last (last res)));;ако следващият подаден елемент съвпада с последния елемент от последното подвекторче 
-                          (conj (vec (butlast res));;vec (butlast res) -> преобразува във вектор всички без последния вектор
-                                (conj (last res) x)) ;;и фо свързва с (към последния вектор last res добавяме елемента х) - (1, 1) 1 -> (1, 1, 1)
-                          (conj res [x])))];;ако х е различен - направо към res [x] - подвекторчето (2, 2) 1->(2, 2) (1) 
+            newRes (if (empty? res) ;;и newRes <- ако res е empty първият елемент ще бъде [[x]]
+                     [[x]]
+                     (if (= x (last (last res)));;ако следващият подаден елемент съвпада с последния елемент от последното подвекторче 
+                       (conj (vec (butlast res));;vec (butlast res) -> преобразува във вектор всички без последния вектор
+                             (conj (last res) x)) ;;и фо свързва с (към последния вектор last res добавяме елемента х) - (1, 1) 1 -> (1, 1, 1)
+                       (conj res [x])))];;ако х е различен - направо към res [x] - подвекторчето (2, 2) 1->(2, 2) (1) 
         (recur (rest remaining) newRes)))));;подаваме newRes, който чрез destructing е присвоил преобразуваните вектори
 ;;подаваме newRes , а не res, тъй като структурите в clojure са immutable->следователно не можем да ги променяме в хода на процеса
 ;;трябва да създадем нова структура, върху която да извършим промените и после тази нова преобразувана структура да я подадем като параметър
@@ -461,7 +471,7 @@ failed-protagonist-names
 ;;better sum function
 (defn SumNums
   [els]
-  (reduce + els)
-  )
+  (reduce + els))
 
 (SumNums [2 3 4 4])
+
