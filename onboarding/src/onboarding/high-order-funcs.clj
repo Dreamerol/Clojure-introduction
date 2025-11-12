@@ -14,7 +14,7 @@
                              {"name" "Diablo" "price" 29.99 "timePlayed" 874}
                              {"name" "World of warcraft" "price" 200 "timePlayed" 1247}]}])
 ;find oldest person------------------------------------------------------------------------------------------------
-(defn findOldestHighOrder
+(defn find-oldest-gamer
   [els]
   (reduce (fn [acc item]
             (let [currAge (get item "age")]
@@ -23,10 +23,10 @@
                 acc)))
           0 els))
 
-(findOldestHighOrder players)
+(find-oldest-gamer players)
 
 ;find the average age of gamers-------------------------------------------------------------------------------------------
-(defn AverageAgeBetterVersion
+(defn average-age-gamers
   [players]
   (let [sumAges (reduce (fn [acc item]
                           (+ acc (get item "age"))) 0 players)
@@ -34,7 +34,7 @@
     (/ sumAges countPlayers)))
 ;;and then we calculate the result with the local bindings
 
-(AverageAgeBetterVersion players)
+(average-age-gamers players)
 
 ;find all games-------------------------------------------------------------------------------------------------------------
 (defn allGamesReduce
@@ -46,42 +46,58 @@
 (def all-games (allGamesReduce players))
 all-games
 ;transforming the all-games structure
-(defn filteredGamesBetter
-  [els]
+(defn remove-keys
+  [els key]
   (reduce (fn [acc item]
-            (conj acc (assoc {} (get item "name") (get item "timePlayed"))))
+            (conj acc (assoc {} (get item "name") (get item key))))
           [] els))
 
-(def gamesAlmost (filteredGamesBetter (allGamesReduce players)))
-gamesAlmost
-(defn convert-in-map
+(def formated-games-timePlayed (remove-keys all-games "timePlayed"))
+;formating from [{..}{...}{...}] -> {.....}
+;?why into doesnt keep the same keys
+formated-games-timePlayed
+;; (defn convert-in-map 
+;;   [els]
+;;   (reduce (fn [acc item]
+;;             (into acc item))
+;;           [] els))
+
+;Working version
+(defn convert-in-map-new-vals
   [els]
   (reduce (fn [acc item]
-            (into acc item))
-          {} els))
-
-(def ALL-GAMES (convert-in-map gamesAlmost))
-
-ALL-GAMES
+            (let [key (first (keys item)) points (first (vals item))]
+              (assoc acc key (+ (or (get acc key) 0) points)))) {} els))
+(def final-games-timeplayed-value (convert-in-map-new-vals formated-games-timePlayed))
+final-games-timeplayed-value
 
 
 ;filter games played > 150 hours
 ;help function to merge the values
-(defn sumHoursAssoc
+(defn sum-hours-assoc
   [els]
   (reduce (fn [acc item];;tuk
             (let [key (first item) points (second item)];destructure in func args 
               (assoc acc key (+ (or (get acc key) 0) points))
-                 ;(prn (key points))
+              ;; (prn (or (get acc key) 0))
               ;;   )
               )){} els))
 
-(def FINAL-GAMES (sumHoursAssoc ALL-GAMES))
-FINAL-GAMES
+;?? destructing howwww
+;; (defn sum-hours-assoc
+;;   [els]
+;;   (reduce (fn [acc let [key points(first item) (second item)]]
+;;             (assoc acc key (+ (or (get acc key) 0) points))
+;;                  ;(prn (key points))
+;;             ;;   )
+;;             ){} els))
 
-(def FilterdGames (filter (fn [item]
-                            (> (second item) 150)) FINAL-GAMES))
-FilterdGames
+(def final-final-games-timeplayed (sum-hours-assoc final-games-timeplayed-value))
+final-final-games-timeplayed
+
+(def filered-games (filter (fn [item]
+                             (> (second item) 150)) final-final-games-timeplayed))
+filered-games
 
 (defn combine-games-over-150
   [els]
@@ -89,10 +105,10 @@ FilterdGames
             (assoc acc (first item) (second item)))
           {} els))
 
-(def finalFilterdGames (combine-games-over-150 FilterdGames))
-finalFilterdGames
+(def final-filterd-games-above150 (combine-games-over-150 filered-games))
+final-filterd-games-above150
 
-;;find least popular game
+;;find least popular game------------------------------------------------------------------------
 (defn find-least-popular-game-with-name
   [els]
   (reduce (fn [acc item]
@@ -101,34 +117,24 @@ finalFilterdGames
                 item
                 acc)))  (first els) els))
 
-(def name-of-least-popular-game (first (find-least-popular-game-with-name FINAL-GAMES)))
+(def name-of-least-popular-game (first (find-least-popular-game-with-name final-games-timeplayed-value)))
 name-of-least-popular-game
 
 ;find the cheapest game
+
 (defn cheapest-game
   [els]
   (reduce (fn [acc item]
-             (let [minPrice (get acc "price") currentPrice (get item "price")]
-               (if (> minPrice currentPrice)
-                 currentPrice
-                 minPrice))) (first els) els))
-
-
-(defn cheapest-game
-  [els]
-  (reduce (fn [acc item] 
             (let [accPrice (get acc "price") currentPrice (get item "price")]
               (if (> accPrice currentPrice)
                 item
-                acc) 
-              )) (first els) els))
+                acc))) (first els) els))
 
 (def name-cheapest-game (get (cheapest-game all-games) "name"))
 name-cheapest-game
 ;name-cheapest-game
 
 ;find most expensive game---------------------------------------------------------------------
-
 (defn most-expensive-game
   [els]
   (reduce (fn [acc item]
@@ -136,6 +142,46 @@ name-cheapest-game
               (if (< accPrice currentPrice)
                 item
                 acc))) (first els) els))
+(most-expensive-game all-games)
 
 (def name-most-expensive-game (get (most-expensive-game all-games) "name"))
 name-most-expensive-game
+
+;find the total money spent on each game--------------------------------------------------------------------------------
+(def formated-games-price(remove-keys all-games "price"))
+formated-games-price
+
+;finding the sum of money spend on each game
+(def total-money-spend-on-game (convert-in-map-new-vals formated-games-price))
+total-money-spend-on-game
+
+;;find the price/timeplayed average of each game-------------------------------------------------------------------------
+all-games
+
+(defn find-average-attribute-games
+  [els key]
+  (let [sum-prices (reduce (fn [acc item]
+                             (+ acc (get item key)))
+                           0 els) count-games (count els)]
+    (/ sum-prices count-games)))
+
+(def average-price (find-average-attribute-games all-games "price"))
+average-price
+
+(def average-time-played (find-average-attribute-games all-games "timePlayed"))
+average-time-played
+
+
+; find the total playtime of each person-----------------------------------------------------------
+
+
+; find the total playtime of everyone-----------------------------------------------------------
+(defn find-total-playtime-of-everyone
+  [els]
+  (reduce (fn [acc item]
+            (+ acc (get item "timePlayed")))
+          0 els))
+
+all-games
+;total playtime of everyone
+(find-total-playtime-of-everyone all-games)
