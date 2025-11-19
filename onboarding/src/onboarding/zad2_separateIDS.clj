@@ -1,12 +1,12 @@
 (def lables [{"label" "Issue"
               "description" "Huston we have lift off"
-              "ids" [1 2 3 4 5 6 7 9 123]
+              "id" [1 2 3 4 5 6 7 9 123]
               "comments" [{"body" "hello"}
                           {"body" "its"}
                           {"body" "me"}]}
              {"label" "bug"
               "description" "Huston we have a problem"
-              "ids" [471 24 32 33 34 35]
+              "id" [471 24 32 33 34 35]
               "comments" [{"body" "I"}
                           {"body" "am"}
                           {"body" "hungry"}]}])
@@ -25,8 +25,24 @@ valta
 
 (defn separate-structs [els]
   (reduce (fn [acc item]
-            (->> (assoc (conj {} (dissoc els "ids")) "id" item)
+            (->> (assoc (dissoc els "ids") "id" item) 
+                ;; {"leble" .. "key2"...} -> {... "id" item}
                  (conj acc))) [] (get els "ids")))
+
+
+;better solution
+(defn separate-structs-one-id [input-map]
+  (reduce (fn [acc id]
+            (->> (assoc input-map "id" id)
+                 ;; {"leble" .. "key2"...} -> {... "id" item}
+                 (conj acc)
+                 )
+            ) [] (get input-map "id")))
+
+lables
+
+(def final-struct-separated-ids (flatten (map separate-structs-one-id lables)))
+final-struct-separated-ids
 ;;here i separate the struct and create [] with {} maps with each id
 (map separate-structs lables)
 
@@ -57,35 +73,58 @@ helper-two
 ;;helper function for writing the comments
 (defn combine-comments [els]
   (reduce (fn [acc item]
-          (str acc " " (get item "body"))
-  )
-          "" els)
-  )
+            (prn item)
+            (str acc " " (get item "body"))) ;; str join
+          "" els))
 
-(combine-comments [{"body" "jsj"} {"body" "jskj"}])
+;better function witstring join
+(defn get-comments[comments]
+  (reduce (fn [acc comment]
+            (conj acc (get comment "body")))
+          [] comments))
+
+(defn combine-comments-string-join [els]
+  (clojure.string/join " " (get-comments els)))
+
+(combine-comments-string-join [{"body" "jsj"} {"body" "jskj"}])
 
 
 (defn combine-comments-one-struct
   [els]
   (reduce (fn [acc item]
-            (let [comment (combine-comments (get item "comments"))]
-              ;; (prn comment)
-              (prn comment)
-              
-             (->>
-              ;;here for each element we add a key comment where we write the comment
-             (assoc (conj {} (dissoc item "comments")) "comment" comment)
-              (conj acc)
-               
-               )
-               )
-  )
-          [] els
-)
-)
+            (let [comment (combine-comments-string-join (get item "comments"))]
+               (prn item)
+           ;;   (prn comment)
+
+              (->>
+               ;;here for each element we add a key comment where we write the comment
+               (assoc (conj {} (dissoc item "comments")) "comment" comment)
+               (conj acc))))
+          [] els))
 
 helper-two
 (combine-comments-one-struct helper-two)
 
 ;;finally we apply the combine comments function on each substruct in the [] 
-(map combine-comments-one-struct final-struct)
+(def final-comment-structs (flatten (map combine-comments-one-struct final-struct)))
+final-comment-structs
+
+(flatten '([1 2 3]) )
+(take 3 (prn "8"))
+
+(def N (read-line))
+
+  (defn write-N-times[N]
+    ;; (loop [cnt]
+    ;; (if (= cnt N)))
+    (def cnt 0)
+    
+    (while (not (= cnt N))
+      (+ cnt 1)
+      (prn "Hello world"))
+    ;;(take N (prn "Hello world!"))
+    )
+
+(write-N-times N)
+  
+

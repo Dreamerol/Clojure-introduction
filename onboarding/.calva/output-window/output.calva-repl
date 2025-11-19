@@ -36,8 +36,8 @@ You can configure this with the setting:
 ;   - See https://calva.io/connect-sequences/
 ; 
 
-; Starting Jack-in: pushd c:\ZigiWaveOnboarding\onboarding & cmd.exe /d /c lein update-in :dependencies conj [nrepl,"1.3.1"] -- update-in :plugins conj [cider/cider-nrepl,"0.55.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless & popd
-; Using host:port 127.0.0.1:50116 ...
+; Starting Jack-in: pushd c:\ZigiWaveOnboarding\Clojure-introduction\onboarding & cmd.exe /d /c lein update-in :dependencies conj [nrepl,"1.5.1"] -- update-in :plugins conj [cider/cider-nrepl,"0.58.0"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless & popd
+; Using host:port 127.0.0.1:65324 ...
 ; Hooking up nREPL sessions ...
 ; Connected session: clj
 ; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
@@ -49,564 +49,2434 @@ about why stdout printed to this file is prepended with `;` to be line comments.
 clj꞉onboarding.core꞉> 
 ; Jack-in done.
 clj꞉onboarding.core꞉> 
-(addNumber 3)
-; Syntax error compiling at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\ex1.clj:12:1).
-; Unable to resolve symbol: addNumber in this context
-clj꞉user꞉> 
-(defn addNumber
-  [x]
-  (+ x 100)
-  )
-#'user/addNumber
-clj꞉user꞉> 
-(addNumber 3)
-103
-clj꞉user꞉> 
-; TypeError: Cannot read properties of undefined (reading 'label')
-; Aborting connect.
-; TypeError: Cannot read properties of undefined (reading 'label')
-; Aborting connect.
-; TypeError: Cannot read properties of undefined (reading 'label')
-; Aborting connect.
-; TypeError: Cannot read properties of undefined (reading 'label')
-; Aborting connect.
-; TypeError: Cannot read properties of undefined (reading 'label')
-; Aborting connect.
-; TypeError: Cannot read properties of undefined (reading 'label')
-; Aborting connect.
-; TypeError: Cannot read properties of undefined (reading 'label')
-; Aborting connect.
-; TypeError: Cannot read properties of undefined (reading 'label')
-; Aborting connect.
-; TypeError: Cannot read properties of undefined (reading 'label')
-; Aborting connect.
-; TypeError: Cannot read properties of undefined (reading 'label')
-; Aborting connect.
-; TypeError: Cannot read properties of undefined (reading 'label')
-; Aborting connect.
-; TypeError: Cannot read properties of undefined (reading 'label')
-; Aborting connect.
-; nREPL connection failed: Error: read ECONNRESET
-; Failed connecting.
-; nREPL Connection was closed
-; Jacking in...
-; Connecting using "Leiningen" project type.
-; You can make Calva auto-select this.
-;   - See https://calva.io/connect-sequences/
-; 
-
-; Starting Jack-in: pushd c:\ZigiWaveOnboarding\onboarding & cmd.exe /d /c lein update-in :dependencies conj [nrepl,"1.3.1"] -- update-in :plugins conj [cider/cider-nrepl,"0.55.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless & popd
-; Using host:port 127.0.0.1:56163 ...
-; Hooking up nREPL sessions ...
-; Connected session: clj
-; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
-(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
-nil
-clj꞉onboarding.core꞉> 
-; Jack-in done.
-clj꞉onboarding.core꞉> 
-; Evaluating file: ex1.clj
+; Evaluating file: zad2.clj
 ; 
 ; ; clj  user 
-; Execution error (ClassCastException) at onboarding.core/eval9513 (ex1.clj:44).
-; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
-; Evaluation of file ex1.clj failed: class clojure.lang.Compiler$CompilerException
+; Syntax error macroexpanding clojure.core/defn at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2.clj:81:1).
+; () - failed: Insufficient input at: [:fn-tail] spec: :clojure.core.specs.alpha/defn-args
+; Evaluation of file zad2.clj failed: class clojure.lang.Compiler$CompilerException
 clj꞉user꞉> 
-(kaval {:a 1 :b 2 :cfdrtddt 67})
-; Syntax error compiling at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:207:1).
-; Unable to resolve symbol: kaval in this context
-clj꞉onboarding.example꞉> 
-(defn kaval [{:keys [a b c]}]
-  (+ a b c)
-  )
-#'onboarding.example/kaval
-clj꞉onboarding.example꞉> 
-(kaval {:a 1 :b 2 :cfdrtddt 67})
-; Execution error (NullPointerException) at onboarding.example/kaval (REPL:204).
-; Cannot invoke "Object.getClass()" because "x" is null
-clj꞉onboarding.example꞉> 
-(defn kaval [{:keys [a b c]}]
-  (prn a b c)
-  )
-#'onboarding.example/kaval
-clj꞉onboarding.example꞉> 
-(kaval {:a 1 :b 2 :cfdrtddt 67})
-; 1 2 nil
-nil
-clj꞉onboarding.example꞉> 
-(defn reverseOrder
-  [els]
-  (loop [remaining els
-         result []]
-    (if (empty? remaining) result
-        (recur (butlast remaining) (conj result (last remaining))))))
-#'onboarding.example/reverseOrder
-clj꞉onboarding.example꞉> 
-(reverseOrder [1 2 3 4])
-[4 3 2 1]
-clj꞉onboarding.example꞉> 
-(defn sum 
-  [els] 
-  (loop [remaining els result 0] 
-    (if (empty? remaining) result
-        (recur (rest remaining) (+ result (first remaining))))))
-#'onboarding.example/sum
-clj꞉onboarding.example꞉> 
-(sum [1 2 3 4])
-10
-clj꞉onboarding.example꞉> 
-(sum [1 2 3 4 45 0])
-55
-clj꞉onboarding.example꞉> 
-(defn isOdd
-  [x]
-  (zero? (mode 2 x)))
-; Syntax error compiling at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:232:10).
-; Unable to resolve symbol: mode in this context
-clj꞉onboarding.example꞉> 
-(defn isOdd
-  [x]
-  (zero? (mode 2 x))
-  )
-; Syntax error compiling at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:232:10).
-; Unable to resolve symbol: mode in this context
-clj꞉onboarding.example꞉> 
-(defn isOdd
-  [x]
-  (zero? (mod x 2))
-  )
-#'onboarding.example/isOdd
-clj꞉onboarding.example꞉> 
-(isOdd 89)
-false
-clj꞉onboarding.example꞉> 
-(defn isOdd (contemplent isEven))
-; Syntax error macroexpanding clojure.core/defn at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:235:1).
-; contemplent - failed: vector? at: [:fn-tail :arity-n :bodies :params] spec: :clojure.core.specs.alpha/param-list
-; (contemplent isEven) - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
-clj꞉onboarding.example꞉> 
-(def isOdd (contemplent isEven))
-; Syntax error compiling at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:235:12).
-; Unable to resolve symbol: contemplent in this context
-clj꞉onboarding.example꞉> 
-(defn isEven
-  [x]
-  (zero? (mod x 2))
-  )
-#'onboarding.example/isEven
-clj꞉onboarding.example꞉> 
-(def isOdd (contemplent isEven))
-; Syntax error compiling at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:235:12).
-; Unable to resolve symbol: contemplent in this context
-clj꞉onboarding.example꞉> 
-(def isOdd (complement isEven))
-#'onboarding.example/isOdd
-clj꞉onboarding.example꞉> 
-(isOdd 67)
-true
-clj꞉onboarding.example꞉> 
-(isOdd 89)
-true
-clj꞉onboarding.example꞉> 
-(defn oddNums
-  [els]
-  (loop [remaining els result []]
-    (if (empty? remaining) result 
-         (do
-           (if (isOdd (first remaining))
-                      (conj result (first remaining)))
-           (recur (rest remaining) result)
-             )
-           )
-        ))
-#'onboarding.example/oddNums
-clj꞉onboarding.example꞉> 
-(oddNums [25652 6276 216 51 16 1])
-[]
-clj꞉onboarding.example꞉> 
-(isOdd 67)
-true
-clj꞉onboarding.example꞉> 
-(defn oddNums
-  [els]
-  (loop [remaining els result []]
-  (if (empty? remaining) result
-      (recur (rest remaining) (
-                               (if (isOdd (first remaining))
-                                 (conj result (first remaining))
-                                 result)
-      ))
-        )))
-#'onboarding.example/oddNums
-clj꞉onboarding.example꞉> 
-(oddNums [25652 6276 216 51 16 1])
-; Execution error (ArityException) at onboarding.example/oddNums (REPL:243).
-; Wrong number of args (0) passed to: clojure.lang.PersistentVector
-clj꞉onboarding.example꞉> 
-(oddNums [25652 6276 216 51 16 1])
-; Execution error (ArityException) at onboarding.example/oddNums (REPL:243).
-; Wrong number of args (0) passed to: clojure.lang.PersistentVector
-clj꞉onboarding.example꞉> 
-(defn oddNums
-  [els]
-  (loop [remaining els result []]
-  (if (empty? remaining) result
-      (recur (rest remaining) (
-                               (if (isOdd (first remaining))
-                                 (conj result (first remaining))
-                                 result)
-      ))
-        )))
-#'onboarding.example/oddNums
-clj꞉onboarding.example꞉> 
-(oddNums [1 2 3 4 5 2 3 6 6 7])
-; Execution error (ArityException) at onboarding.example/oddNums (REPL:243).
-; Wrong number of args (0) passed to: clojure.lang.PersistentVector
-clj꞉onboarding.example꞉> 
-(oddNums [1 2 3 4 5 2 3 6 6 7])
-; Execution error (ArityException) at onboarding.example/oddNums (REPL:243).
-; Wrong number of args (0) passed to: clojure.lang.PersistentVector
-clj꞉onboarding.example꞉> 
-(defn oddNums
-  [els]
-  (loop [remaining els result []]
-  (if (empty? remaining)
-    result
-      (recur (rest remaining)
-             (if (isOdd (first remaining))
-                                 (conj result (first remaining))
-                                 result)
-      ))
-        ))
-#'onboarding.example/oddNums
-clj꞉onboarding.example꞉> 
-(oddNums [1 2 3 4 5 2 3 6 6 7])
-[1 3 5 3 7]
-clj꞉onboarding.example꞉> 
-(oddNums [1 2 3 4 5 2 3 6 6 7])
-[1 3 5 3 7]
-clj꞉onboarding.example꞉> 
-(defn oddNums
-        [els]
-        (loop [remaining els result []]
-          (if (empty? remaining)
-            result
-            (recur (rest remaining)
-                   (if (isEven (first remaining)
-                               result 
-                               (conj result (first remaining)))))
-            )))
-; Syntax error compiling if at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:266:20).
-; Too few arguments to if
-clj꞉onboarding.example꞉> 
-(defn isEven
-        [x]
-        (zero? (mod x 2)))
-#'onboarding.example/isEven
-clj꞉onboarding.example꞉> 
-(defn oddNums
-        [els]
-        (loop [remaining els result []]
-          (if (empty? remaining)
-            result
-            (recur (rest remaining)
-                   (if (isEven (first remaining))
-                               result 
-                               (conj result (first remaining)))))
-            ))
-#'onboarding.example/oddNums
-clj꞉onboarding.example꞉> 
-(oddNums [1 2 3 4])
-[1 3]
-clj꞉onboarding.example꞉> 
-(defn oddNums
-        [els]
-        (loop [remaining els result ()]
-          (if (empty? remaining)
-            result
-            (recur (rest remaining)
-                   (if (isEven (first remaining))
-                     result 
-                     (conj result (first remaining)))))
-          ))
-#'onboarding.example/oddNums
-clj꞉onboarding.example꞉> 
-(oddNums [1 2 3 4])
-(3 1)
-clj꞉onboarding.example꞉> 
-(oddNums [1 2 3 4 5])
-(5 3 1)
-clj꞉onboarding.example꞉> 
-(defn oddNums
-        [els]
-        (loop [remaining els result ()]
-          (if (empty? remaining)
-            result
-            (recur (butlast remaining)
-                   (if (isEven (last remaining))
-                     result 
-                     (conj result (last remaining)))))
-          ))
-#'onboarding.example/oddNums
-clj꞉onboarding.example꞉> 
-(oddNums [1 2 3 4 5])
-(1 3 5)
-clj꞉onboarding.example꞉> 
-(defn firstFibonacciNumbers
-  [x] 
-  (loop [t1 1 t2 1 result []]
-    (if (== (count result) x) 
-      result
-   (recur t1 (+ t1 t2) (conj result(t1))))
-    ))
-#'onboarding.example/firstFibonacciNumbers
-clj꞉onboarding.example꞉> 
-(firstFibonacciNumbers 7)
-; Execution error (ClassCastException) at onboarding.example/firstFibonacciNumbers (REPL:282).
-; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
-clj꞉onboarding.example꞉> 
-(defn firstFibonacciNumbers
-  [x] 
-  (loop [t1 1 t2 1 result []]
-    (if (== (count result) x) 
-      result
-   (recur t1 (+ t1 t2) (conj result t1)))
-    ))
-#'onboarding.example/firstFibonacciNumbers
-clj꞉onboarding.example꞉> 
-(firstFibonacciNumbers 7)
-[1 1 1 1 1 1 1]
-clj꞉onboarding.example꞉> 
-(defn firstFibonacciNumbers
-  [x] 
-  (loop [t1 1 t2 1 result []]
-    (if (== (count result) x) 
-      result
-   (recur t2 (+ t1 t2) (conj result t1)))
-    ))
-#'onboarding.example/firstFibonacciNumbers
-clj꞉onboarding.example꞉> 
-(firstFibonacciNumbers 7)
-[1 1 2 3 5 8 13]
-clj꞉onboarding.example꞉> 
-(loop [remaining seq]
-    (or (== (count remaining) 1 (== (count remaining) 0)) true
-    (if (not= (first remaining) (last remaining))
-      false
-      (recur (butlast (rest remaining)))
-      )))
-; Execution error (UnsupportedOperationException) at onboarding.example/eval10361 (REPL:292).
-; count not supported on this type: core$seq__5488
-clj꞉onboarding.example꞉> 
-(defn PalindromeDetector
-  [seq]
-  (loop [remaining seq]
-    (or (== (count remaining) 1 (== (count remaining) 0)) true
-    (if (not= (first remaining) (last remaining))
-      false
-      (recur (butlast (rest remaining)))
-      )))
-)
-#'onboarding.example/PalindromeDetector
-clj꞉onboarding.example꞉> 
-(PalindromeDetector [1 1 12 2 ])
-true
-clj꞉onboarding.example꞉> 
-(defn PalindromeDetector
-  [seq]
-  (loop [remaining seq]
-    (or (== (count remaining) 1) (== (count remaining) 0)) true
-    (if (not= (first remaining) (last remaining))
-      false
-      (recur (butlast (rest remaining)))
-      )))
-#'onboarding.example/PalindromeDetector
-clj꞉onboarding.example꞉> 
-(PalindromeDetector [1 1 12 2 ])
-false
-clj꞉onboarding.example꞉> 
-(PalindromeDetector [1 2 1])
-(PalindromeDetector [1 2 1])
-(defn PalindromeDetector
-  [seq]
-  (loop [remaining seq]
-    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
-    (if (not= (first remaining) (last remaining))
-      false
-      (recur (butlast (rest remaining)))
-      ))))
-(defn PalindromeDetector
-  [seq]
-  (loop [remaining seq]
-    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
-    (if (not= (first remaining) (last remaining))
-      false
-      (recur (butlast (rest remaining)))
-      ))))
-(defn PalindromeDetector
-  [seq]
-  (loop [remaining seq]
-    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
-    (if (not= (first remaining) (last remaining))
-      false
-      (recur (butlast (rest remaining)))
-      ))))
-[seq]
-(PalindromeDetector [1 2 1])
-(PalindromeDetector [1 2 1])
-(oddNums [1 2 3 4 5])
-(oddNums [1 2 3 4 5])
-(+ 1 2)
-(defn PalindromeDetector
-  [seq]
-  (loop [remaining seq]
-    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
-    (if (not= (first remaining) (last remaining))
-      false
-      (recur (butlast (rest remaining)))
-      ))))
-(defn PalindromeDetector
-  [seq]
-  (loop [remaining seq]
-    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
-    (if (not= (first remaining) (last remaining))
-      false
-      (recur (butlast (rest remaining)))
-      ))))
-(defn PalindromeDetector
-  [seq]
-  (loop [remaining seq]
-    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
-    (if (not= (first remaining) (last remaining))
-      false
-      (recur (butlast (rest remaining)))
-      ))))
-(defn PalindromeDetector
-  [seq]
-  (loop [remaining seq]
-    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
-    (if (not= (first remaining) (last remaining))
-      false
-      (recur (butlast (rest remaining)))
-      ))))
-(firstFibonacciNumbers 7)
-(firstFibonacciNumbers 7)
-(firstFibonacciNumbers 7)
-(firstFibonacciNumbers 7)
-(firstFibonacciNumbers 7)
-(PalindromeDetector [1 2 1])
-(+ 1 2)
-(+ 1 2)
-; nREPL connection failed: Error: read ECONNRESET
-; Failed connecting.
-; nREPL Connection was closed
-; Jacking in...
-; TypeError: Cannot read properties of undefined (reading 'label')
-; Aborting jack-in.
-; Jacking in...
+(defn get-ids [els]
+  (reduce (fn [acc item]
+            (conj acc (get item "ids"))) [] els))
+#'user/get-ids
+clj꞉user꞉> 
+(def idta (get-ids lables))
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2.clj:21:11).
+; Unable to resolve symbol: lables in this context
+clj꞉user꞉> 
+(def lables [{"label" "Issue"
+              "description" "Huston we have lift off"
+              "ids" [1 2 3 4 5 6 7 9 123]
+              "comments" [{"body" "hello"}
+                          {"body" "its"}
+                          {"body" "me"}]}
+             {"label" "bug"
+              "description" "Huston we have a problem"
+              "ids" [471 24 32 33 34 35]
+              "comments" [{"body" "I"}
+                          {"body" "am"}
+                          {"body" "hungry"}]}])
+#'user/lables
+clj꞉user꞉> 
+(def idta (get-ids lables))
+#'user/idta
+clj꞉user꞉> 
+idta
+[[1 2 3 4 5 6 7 9 123] [471 24 32 33 34 35]]
+clj꞉user꞉> 
+(def firstids (first idta))
+#'user/firstids
+clj꞉user꞉> 
+(def first-els (first lables))
+#'user/first-els
+clj꞉user꞉> 
+first-els
+{"label" "Issue", "description" "Huston we have lift off", "ids" [1 2 3 4 5 6 7 9 123], "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]}
+clj꞉user꞉> 
+firstids
+[1 2 3 4 5 6 7 9 123]
+clj꞉user꞉> 
+idta
+[[1 2 3 4 5 6 7 9 123] [471 24 32 33 34 35]]
+clj꞉user꞉> 
+(defn create-one-struct [els ids]
+  (reduce (fn [acc item]
+            (conj acc (assoc {} "label" (get els "label") "description" (get els "description") "comments" (get els "comments") "id" item)))  [] ids))
+#'user/create-one-struct
+clj꞉user꞉> 
+(def final-id-structs (map create-one-struct lables idta))
+#'user/final-id-structs
+clj꞉user꞉> 
+final-id-structs
+([{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}] [{"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 471} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 24} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 32} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 33} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 34} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 35}])
+clj꞉user꞉> 
+(defn create-file-names [els]
+  (reduce (fn [acc item]
+            (conj acc (str "struct" item ".txt")))
+
+          [] els))
+#'user/create-file-names
+clj꞉user꞉> 
+(def file-names (create-file-names all-ids))
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2.clj:74:17).
+; Unable to resolve symbol: all-ids in this context
+clj꞉user꞉> 
+(def id-structs-separated (combine-structs final-id-structs))
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2.clj:61:27).
+; Unable to resolve symbol: combine-structs in this context
+clj꞉user꞉> 
+(defn combine-structs [els]
+  (reduce (fn [acc item]
+            (concat acc item))
+          ;into, flatten
+          [] els))
+#'user/combine-structs
+clj꞉user꞉> 
+(def id-structs-separated (combine-structs final-id-structs))
+#'user/id-structs-separated
+clj꞉user꞉> 
+id-structs-separated
+({"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 471} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 24} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 32} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 33} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 34} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 35})
+clj꞉user꞉> 
+(defn create-file-names [els]
+  (reduce (fn [acc item]
+            (conj acc (str "struct" item ".txt")))
+
+          [] els))
+#'user/create-file-names
+clj꞉user꞉> 
+(def file-names (create-file-names all-ids))
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2.clj:76:17).
+; Unable to resolve symbol: all-ids in this context
+clj꞉user꞉> 
+defn
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2.clj:0:0).
+; Can't take value of a macro: #'clojure.core/defn
+clj꞉user꞉> 
+(defn create-file-names [els]
+  (reduce (fn [acc item]
+            (conj acc (str "struct" item ".txt")))
+
+          [] els))
+#'user/create-file-names
+clj꞉user꞉> 
+; Evaluating file: zad2.clj
+; 
+; Syntax error macroexpanding clojure.core/defn at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2.clj:88:1).
+; () - failed: Insufficient input at: [:fn-tail] spec: :clojure.core.specs.alpha/defn-args
+; Evaluation of file zad2.clj failed: class clojure.lang.Compiler$CompilerException
+clj꞉user꞉> 
 ; Connecting using "Leiningen" project type.
 ; You can make Calva auto-select this.
 ;   - See https://calva.io/connect-sequences/
 ; 
 
-; Starting Jack-in: pushd c:\ZigiWaveOnboarding\onboarding & cmd.exe /d /c lein update-in :dependencies conj [nrepl,"1.3.1"] -- update-in :plugins conj [cider/cider-nrepl,"0.55.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless & popd
-; Using host:port 127.0.0.1:60703 ...
-; Hooking up nREPL sessions ...
-; Connected session: clj
-; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
-(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+; Connecting ...
+; Reading port file: file:///c%3A/ZigiWaveOnboarding/Clojure-introduction/onboarding/.nrepl-port ...
+; Using host:port localhost:65324 ...
+(defn create-file-names [els]
+  (reduce (fn [acc item]
+            (conj acc (str "struct" item ".txt"))) 
+          [] els))
+#'user/create-file-names
+clj꞉user꞉> 
+(def file-names (create-file-names all-ids))
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2.clj:75:17).
+; Unable to resolve symbol: all-ids in this context
+clj꞉user꞉> 
+(def all-ids (collect-ids idta))
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2.clj:45:14).
+; Unable to resolve symbol: collect-ids in this context
+clj꞉user꞉> 
+(defn collect-ids [els]
+  (reduce (fn [acc item]
+            (into acc item))
+          [] els))
+#'user/collect-ids
+clj꞉user꞉> 
+(def all-ids (collect-ids idta))
+#'user/all-ids
+clj꞉user꞉> 
+all-ids
+[1 2 3 4 5 6 7 9 123 471 24 32 33 34 35]
+clj꞉user꞉> 
+(def file-names (create-file-names all-ids))
+#'user/file-names
+clj꞉user꞉> 
+final-id-structs
+([{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}] [{"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 471} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 24} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 32} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 33} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 34} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 35}])
+clj꞉user꞉> 
+(count file-names)
+15
+clj꞉user꞉> 
+(map spit file-names id-structs-separated)
+(nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil)
+clj꞉user꞉> 
+(def lables [{"label" "Issue"
+              "description" "Huston we have lift off"
+              "ids" [1 2 3 4 5 6 7 9 123]
+              "comments" [{"body" "hello"}
+                          {"body" "its"}
+                          {"body" "me"}]}
+             {"label" "bug"
+              "description" "Huston we have a problem"
+              "ids" [471 24 32 33 34 35]
+              "comments" [{"body" "I"}
+                          {"body" "am"}
+                          {"body" "hungry"}]}])
+#'user/lables
+clj꞉user꞉> 
+(def lables [{"label" "Issue"
+              "description" "Huston we have lift off"
+              "ids" [1 2 3 4 5 6 7 9 123]
+              "comments" [{"body" "hello"}
+                          {"body" "its"}
+                          {"body" "me"}]}
+             {"label" "bug"
+              "description" "Huston we have a problem"
+              "ids" [471 24 32 33 34 35]
+              "comments" [{"body" "I"}
+                          {"body" "am"}
+                          {"body" "hungry"}]}])
+#'user/lables
+clj꞉user꞉> 
+help-first
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2_separateIDS.clj:0:0).
+; Unable to resolve symbol: help-first in this context
+clj꞉user꞉> 
+(def help-first (first lables))
+#'user/help-first
+clj꞉user꞉> 
+help-first
+{"label" "Issue", "description" "Huston we have lift off", "ids" [1 2 3 4 5 6 7 9 123], "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]}
+clj꞉user꞉> 
+help-first
+{"label" "Issue", "description" "Huston we have lift off", "ids" [1 2 3 4 5 6 7 9 123], "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]}
+clj꞉user꞉> 
+(assoc {} :a 2)
+{:a 2}
+clj꞉user꞉> 
+(assoc (assoc {} :a 2) :b 4)
+{:a 2, :b 4}
+clj꞉user꞉> 
+help-first
+{"label" "Issue", "description" "Huston we have lift off", "ids" [1 2 3 4 5 6 7 9 123], "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]}
+clj꞉user꞉> 
+(def keyta (keys help-first))
+#'user/keyta
+clj꞉user꞉> 
+keyta
+("label" "description" "ids" "comments")
+clj꞉user꞉> 
+(def valta (vals help-first))
+#'user/valta
+clj꞉user꞉> 
+valta
+("Issue" "Huston we have lift off" [1 2 3 4 5 6 7 9 123] [{"body" "hello"} {"body" "its"} {"body" "me"}])
+clj꞉user꞉> 
+(assoc (assoc {} :a 2) :b 4)
+{:a 2, :b 4}
+clj꞉user꞉> 
+(assoc (assoc {} :a 2) :b 4)
+{:a 2, :b 4}
+clj꞉user꞉> 
+(assoc (assoc {} :a 2) :b 4)
+{:a 2, :b 4}
+clj꞉user꞉> 
+(defn separate-structs [els]
+  (reduce (fn [acc item] 
+            (def help (assoc (conj {} (dissoc els "ids")) "id" item))
+          
+          (conj acc help)
+  )
+          [] (get els "ids"))
+  )
+#'user/separate-structs
+clj꞉user꞉> 
+(separate-structs help-first)
+[{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}]
+clj꞉user꞉> 
+(->
+             (conj {} (dissoc els "ids"))
+             (assoc  "id" item)
+             (conj acc))
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2_separateIDS.clj:35:23).
+; Unable to resolve symbol: els in this context
+clj꞉user꞉> 
+(defn separate-structs [els]
+  (reduce (fn [acc item]
+            (conj acc (->
+             (conj {} (dissoc els "ids"))
+             (assoc  "id" item)
+             (conj acc)))
+
+            ;;(conj acc help)
+            )
+          [] (get els "ids")))
+#'user/separate-structs
+clj꞉user꞉> 
+(separate-structs help-first)
+; Execution error (IllegalArgumentException) at user/separate-structs$fn (zad2_separateIDS.clj:37).
+; Vector arg to map conj must be a pair
+clj꞉user꞉> 
+(defn separate-structs [els]
+  (reduce (fn [acc item]
+            (conj acc (->
+             (conj {} (dissoc els "ids"))
+             (assoc  "id" item)
+             (conj acc)))
+
+            ;;(conj acc help)
+            )
+          [] (get els "ids")))
+#'user/separate-structs
+clj꞉user꞉> 
+(separate-structs help-first)
+; Execution error (IllegalArgumentException) at user/separate-structs$fn (zad2_separateIDS.clj:37).
+; Vector arg to map conj must be a pair
+clj꞉user꞉> 
+(separate-structs help-first)
+; Execution error (IllegalArgumentException) at user/separate-structs$fn (zad2_separateIDS.clj:37).
+; Vector arg to map conj must be a pair
+clj꞉user꞉> 
+(separate-structs help-first)
+; Execution error (IllegalArgumentException) at user/separate-structs$fn (zad2_separateIDS.clj:37).
+; Vector arg to map conj must be a pair
+clj꞉user꞉> 
+(defn separate-structs [els]
+  (reduce (fn [acc item] 
+            (def help (assoc (conj {} (dissoc els "ids")) "id" item))
+          
+          (conj acc help)
+  )
+          [] (get els "ids"))
+  )
+#'user/separate-structs
+clj꞉user꞉> 
+(separate-structs help-first)
+[{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}]
+clj꞉user꞉> 
+(map separate-structs lables)
+([{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}] [{"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 471} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 24} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 32} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 33} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 34} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 35}])
+clj꞉user꞉> 
+(map separate-structs lables)
+([{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}] [{"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 471} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 24} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 32} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 33} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 34} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 35}])
+clj꞉user꞉> 
+(defn separate-structs [els]
+  (reduce (fn [acc item] 
+            (->> (assoc (conj {} (dissoc els "ids")) "id" item)
+                 (conj acc))
+          )[] (get els "ids")
+  ))
+#'user/separate-structs
+clj꞉user꞉> 
+(separate-structs lables)
+[]
+clj꞉user꞉> 
+(separate-structs lables)
+[]
+clj꞉user꞉> 
+(defn separate-structs [els]
+  (reduce (fn [acc item] 
+            (->> (assoc (conj {} (dissoc els "ids")) "id" item)
+                 (conj acc))
+          )[] (get els "ids")
+  ))
+#'user/separate-structs
+clj꞉user꞉> 
+(separate-structs lables)
+[]
+clj꞉user꞉> 
+(separate-structs lables)
+[]
+clj꞉user꞉> 
+(map separate-structs lables)
+([{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}] [{"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 471} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 24} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 32} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 33} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 34} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 35}])
+clj꞉user꞉> 
+(def final-struct (map separate-structs lables))
+#'user/final-struct
+clj꞉user꞉> 
+final-struct
+([{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}] [{"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 471} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 24} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 32} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 33} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 34} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 35}])
+clj꞉user꞉> 
+(def helper-two (first final-struct))
+#'user/helper-two
+clj꞉user꞉> 
+helper-two
+[{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}]
+clj꞉user꞉> 
+(defn combine-comments[els]
+  (reduce str els))
+#'user/combine-comments
+clj꞉user꞉> 
+(defn combine-comments
+  [els]
+  (reduce (fn [acc item]
+            )
+          [] els)
+  )
+#'user/combine-comments
+clj꞉user꞉> 
+(defn combine-comments [els]
+  (reduce (fn [acc item])
+          (str acc (get item "body"))))
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2_separateIDS.clj:59:11).
+; Unable to resolve symbol: acc in this context
+clj꞉user꞉> 
+(defn combine-comments [els]
+  (reduce (fn [acc item])
+          (str acc (get item "body"))))
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2_separateIDS.clj:59:11).
+; Unable to resolve symbol: acc in this context
+clj꞉user꞉> 
+(defn combine-comments [els]
+  (reduce (fn [acc item]
+          (str acc (get item "body"))
+  )
+          "" els)
+  )
+#'user/combine-comments
+clj꞉user꞉> 
+(combine-comments [{"body" "jsj"} {"body" "jskj"}])
+"jsjjskj"
+clj꞉user꞉> 
+(defn combine-comments [els]
+  (reduce (fn [acc item]
+          (str acc (get item "body"))
+  )
+          "" els)
+  )
+#'user/combine-comments
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+            (->>
+             (assoc {} (dissoc els "comments") "comment" comment) 
+             (conj acc)))
+  )
+          [] els))
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+(combine-comments-one-struct helper-two)
+; Execution error (ClassCastException) at user/combine-comments-one-struct$fn (zad2_separateIDS.clj:71).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+              (->>
+               (assoc (conj {} (dissoc els "comments") "comment" comment) )
+               (conj acc))
+               )
+  )
+          [] els))
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+(combine-comments-one-struct helper-two)
+; Execution error (ClassCastException) at user/combine-comments-one-struct$fn (zad2_separateIDS.clj:71).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+              (->>
+               (assoc (conj {} (dissoc els "comments")) "comment" comment)
+               (conj acc))
+               )
+  )
+          [] els))
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+(combine-comments-one-struct helper-two)
+; Execution error (ClassCastException) at user/combine-comments-one-struct$fn (zad2_separateIDS.clj:71).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(combine-comments [{"body" "jsj"} {"body" "jskj"}])
+"jsjjskj"
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+               (prn comment)
+              (->>
+              
+               (assoc (conj {} (dissoc els "comments")) "comment" comment)
+               (conj acc))
+               )
+  )
+          [] els))
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+(combine-comments-one-struct helper-two)
+; "helloitsme"
+; Execution error (ClassCastException) at user/combine-comments-one-struct$fn (zad2_separateIDS.clj:73).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+               (prn comment)
+              (->>
+              
+               (assoc (conj {} (dissoc els "comments")) "comment" comment)
+               (conj acc)
+               )
+               )
+  )
+          [] els))
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+helper-two
+[{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}]
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+               (prn comment)
+             
+              
+              (conj acc (assoc (conj {} (dissoc els "comments")) "comment" comment))
+               
+               )
+               )
+  
+          [] els))
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+(combine-comments-one-struct helper-two)
+; "helloitsme"
+; Execution error (ClassCastException) at user/combine-comments-one-struct$fn (zad2_separateIDS.clj:74).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(combine-comments-one-struct helper-two)
+; "helloitsme"
+; Execution error (ClassCastException) at user/combine-comments-one-struct$fn (zad2_separateIDS.clj:74).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+              ;; (prn comment)
+              (prn comment)
+              
+              ;;(conj acc (assoc (conj {} (dissoc els "comments")) "comment" comment))
+               
+               )
+               )
+  
+          [] els))
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+helper-two
+[{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}]
+clj꞉user꞉> 
+(combine-comments-one-struct helper-two)
+; "helloitsme"
+; "helloitsme"
+; "helloitsme"
+; "helloitsme"
+; "helloitsme"
+; "helloitsme"
+; "helloitsme"
+; "helloitsme"
+; "helloitsme"
 nil
-clj꞉onboarding.core꞉> 
-; Jack-in done.
-clj꞉onboarding.core꞉> 
-(+ 1 2)
-3
-clj꞉onboarding.example꞉> 
-(defn PalindromeDetector
-  [seq]
-  (loop [remaining seq]
-    (if (or((== (count remaining) 1) (== (count remaining) 0))) true
-    (if (not= (first remaining) (last remaining))
-      false
-      (recur (butlast (rest remaining)))
-      ))))
-#'onboarding.example/PalindromeDetector
-clj꞉onboarding.example꞉> 
-(PalindromeDetector [1 2 1])
-; Execution error (ClassCastException) at onboarding.example/PalindromeDetector (REPL:292).
-; class java.lang.Boolean cannot be cast to class clojure.lang.IFn (java.lang.Boolean is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
-clj꞉onboarding.example꞉> 
-(PalindromeDetector [1 990 87 1])
-; Execution error (ClassCastException) at onboarding.example/PalindromeDetector (REPL:292).
-; class java.lang.Boolean cannot be cast to class clojure.lang.IFn (java.lang.Boolean is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
-clj꞉onboarding.example꞉> 
-(defn PalindromeDetector
-  [seq]
-  (loop [re    (if (or (== (count remaining) 1) (== (count remaining) 0)) true
-maining seq]
-    (if (or ((== (count remaining) 1) (== (count remaining) 0))) true
-    (if (not= (first remaining) (last remaining))
-      false
-      (recur (butlast (rest remaining)))
-      ))))
-#'onboarding.example/PalindromeDetector
-clj꞉onboarding.example꞉> 
-(PalindromeDetector [1 990 87 1])
-; Execution error (ClassCastException) at onboarding.example/PalindromeDetector (REPL:292).
-; class java.lang.Boolean cannot be cast to class clojure.lang.IFn (java.lang.Boolean is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
-clj꞉onboarding.example꞉> 
-(defn PalindromeDetector
-  [seq]
-  (loop [remaining seq]
-    (if (not= (first remaining) (last remaining))
-      false
-      (recur (butlast (rest remaining)))
-      ))))
-#'onboarding.example/PalindromeDetector
-clj꞉onboarding.example꞉> 
-(PalindromeDetector [1 990 87 1])
-false
-clj꞉onboarding.example꞉> 
-(PalindromeDetector [1 2 1])
-true
-clj꞉onboarding.example꞉> 
-(PalindromeDetector [1 2 2 1])
-true
-clj꞉onboarding.example꞉> 
-(PalindromeDetector "ada")
-true
-clj꞉onboarding.example꞉> 
-(defn flattenSeq
-  [seq]
-  (loop [remaining seq reslt []]
-    (if (empty? remaining)
-      result
-      (recur (rest remaining) (into result (first remaining))))
+clj꞉user꞉> 
+(defn combine-comments [els]
+  (reduce (fn [acc item]
+          (str acc " " (get item "body"))
+  )
+          "" els)
+  )
+#'user/combine-comments
+clj꞉user꞉> 
+(combine-comments [{"body" "jsj"} {"body" "jskj"}])
+" jsj jskj"
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+              ;; (prn comment)
+              (prn comment)
+              
+              ;;(conj acc (assoc (conj {} (dissoc els "comments")) "comment" comment))
+               
+               )
+               )
+  
+          [] els))
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+(combine-comments-one-struct helper-two)
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+nil
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+              ;; (prn comment)
+              (prn comment)
+              
+             (prn (assoc (conj {} (dissoc els "comments")) "comment" comment))
+               
+               )
+               )
+  
+          [] els))
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+(combine-comments-one-struct helper-two)
+; " hello its me"
+; Execution error (ClassCastException) at user/combine-comments-one-struct$fn (zad2_separateIDS.clj:74).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+              ;; (prn comment)
+              (prn comment)
+              
+             (prn  (conj {} (dissoc els "comments")))
+               
+               )
+               )
+  
+          [] els))
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+(combine-comments-one-struct helper-two)
+; " hello its me"
+; Execution error (ClassCastException) at user/combine-comments-one-struct$fn (zad2_separateIDS.clj:74).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+              ;; (prn comment)
+              (prn comment)
+              
+              ()
+             (prn  (conj {} (dissoc item "comments")))
+               
+               )
+               )
+  
+          [] els))
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+(combine-comments-one-struct helper-two)
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "id" 1}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "id" 2}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "id" 3}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "id" 4}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "id" 5}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "id" 6}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "id" 7}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "id" 9}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "id" 123}
+nil
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+              ;; (prn comment)
+              (prn comment)
+              
+             (->>
+             (assoc (conj {} (dissoc item "comments")) "comment" comment)
+              (conj acc)
+               
+               )
+               )
+  
+          [] els))
+)
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+              ;; (prn comment)
+              (prn comment)
+              
+             (->>
+             (assoc (conj {} (dissoc item "comments")) "comment" comment)
+              (conj acc)
+               
+               )
+               )
+  )
+          [] els
+)
+)
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+helper-two
+[{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}]
+clj꞉user꞉> 
+(combine-comments-one-struct helper-two)
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comment" " hello its me"}]
+clj꞉user꞉> 
+(map combine-comments-one-struct final-struct)
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " I am hungry"
+; " I am hungry"
+; " I am hungry"
+; " I am hungry"
+; " I am hungry"
+; " I am hungry"
+([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comment" " hello its me"}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 32, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 33, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 34, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 35, "comment" " I am hungry"}])
+clj꞉user꞉> 
+(map combine-comments-one-struct final-struct)
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " I am hungry"
+; " I am hungry"
+; " I am hungry"
+; " I am hungry"
+; " I am hungry"
+; " I am hungry"
+([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comment" " hello its me"}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 32, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 33, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 34, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 35, "comment" " I am hungry"}])
+clj꞉user꞉> 
+[[{"id" 1,
+   "label" "Issue",
+   "description" "Huston we have lift off",
+   "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]}
+  ...
+  {"id" 123,
+   "label" "Issue",
+   "description" "Huston we have lift off",
+   "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]}]
+ [{"id" 471,
+   "label" "bug",
+   "description" "Huston we have a problem",
+   "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]}
+  ...
+  {"id" 35,
+   "label" "bug",
+   "description" "Huston we have a problem",
+   "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]}]]
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2.clj:0:0).
+; Unable to resolve symbol: ... in this context
+clj꞉user꞉> 
+[([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]
+  [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}])
+ ([{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]
+  [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}])]
+; Execution error (IllegalArgumentException) at user/eval10770 (zad2.clj:153).
+; Key must be integer
+clj꞉user꞉> 
+(def sep [([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]
+  [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}])
+ ([{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]
+  [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}])])
+; Execution error (IllegalArgumentException) at cider.nrepl.middleware.util.eval/eval-dispatcher$fn (eval.clj:15).
+; Key must be integer
+clj꞉user꞉> 
+(def sep [([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]
+  [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}])
+ ([{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]
+  [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}])]
+  )
+; Execution error (IllegalArgumentException) at cider.nrepl.middleware.util.eval/eval-dispatcher$fn (eval.clj:15).
+; Key must be integer
+clj꞉user꞉> 
+(def sep [([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]
+  [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}])
+ ([{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]
+  [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}])]
+  )
+; Execution error (IllegalArgumentException) at cider.nrepl.middleware.util.eval/eval-dispatcher$fn (eval.clj:15).
+; Key must be integer
+clj꞉user꞉> 
+(def sep [[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]
+  [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"}
+   {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]
+           [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]
+  [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"}
+   {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]])
+#'user/sep
+clj꞉user꞉> 
+sep
+[[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}] [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}] [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]
+clj꞉user꞉> 
+(def helper-three (first sep))
+#'user/helper-three
+clj꞉user꞉> 
+helper-three
+[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item]
+                          (conj acc {"body" (get item "comment")}))
+                        [] els))
+  (assoc (dissoc els "comment") "comments" comments)
+  
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+; Execution error (ClassCastException) at user/one-squash (zad2.clj:177).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item]
+                          (conj acc {"body" (get item "comment")}))
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+#'user/comments
+clj꞉user꞉> 
+(def duduk (one-squash helper-three))
+#'user/duduk
+clj꞉user꞉> 
+duduk
+#'user/comments
+clj꞉user꞉> 
+(duduk)
+; Execution error (ArityException) at user/eval10782 (zad2.clj:182).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+clj꞉user꞉> 
+(one-squash helper-three)
+#'user/comments
+clj꞉user꞉> 
+(def comments (reduce (fn [acc item]
+                          (conj acc {"body" (get item "comment")})
+                          (prn acc))
+                        [] els))
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2.clj:174:17).
+; Unable to resolve symbol: els in this context
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item]
+                          (conj acc {"body" (get item "comment")})
+                          (prn acc)
+                          )
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+; []
+; nil
+; nil
+#'user/comments
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item]
+                          (conj acc {"body" (get item "comment")})
+                          (prn item)
+                          )
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+; {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"}
+; {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"}
+; {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}
+#'user/comments
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item]
+                          (conj acc (assoc {}"body" (get item "comment")))
+                          (prn item)
+                          )
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item]
+                          (conj acc (assoc {}"body" (get item "comment")))
+                          (prn acc)
+                          )
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+; []
+; nil
+; nil
+#'user/comments
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item]
+                          (conj acc (assoc {} "body" (get item "comment")))
+                          (prn acc)
+                          )
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+; []
+; nil
+; nil
+#'user/comments
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item]
+                          (conj acc (assoc {} "body" (get item "comment")))
+                          (prn (assoc {} "body" (get item "comment")))
+                          )
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+; {"body" "hello"}
+; {"body" "its"}
+; {"body" "me"}
+#'user/comments
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (reduce (fn [acc item]
+                          (conj acc (assoc {} "body" (get item "comment")))
+                          (prn (assoc {} "body" (get item "comment")))
+                          )
+                        [] els)
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+; {"body" "hello"}
+; {"body" "its"}
+; {"body" "me"}
+nil
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (reduce (fn [acc item] 
+            (->>
+             (assoc {} "body" (get item "comment"))
+             (conj acc))
+           ;; (prn (assoc {} "body" (get item "comment")))
+            )
+                        [] els)
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+[{"body" "hello"} {"body" "its"} {"body" "me"}]
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item] 
+            (->>
+             (assoc {} "body" (get item "comment"))
+             (conj acc))
+           ;; (prn (assoc {} "body" (get item "comment")))
+            )
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+
+    (assoc {} (dissoc els "comment") "comments" comments)
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+; Execution error (ClassCastException) at user/one-squash (zad2.clj:183).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item] 
+                          (->>
+                           (assoc {} "body" (get item "comment"))
+                           (conj acc))
+                          ;; (prn (assoc {} "body" (get item "comment")))
+                          )
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  (prn comments)
+  (assoc  (dissoc els "comment") "comments" comments)
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; Execution error (ClassCastException) at user/one-squash (zad2.clj:183).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item] 
+                          (->>
+                           (assoc {} "body" (get item "comment"))
+                           (conj acc))
+                          ;; (prn (assoc {} "body" (get item "comment")))
+                          )
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  (prn comments)
+  (assoc  (dissoc els "comment") "comments" comments)
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; Execution error (ClassCastException) at user/one-squash (zad2.clj:183).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item] 
+                          (->>
+                           (assoc {} "body" (get item "comment"))
+                           (conj acc))
+                          ;; (prn (assoc {} "body" (get item "comment")))
+                          )
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  (prn comments)
+  (assoc  (dissoc els "comment") "comments" comments)
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; Execution error (ClassCastException) at user/one-squash (zad2.clj:183).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item] 
+                          (->>
+                           (assoc {} "body" (get item "comment"))
+                           (conj acc))
+                          ;; (prn (assoc {} "body" (get item "comment")))
+                          )
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  (prn comments)
+  (assoc (dissoc els "comment") "comments" comments)
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item] 
+                          (->>
+                           (assoc {} "body" (get item "comment"))
+                           (conj acc))
+                          ;; (prn (assoc {} "body" (get item "comment")))
+                          )
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  (prn comments)
+  (assoc (dissoc els "comment") "comments" comments)
+  (prn (assoc (dissoc els "comment") "comments" comments))
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; Execution error (ClassCastException) at user/one-squash (zad2.clj:183).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item] 
+                          (->>
+                           (assoc {} "body" (get item "comment"))
+                           (conj acc))
+                          ;; (prn (assoc {} "body" (get item "comment")))
+                          )
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  (prn comments)
+  (prn (dissoc els "comment"))
+
+  (prn (assoc (dissoc els "comment") "comments" comments))
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; Execution error (ClassCastException) at user/one-squash (zad2.clj:183).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(one-squash helper-three)
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; Execution error (ClassCastException) at user/one-squash (zad2.clj:183).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(one-squash helper-three)
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; Execution error (ClassCastException) at user/one-squash (zad2.clj:183).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(one-squash helper-three)
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; Execution error (ClassCastException) at user/one-squash (zad2.clj:183).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(one-squash helper-three)
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; Execution error (ClassCastException) at user/one-squash (zad2.clj:183).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(one-squash helper-three)
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; Execution error (ClassCastException) at user/one-squash (zad2.clj:183).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn one-squash
+  [els]
+  (def comments (reduce (fn [acc item] 
+                          (->>
+                           (assoc {} "body" (get item "comment"))
+                           (conj acc))
+                          ;; (prn (assoc {} "body" (get item "comment")))
+                          )
+                        [] els))
+  ;;(assoc (dissoc els "comment") "comments" comments)
+  (prn comments)
+  (prn (dissoc els "comment"))
+
+  ;;(prn (assoc (dissoc els "comment") "comments" comments))
+  )
+#'user/one-squash
+clj꞉user꞉> 
+(one-squash helper-three)
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; Execution error (ClassCastException) at user/one-squash (zad2.clj:183).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn one-combine-comments
+   [els]
+   (def comments (reduce (fn [acc item]
+                           (->>
+                            (assoc {} "body" (get item "comment"))
+                            (conj acc))
+                           ;; (prn (assoc {} "body" (get item "comment")))
+                           )
+                         [] els)))
+#'user/one-combine-comments
+clj꞉user꞉> 
+(defn lol[x]
+   (def y 7)
+   (+ x y))
+#'user/lol
+clj꞉user꞉> 
+(lol 3)
+10
+clj꞉user꞉> 
+(defn one-combine-comments
+   [els]
+   (def comments (reduce (fn [acc item]
+                           (->>
+                            (assoc {} "body" (get item "comment"))
+                            (conj acc))
+                           ;; (prn (assoc {} "body" (get item "comment")))
+                           )
+                         [] els))
+   (prn comments)
+
+ ;;(assoc (dissoc els "comment") "comments" comments)
+ )
+#'user/one-combine-comments
+clj꞉user꞉> 
+(one-combine-comments helper-three)
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+nil
+clj꞉user꞉> 
+(one-combine-comments helper-three)
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+nil
+clj꞉user꞉> 
+(defn one-combine-comments
+   [els]
+   (def comments (reduce (fn [acc item]
+                           (->>
+                            (assoc {} "body" (get item "comment"))
+                            (conj acc))
+                           ;; (prn (assoc {} "body" (get item "comment")))
+                           )
+                         [] els))
+   (comments)
+   
+
+ ;;(assoc (dissoc els "comment") "comments" comments)
+ )
+#'user/one-combine-comments
+clj꞉user꞉> 
+(one-combine-comments helper-three)
+; Execution error (ArityException) at user/one-combine-comments (zad2.clj:180).
+; Wrong number of args (0) passed to: clojure.lang.PersistentVector
+clj꞉user꞉> 
+(defn one-combine-comments
+   [els]
+   (def comments (reduce (fn [acc item]
+                           (->>
+                            (assoc {} "body" (get item "comment"))
+                            (conj acc))
+                           ;; (prn (assoc {} "body" (get item "comment")))
+                           )
+                         [] els))
+   comments
+   
+
+ ;;(assoc (dissoc els "comment") "comments" comments)
+ )
+#'user/one-combine-comments
+clj꞉user꞉> 
+(one-combine-comments helper-three)
+[{"body" "hello"} {"body" "its"} {"body" "me"}]
+clj꞉user꞉> 
+(defn one-combine-comments
+   [els]
+   (def comments (reduce (fn [acc item]
+                           (->>
+                            (assoc {} "body" (get item "comment"))
+                            (conj acc))
+                           ;; (prn (assoc {} "body" (get item "comment")))
+                           )
+                         [] els))
+   
+   assoc (dissoc els "comment") "comments" comments
+   
+
+ ;;(assoc (dissoc els "comment") "comments" comments)
+ )
+#'user/one-combine-comments
+clj꞉user꞉> 
+(one-combine-comments helper-three)
+; Execution error (ClassCastException) at user/one-combine-comments (zad2.clj:181).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(one-combine-comments helper-three)
+; Execution error (ClassCastException) at user/one-combine-comments (zad2.clj:181).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn one-combine-comments
+   [els]
+   (def comments (reduce (fn [acc item]
+                           (->>
+                            (assoc {} "body" (get item "comment"))
+                            (conj acc))
+                           ;; (prn (assoc {} "body" (get item "comment")))
+                           )
+                         [] els))
+   
+   (assoc (dissoc els "comment") "comments" comments)
+   
+
+ ;;(assoc (dissoc els "comment") "comments" comments)
+ )
+#'user/one-combine-comments
+clj꞉user꞉> 
+(one-combine-comments helper-three)
+; Execution error (ClassCastException) at user/one-combine-comments (zad2.clj:181).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn one-combine-comments
+   [els]
+   (def comments (reduce (fn [acc item]
+                           (->>
+                            (assoc {} "body" (get item "comment"))
+                            (conj acc))
+                           ;; (prn (assoc {} "body" (get item "comment")))
+                           )
+                         [] els))
+   
+  ;; (assoc (dissoc els "comment") "comments" comments)
+   (conj [] comments)
+
+ ;;(assoc (dissoc els "comment") "comments" comments)
+ )
+#'user/one-combine-comments
+clj꞉user꞉> 
+(one-combine-comments helper-three)
+[[{"body" "hello"} {"body" "its"} {"body" "me"}]]
+clj꞉user꞉> 
+(defn one-combine-comments
+   [els]
+   (def comments (reduce (fn [acc item]
+                           (->>
+                            (assoc {} "body" (get item "comment"))
+                            (conj acc))
+                           ;; (prn (assoc {} "body" (get item "comment")))
+                           )
+                         [] els))
+   
+  ;; (assoc (dissoc els "comment") "comments" comments)
+   (dissoc els "comment")
+
+ ;;(assoc (dissoc els "comment") "comments" comments)
+ )
+#'user/one-combine-comments
+clj꞉user꞉> 
+(one-combine-comments helper-three)
+; Execution error (ClassCastException) at user/one-combine-comments (zad2.clj:182).
+; class clojure.lang.PersistentVector cannot be cast to class clojure.lang.IPersistentMap (clojure.lang.PersistentVector and clojure.lang.IPersistentMap are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn one-combine-comments
+   [els]
+   (def comments (reduce (fn [acc item]
+                           (->>
+                            (assoc {} "body" (get item "comment"))
+                            (conj acc))
+                           ;; (prn (assoc {} "body" (get item "comment")))
+                           )
+                         [] els))
+   
+  ;; (assoc (dissoc els "comment") "comments" comments)
+   (dissoc (first els) "comment")
+
+ ;;(assoc (dissoc els "comment") "comments" comments)
+ )
+#'user/one-combine-comments
+clj꞉user꞉> 
+(one-combine-comments helper-three)
+{"label" "Issue", "description" "Huston we have lift off", "id" 1}
+clj꞉user꞉> 
+(defn one-combine-comments
+   [els]
+   (def comments (reduce (fn [acc item]
+                           (->>
+                            (assoc {} "body" (get item "comment"))
+                            (conj acc))
+                           ;; (prn (assoc {} "body" (get item "comment")))
+                           )
+                         [] els))
+   
+   (assoc (dissoc (first els) "comment") "comments" comments)
+   ;;(dissoc (first els) "comment")
+
+ ;;(assoc (dissoc els "comment") "comments" comments)
+ )
+#'user/one-combine-comments
+clj꞉user꞉> 
+(one-combine-comments helper-three)
+{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]}
+clj꞉user꞉> 
+(defn one-combine-comments
+   [els]
+   (def comments (reduce (fn [acc item]
+                           (->>
+                            (assoc {} "body" (get item "comment"))
+                            (conj acc))
+                           ;; (prn (assoc {} "body" (get item "comment")))
+                           )
+                         [] els))
+   
+   (->
+    (first els)
+    (dissoc  "comment")
+    (assoc  "comments" comments)
+   )
+   
+   ;;(dissoc (first els) "comment")
+
+ ;;(assoc (dissoc els "comment") "comments" comments)
+ )
+#'user/one-combine-comments
+clj꞉user꞉> 
+(one-combine-comments helper-three)
+{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]}
+clj꞉user꞉> 
+(map one-combine-comments sep)
+({"label" "Issue", "description" "Huston we have lift off", "id" 1, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]})
+clj꞉user꞉> 
+(defn one-combine-comments
+   [els]
+   (def comments (reduce (fn [acc item]
+                           (->>
+                            (assoc {} "body" (get item "comment"))
+                            (conj acc))
+                           ;; (prn (assoc {} "body" (get item "comment")))
+                           )
+                         [] els))
+   
+   (->
+    (first els)
+    (dissoc  "comment")
+    (assoc  "comments" comments)
+   )
+
+ )
+#'user/one-combine-comments
+clj꞉user꞉> 
+(one-combine-comments helper-three)
+{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]}
+clj꞉user꞉> 
+(map one-combine-comments sep)
+({"label" "Issue", "description" "Huston we have lift off", "id" 1, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]})
+clj꞉user꞉> 
+(take 3 (prn "8"))
+; "8"
+()
+clj꞉user꞉> 
+(fn [N]
+  ;; (loop [cnt]
+  ;; (if (= cnt N)))
+  (def cnt 0)
+  (while (not = cnt N)
+    (+ cnt 1)
+    (prn "Hello world"))
+  ;;(take N (prn "Hello world!"))
+  )
+#function[user/eval10945/fn--10946]
+clj꞉user꞉> 
+(fn [N]
+  ;; (loop [cnt]
+  ;; (if (= cnt N)))
+  (def cnt 0)
+  (while (not = cnt N)
+    (+ cnt 1)
+    (prn "Hello world"))
+  ;;(take N (prn "Hello world!"))
+  )
+#function[user/eval10949/fn--10950]
+clj꞉user꞉> 
+(fn [N]
+  ;; (loop [cnt]
+  ;; (if (= cnt N)))
+  (def cnt 0)
+  (while (not (= cnt N))
+    (+ cnt 1)
+    (prn "Hello world"))
+  ;;(take N (prn "Hello world!"))
+  )
+#function[user/eval10953/fn--10954]
+clj꞉user꞉> 
+(def N (read-line)
+
+(fn [N]
+  ;; (loop [cnt]
+  ;; (if (= cnt N)))
+  (def cnt 0)
+  (while (not (= cnt N))
+    (+ cnt 1)
+    (prn "Hello world"))
+  ;;(take N (prn "Hello world!"))
+  ))
+; Syntax error compiling def at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2_separateIDS.clj:95:1).
+; Too many arguments to def
+clj꞉user꞉> 
+(def N (read-line)
+
+  (fn [N]
+    ;; (loop [cnt]
+    ;; (if (= cnt N)))
+    (def cnt 0)
+    (while (not (= cnt N))
+      (+ cnt 1)
+      (prn "Hello world"))
+    ;;(take N (prn "Hello world!"))
     )
   )
-; Syntax error compiling at (c:\ZigiWaveOnboarding\onboarding\src\onboarding\example.clj:307:5).
-; Unable to resolve symbol: result in this context
-clj꞉onboarding.example꞉> 
-(defn flattenSeq
-  [seq]
-  (loop [remaining seq result []]
-    (if (empty? remaining)
-      result
-      (recur (rest remaining) (into result (first remaining))))
+; Syntax error compiling def at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2_separateIDS.clj:87:1).
+; Too many arguments to def
+clj꞉user꞉> 
+(defn write-N-times[N]
+    ;; (loop [cnt]
+    ;; (if (= cnt N)))
+    (def cnt 0)
+    
+    (while (not (= cnt N))
+      (+ cnt 1)
+      (prn "Hello world"))
+    ;;(take N (prn "Hello world!"))
     )
+#'user/write-N-times
+clj꞉user꞉> 
+(write-N-times N)
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2_separateIDS.clj:100:1).
+; Unable to resolve symbol: N in this context
+clj꞉user꞉> 
+(defn write-N-times[N]
+    ;; (loop [cnt]
+    ;; (if (= cnt N)))
+    (def cnt 0)
+    
+    (while (not (= cnt N))
+      (+ cnt 1)
+      (prn "Hello world"))
+    ;;(take N (prn "Hello world!"))
+    )
+#'user/write-N-times
+clj꞉user꞉> 
+(write-N-times N)
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2_separateIDS.clj:100:1).
+; Unable to resolve symbol: N in this context
+clj꞉user꞉> 
+(write-N-times N)
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2_separateIDS.clj:100:1).
+; Unable to resolve symbol: N in this context
+clj꞉user꞉> 
+(write-N-times N)
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2_separateIDS.clj:100:1).
+; Unable to resolve symbol: N in this context
+clj꞉user꞉> 
+(def lables [{"label" "Issue"
+              "description" "Huston we have lift off"
+              "ids" [1 2 3 4 5 6 7 9 123]
+              "comments" [{"body" "hello"}
+                          {"body" "its"}
+                          {"body" "me"}]}
+             {"label" "bug"
+              "description" "Huston we have a problem"
+              "ids" [471 24 32 33 34 35]
+              "comments" [{"body" "I"}
+                          {"body" "am"}
+                          {"body" "hungry"}]}])
+#'user/lables
+clj꞉user꞉> 
+(defn separate-structs [els]
+  (reduce (fn [acc item]
+            (->> (assoc (conj {} (dissoc els "ids")) "id" item) 
+                ;; {"leble" .. "key2"...} -> {... "id" item}
+                 (conj acc))) [] (get els "ids")))
+#'user/separate-structs
+clj꞉user꞉> 
+(map separate-structs lables)
+([{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}] [{"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 471} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 24} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 32} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 33} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 34} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 35}])
+clj꞉user꞉> 
+(defn separate-structs [els]
+  (reduce (fn [acc item]
+            (->> (assoc (dissoc els "ids") "id" item) 
+                ;; {"leble" .. "key2"...} -> {... "id" item}
+                 (conj acc))) [] (get els "ids")))
+#'user/separate-structs
+clj꞉user꞉> 
+(map separate-structs lables)
+([{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}] [{"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 471} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 24} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 32} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 33} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 34} {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 35}])
+clj꞉user꞉> 
+(defn separate-structs-one-id [input-map]
+  (reduce (fn [acc id]
+            (->> (assoc input-map "id" id)
+                 ;; {"leble" .. "key2"...} -> {... "id" item}
+                 (conj acc)
+                 )
+            ) [] (get input-map "id")))
+#'user/separate-structs-one-id
+clj꞉user꞉> 
+(map separate-structs-one-id lables)
+([] [])
+clj꞉user꞉> 
+lables
+[{"label" "Issue", "description" "Huston we have lift off", "ids" [1 2 3 4 5 6 7 9 123], "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "bug", "description" "Huston we have a problem", "ids" [471 24 32 33 34 35], "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]}]
+clj꞉user꞉> 
+(defn separate-structs-one-id [input-map]
+  (reduce (fn [acc id]
+            (->> (assoc input-map "id" id)
+                 ;; {"leble" .. "key2"...} -> {... "id" item}
+                 (conj acc)
+                 )
+            ) [] (get input-map "id")))
+#'user/separate-structs-one-id
+clj꞉user꞉> 
+(def lables [{"label" "Issue"
+              "description" "Huston we have lift off"
+              "id" [1 2 3 4 5 6 7 9 123]
+              "comments" [{"body" "hello"}
+                          {"body" "its"}
+                          {"body" "me"}]}
+             {"label" "bug"
+              "description" "Huston we have a problem"
+              "id" [471 24 32 33 34 35]
+              "comments" [{"body" "I"}
+                          {"body" "am"}
+                          {"body" "hungry"}]}])
+#'user/lables
+clj꞉user꞉> 
+(defn separate-structs-one-id [input-map]
+  (reduce (fn [acc id]
+            (->> (assoc input-map "id" id)
+                 ;; {"leble" .. "key2"...} -> {... "id" item}
+                 (conj acc)
+                 )
+            ) [] (get input-map "id")))
+#'user/separate-structs-one-id
+clj꞉user꞉> 
+(map separate-structs-one-id lables)
+([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 32, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 33, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 34, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 35, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]}])
+clj꞉user꞉> 
+(map separate-structs-one-id lables)
+([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 32, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 33, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 34, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 35, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]}])
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+              ;; (prn comment)
+              (prn comment)
+
+              (->>
+               ;;here for each element we add a key comment where we write the comment
+               (assoc (conj {} (dissoc item "comments")) "comment" comment)
+               (conj acc))))
+          [] els))
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+(map combine-comments-one-struct final-struct)
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " hello its me"
+; " I am hungry"
+; " I am hungry"
+; " I am hungry"
+; " I am hungry"
+; " I am hungry"
+; " I am hungry"
+'([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comment" " hello its me"}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 32, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 33, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 34, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 35, "comment" " I am hungry"}])
+clj꞉user꞉> 
+'([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comment" " hello its me"}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 32, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 33, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 34, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 35, "comment" " I am hungry"}])
+([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comment" " hello its me"}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 32, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 33, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 34, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 35, "comment" " I am hungry"}])
+clj꞉user꞉> 
+'([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comment" " hello its me"}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 32, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 33, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 34, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 35, "comment" " I am hungry"}])
+; Execution error (IllegalArgumentException) at user/eval10995 (output.calva-repl:1758).
+; Key must be integer
+clj꞉user꞉> 
+'([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comment" " hello its me"}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 32, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 33, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 34, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 35, "comment" " I am hungry"}])
+([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comment" " hello its me"}]
+ [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 32, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 33, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 34, "comment" " I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 35, "comment" " I am hungry"}])
+clj꞉user꞉> 
+{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" " hello its me"}
+{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" " hello its me"}
+clj꞉user꞉> 
+(map separate-structs-one-id lables)
+([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 32, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 33, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 34, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 35, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]}])
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments (get item "comments"))]
+               (prn item)
+              (prn comment)
+
+              (->>
+               ;;here for each element we add a key comment where we write the comment
+               (assoc (conj {} (dissoc item "comments")) "comment" comment)
+               (conj acc))))
+          [] els))
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+(combine-comments-one-struct helper-two)
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9}
+; " hello its me"
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}
+; " hello its me"
+[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comment" " hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comment" " hello its me"}]
+clj꞉user꞉> 
+(defn combine-comments [els]
+  (reduce (fn [acc item]
+            (clojure.string/join " " (get item "body"))) ;; str join
+          "" els))
+#'user/combine-comments
+clj꞉user꞉> 
+(combine-comments [{"body" "jsj"} {"body" "jskj"}])
+"j s k j"
+clj꞉user꞉> 
+(defn combine-comments [els]
+  (reduce (fn [acc item]
+            (acc clojure.string/join " " (get item "body"))) ;; str join
+          "" els))
+#'user/combine-comments
+clj꞉user꞉> 
+(combine-comments [{"body" "jsj"} {"body" "jskj"}])
+; Execution error (ClassCastException) at user/combine-comments$fn (zad2_separateIDS.clj:75).
+; class java.lang.String cannot be cast to class clojure.lang.IFn (java.lang.String is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉user꞉> 
+(defn combine-comments [els]
+  (reduce (fn [acc item]
+            (clojure.string/join " " (get item "body"))) ;; str join
+          "" els))
+#'user/combine-comments
+clj꞉user꞉> 
+(combine-comments [{"body" "jsj"} {"body" "jskj"}])
+"j s k j"
+clj꞉user꞉> 
+(defn combine-comments [els]
+  (reduce (fn [acc item]
+            (prn item)
+            (clojure.string/join " " (get item "body"))) ;; str join
+          "" els))
+#'user/combine-comments
+clj꞉user꞉> 
+(combine-comments [{"body" "jsj"} {"body" "jskj"}])
+; {"body" "jsj"}
+; {"body" "jskj"}
+"j s k j"
+clj꞉user꞉> 
+(defn get-comments[comments]
+  (reduce (fn [acc comment]
+            (conj acc (get comment "body")))
+          [] comments))
+#'user/get-comments
+clj꞉user꞉> 
+(defn get-comments[comments]
+  (reduce (fn [acc comment]
+            (conj acc (get comment "body")))
+          [] comments))
+#'user/get-comments
+clj꞉user꞉> 
+(defn combine-comments-string-join [els]
+  (clojure.string/join " " (get-comments els)))
+#'user/combine-comments-string-join
+clj꞉user꞉> 
+(defn get-comments[comments]
+  (reduce (fn [acc comment]
+            (conj acc (get comment "body")))
+          [] comments))
+#'user/get-comments
+clj꞉user꞉> 
+(defn combine-comments-string-join [els]
+  (clojure.string/join " " (get-comments els)))
+#'user/combine-comments-string-join
+clj꞉user꞉> 
+(combine-comments-string-join [{"body" "jsj"} {"body" "jskj"}])
+"jsj jskj"
+clj꞉user꞉> 
+(combine-comments-string-join [{"body" "jsj"} {"body" "jskj"}])
+"jsj jskj"
+clj꞉user꞉> 
+(defn combine-comments-one-struct
+  [els]
+  (reduce (fn [acc item]
+            (let [comment (combine-comments-string-join (get item "comments"))]
+               (prn item)
+           ;;   (prn comment)
+
+              (->>
+               ;;here for each element we add a key comment where we write the comment
+               (assoc (conj {} (dissoc item "comments")) "comment" comment)
+               (conj acc))))
+          [] els))
+#'user/combine-comments-one-struct
+clj꞉user꞉> 
+helper-two
+[{"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9} {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}]
+clj꞉user꞉> 
+(combine-comments-one-struct helper-two)
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}
+[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comment" "hello its me"}]
+clj꞉user꞉> 
+(flatten '([1 2 3]) )
+(1 2 3)
+clj꞉user꞉> 
+(def final-comment-structs (flatten (map combine-comments-one-struct final-struct)))
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 1}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 2}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 3}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 4}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 5}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 6}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 7}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 9}
+; {"label" "Issue", "description" "Huston we have lift off", "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}], "id" 123}
+; {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 471}
+; {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 24}
+; {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 32}
+; {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 33}
+; {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 34}
+; {"label" "bug", "description" "Huston we have a problem", "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}], "id" 35}
+#'user/final-comment-structs
+clj꞉user꞉> 
+final-comment-structs
+({"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comment" "hello its me"} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comment" "hello its me"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 32, "comment" "I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 33, "comment" "I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 34, "comment" "I am hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 35, "comment" "I am hungry"})
+clj꞉user꞉> 
+(def final-struct-separated-ids (flatten (map separate-structs-one-id lables)))
+#'user/final-struct-separated-ids
+clj꞉user꞉> 
+final-struct-separated-ids
+({"label" "Issue", "description" "Huston we have lift off", "id" 1, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 3, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 4, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 5, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 6, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 7, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 9, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 123, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 32, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 33, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 34, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 35, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]})
+clj꞉user꞉> 
+sep
+[[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}] [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}] [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]
+clj꞉user꞉> 
+(one-combine-comments helper-three)
+{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]}
+clj꞉user꞉> 
+helper-three
+[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]
+clj꞉user꞉> 
+(defn one-combine-comments
+   [els]
+   (let [ comments (reduce (fn [acc item]
+                             (->>
+                              (assoc {} "body" (get item "comment"))
+                              (conj acc))
+                             ;; (prn (assoc {} "body" (get item "comment")))
+                             )
+                           [] els)]
+
+
+     
+     (->
+      (first els)
+      (dissoc  "comment")
+      (assoc  "comments" comments)
+      ))
+
+   )
+#'user/one-combine-comments
+clj꞉user꞉> 
+(map one-combine-comments sep)
+({"label" "Issue", "description" "Huston we have lift off", "id" 1, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comments" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comments" [{"body" "I"} {"body" "am"} {"body" "hungry"}]})
+clj꞉user꞉> 
+(flatten [[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"}
+                     {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"}
+                     {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]
+                    [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"}
+                     {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"}
+                     {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]
+                    [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"}
+                     {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"}
+                     {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]
+                    [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"}
+                     {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"}
+                     {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]])
+'({"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"})
+clj꞉user꞉> 
+'({"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"})
+({"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"})
+clj꞉user꞉> 
+(clojure.pprint/pprint (flatten [[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"}
+                     {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"}
+                     {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]
+                    [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"}
+                     {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"}
+                     {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]
+                    [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"}
+                     {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"}
+                     {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]
+                    [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"}
+                     {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"}
+                     {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]))
+; ({"label" "Issue",
+;   "description" "Huston we have lift off",
+;   "id" 1,
+;   "comment" "hello"}
+;  {"label" "Issue",
+;   "description" "Huston we have lift off",
+;   "id" 1,
+;   "comment" "its"}
+;  {"label" "Issue",
+;   "description" "Huston we have lift off",
+;   "id" 1,
+;   "comment" "me"}
+;  {"label" "Issue",
+;   "description" "Huston we have lift off",
+;   "id" 2,
+;   "comment" "hello"}
+;  {"label" "Issue",
+;   "description" "Huston we have lift off",
+;   "id" 2,
+;   "comment" "its"}
+;  {"label" "Issue",
+;   "description" "Huston we have lift off",
+;   "id" 2,
+;   "comment" "me"}
+;  {"label" "bug",
+;   "description" "Huston we have a problem",
+;   "id" 471,
+;   "comment" "I"}
+;  {"label" "bug",
+;   "description" "Huston we have a problem",
+;   "id" 471,
+;   "comment" "am"}
+;  {"label" "bug",
+;   "description" "Huston we have a problem",
+;   "id" 471,
+;   "comment" "hungry"}
+;  {"label" "bug",
+;   "description" "Huston we have a problem",
+;   "id" 24,
+;   "comment" "I"}
+;  {"label" "bug",
+;   "description" "Huston we have a problem",
+;   "id" 24,
+;   "comment" "am"}
+;  {"label" "bug",
+;   "description" "Huston we have a problem",
+;   "id" 24,
+;   "comment" "hungry"})
+nil
+clj꞉user꞉> 
+(group-by #(get % "id") sep1)
+; Syntax error compiling at (c:\ZigiWaveOnboarding\Clojure-introduction\onboarding\src\onboarding\zad2.clj:256:1).
+; Unable to resolve symbol: sep1 in this context
+clj꞉user꞉> 
+(def sep1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"}
+            {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"}
+            {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}
+            {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"}
+            {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"}
+            {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}
+            {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"}
+            {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"}
+            {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}
+            {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"}
+            {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"}
+            {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}])
+#'user/sep1
+clj꞉user꞉> 
+(group-by #(get % "id") sep1)
+{1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}], 2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}], 471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}], 24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]}
+clj꞉user꞉> 
+(group-by #(get % "id") sep1)
+{1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}], 2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}], 471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}], 24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]}
+clj꞉user꞉> 
+(def grouped-data (group-by #(get % "id") sep1))
+#'user/grouped-data
+clj꞉user꞉> 
+grouped-data
+{1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}], 2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}], 471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}], 24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]}
+clj꞉user꞉> 
+(def grouped-data (group-by #(get % "id") sep1))
+#'user/grouped-data
+clj꞉user꞉> 
+grouped-data
+{1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}], 2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}], 471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}], 24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]}
+clj꞉user꞉> 
+(def helper-four (first grouped-data))
+#'user/helper-four
+clj꞉user꞉> 
+helper-four
+[1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]]
+clj꞉user꞉> 
+(def helper-four (vals (first grouped-data)))
+#'user/helper-four
+clj꞉user꞉> 
+helper-four
+; Error printing return value (ClassCastException) at clojure.lang.APersistentMap$ValSeq/first (APersistentMap.java:239).
+; class java.lang.Long cannot be cast to class java.util.Map$Entry (java.lang.Long and java.util.Map$Entry are in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+(def helper-four (vals (first grouped-data)))
+#'user/helper-four
+clj꞉user꞉> 
+helper-four
+; Error printing return value (ClassCastException) at clojure.lang.APersistentMap$ValSeq/first (APersistentMap.java:239).
+; class java.lang.Long cannot be cast to class java.util.Map$Entry (java.lang.Long and java.util.Map$Entry are in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+(vals {:a 2})
+(2)
+clj꞉user꞉> 
+grouped-data
+{1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}], 2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}], 471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}], 24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]}
+clj꞉user꞉> 
+(vals grouped-data)
+([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}] [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}] [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}])
+clj꞉user꞉> 
+(vals (first grouped-data))
+; Error printing return value (ClassCastException) at clojure.lang.APersistentMap$ValSeq/first (APersistentMap.java:239).
+; class java.lang.Long cannot be cast to class java.util.Map$Entry (java.lang.Long and java.util.Map$Entry are in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+(def grouped-data (group-by #(get % "id") sep1))
+#'user/grouped-data
+clj꞉user꞉> 
+(defn format-data[els]
+  (reduce (fn [acc item]
+            (conj acc (vals item))
+            )
+          [] els))
+#'user/format-data
+clj꞉user꞉> 
+(format-data grouped-data)
+; Error printing return value (ClassCastException) at clojure.lang.APersistentMap$ValSeq/first (APersistentMap.java:239).
+; class java.lang.Long cannot be cast to class java.util.Map$Entry (java.lang.Long and java.util.Map$Entry are in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+(defn format-data[els]
+  (reduce (fn [acc item]
+            (conj acc (vals item))
+            )
+          [] els))
+#'user/format-data
+clj꞉user꞉> 
+(def grouped-data (group-by #(get % "id") sep1))
+#'user/grouped-data
+clj꞉user꞉> 
+(defn format-data[els]
+  (reduce (fn [acc item]
+            (conj acc (vals item))
+            )
+          [] els))
+#'user/format-data
+clj꞉user꞉> 
+(defn format-data[els]
+  (reduce (fn [acc item]
+            (prn item)
+            (conj acc (vals item))
+            )
+          [] els))
+#'user/format-data
+clj꞉user꞉> 
+(format-data grouped-data)
+; [1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]]
+; [2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]]
+; [471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]]
+; [24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]
+; Error printing return value (ClassCastException) at clojure.lang.APersistentMap$ValSeq/first (APersistentMap.java:239).
+; class java.lang.Long cannot be cast to class java.util.Map$Entry (java.lang.Long and java.util.Map$Entry are in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+(defn format-data[els]
+  (reduce (fn [acc item]
+            (prn item)
+            (conj acc (second item))
+            )
+          [] els))
+#'user/format-data
+clj꞉user꞉> 
+(format-data grouped-data)
+; [1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]]
+; [2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]]
+; [471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]]
+; [24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]
+[[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}] [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}] [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]
+clj꞉user꞉> 
+format-data
+#function[user/format-data]
+clj꞉user꞉> 
+(def formatted-data (format-data grouped-data))
+; [1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]]
+; [2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]]
+; [471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]]
+; [24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]
+#'user/formatted-data
+clj꞉user꞉> 
+formatted-data
+[[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}] [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}] [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]
+clj꞉user꞉> 
+(defn combine-body-comments
+  [els]
+  (reduce (fn [acc item]
+            (conj acc {"body" (get item "comment")})
+            )
+          [] els
+          )
   )
-#'onboarding.example/flattenSeq
-clj꞉onboarding.example꞉> 
-(flattenSeq [[1 2 3] [ 2 3 4 5]])
-[1 2 3 2 3 4 5]
-clj꞉onboarding.example꞉> 
-(flattenSeq '((1 2 3) [ 1 2]))
-[1 2 3 1 2]
-clj꞉onboarding.example꞉> 
-(flattenSeq '((1 2 3) 7 [ 1 2]))
-; Execution error (IllegalArgumentException) at onboarding.example/flattenSeq (REPL:309).
-; Don't know how to create ISeq from: java.lang.Long
-clj꞉onboarding.example꞉> 
-; nREPL connection failed: Error: read ECONNRESET
-; Failed connecting.
-; nREPL Connection was closed
+#'user/combine-body-comments
+clj꞉user꞉> 
+(combine-body-comments (first formatted-data))
+[{"body" "hello"} {"body" "its"} {"body" "me"}]
+clj꞉user꞉> 
+(defn combine-comments-from-grouped-data
+  [els]
+  (reduce (fn [acc item]
+            (let [comments (combine-body-comments item)]
+              (->>
+               (assoc item "comment" comments)
+               (conj acc))))[] els))
+#'user/combine-comments-from-grouped-data
+clj꞉user꞉> 
+(map combine-comments-from-grouped-data formatted-data)
+([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]}] [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]}] [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]}])
+clj꞉user꞉> 
+(combine-body-comments (first formatted-data))
+[{"body" "hello"} {"body" "its"} {"body" "me"}]
+clj꞉user꞉> 
+(combine-body-comments (first formatted-data))
+[{"body" "hello"} {"body" "its"} {"body" "me"}]
+clj꞉user꞉> 
+(map combine-comments-from-grouped-data formatted-data)
+([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]}] [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]}] [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]}])
+clj꞉user꞉> 
+(defn combine-comments-from-grouped-data
+  [els]
+  (reduce (fn [acc item]
+            (let [comments (combine-body-comments item)]
+              (prn comments)
+              (->>
+               (assoc item "comment" comments)
+               (conj acc)))) [] els))
+#'user/combine-comments-from-grouped-data
+clj꞉user꞉> 
+(map combine-comments-from-grouped-data formatted-data)
+; [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]
+; [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]
+; [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]
+; [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]
+; [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]
+; [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]
+; [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]
+; [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]
+; [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]
+; [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]
+; [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]
+; [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]
+([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]}] [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]}] [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" nil} {"body" nil} {"body" nil} {"body" nil}]}])
+clj꞉user꞉> 
+(combine-body-comments (first formatted-data))
+[{"body" "hello"} {"body" "its"} {"body" "me"}]
+clj꞉user꞉> 
+(defn combine-comments-from-grouped-data
+  [els]
+  (reduce (fn [acc item]
+            (let [comments (combine-body-comments els)]
+              (prn comments)
+              (->>
+               (assoc item "comment" comments)
+               (conj acc)))) [] els))
+#'user/combine-comments-from-grouped-data
+clj꞉user꞉> 
+(map combine-comments-from-grouped-data formatted-data)
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; [{"body" "hello"} {"body" "its"} {"body" "me"}]
+; [{"body" "I"} {"body" "am"} {"body" "hungry"}]
+; [{"body" "I"} {"body" "am"} {"body" "hungry"}]
+; [{"body" "I"} {"body" "am"} {"body" "hungry"}]
+; [{"body" "I"} {"body" "am"} {"body" "hungry"}]
+; [{"body" "I"} {"body" "am"} {"body" "hungry"}]
+; [{"body" "I"} {"body" "am"} {"body" "hungry"}]
+([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]}] [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]}] [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]}])
+clj꞉user꞉> 
+(defn combine-comments-from-grouped-data
+  [els] 
+  (let [comments (combine-body-comments els)]
+            ;;  (prn comments)
+               (assoc (first els) "comment" comments)
+  )
+)
+#'user/combine-comments-from-grouped-data
+clj꞉user꞉> 
+(map combine-comments-from-grouped-data formatted-data)
+({"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]})
+clj꞉user꞉> 
+(defn combine-comments-from-grouped-data
+  [each-group] 
+  (let [comments (combine-body-comments each-group)]
+            ;;  (prn comments)
+               (assoc (first each-group) "comment" comments)
+  )
+)
+#'user/combine-comments-from-grouped-data
+clj꞉user꞉> 
+(map combine-comments-from-grouped-data formatted-data)
+({"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]})
+clj꞉user꞉> 
+(def grouped-data (group-by #(get % "id") sep1))
+#'user/grouped-data
+clj꞉user꞉> 
+grouped-data
+{1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}], 2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}], 471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}], 24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]}
+clj꞉user꞉> 
+(defn format-data [els]
+  (reduce (fn [acc item]
+            (prn item)
+            (conj acc (second item)))
+          [] els))
+#'user/format-data
+clj꞉user꞉> 
+(def formatted-data (format-data grouped-data))
+; [1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]]
+; [2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]]
+; [471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]]
+; [24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]
+#'user/formatted-data
+clj꞉user꞉> 
+formatted-data
+[[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}] [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}] [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]
+clj꞉user꞉> 
+(map second grouped-data)
+([{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}] [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}] [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}] [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}])
+clj꞉user꞉> 
+(defn format-data [els]
+  (reduce (fn [acc item]
+            (prn item)
+            (conj acc (second item)))
+          [] els))
+#'user/format-data
+clj꞉user꞉> 
+(def formatted-data (format-data grouped-data))
+; [1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]]
+; [2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]]
+; [471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]]
+; [24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]
+#'user/formatted-data
+clj꞉user꞉> 
+(defn combine-body-comments
+  [els]
+  (reduce (fn [acc item]
+            (conj acc {"body" (get item "comment")}))
+          [] els))
+#'user/combine-body-comments
+clj꞉user꞉> 
+(defn combine-comments-from-grouped-data
+  [each-group]
+  (let [comments (combine-body-comments each-group)]
+    ;;  (prn comments)
+    (assoc (first each-group) "comment" comments)))
+#'user/combine-comments-from-grouped-data
+clj꞉user꞉> 
+(defn format-data [els]
+  (reduce (fn [acc item]
+            (prn item)
+            (conj acc (combine-comments-from-grouped-data (second item)))
+  )[] els))
+#'user/format-data
+clj꞉user꞉> 
+(format-data grouped-data)
+; [1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]]
+; [2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]]
+; [471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]]
+; [24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]
+[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]}]
+clj꞉user꞉> 
+(format-data grouped-data)
+; [1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]]
+; [2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]]
+; [471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]]
+; [24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]
+[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]}]
+clj꞉user꞉> 
+(defn format-data [els]
+  (reduce (fn [acc item]
+            (prn item)
+            (->>
+             (second item)
+             (combine-comments-from-grouped-data)
+             (conj acc))
+         ;   (conj acc (combine-comments-from-grouped-data (second item)))
+  )[] els))
+#'user/format-data
+clj꞉user꞉> 
+(format-data grouped-data)
+; [1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]]
+; [2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]]
+; [471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]]
+; [24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]
+[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]}]
+clj꞉user꞉> 
+(defn format-data [els]
+  (reduce (fn [acc item]
+            (prn item)
+            (->>
+             (second item)
+             (combine-comments-from-grouped-data)
+             (conj acc))
+         ;   (conj acc (combine-comments-from-grouped-data (second item)))
+  )[] els))
+#'user/format-data
+clj꞉user꞉> 
+(format-data grouped-data)
+; [1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]]
+; [2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]]
+; [471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]]
+; [24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]]
+[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" [{"body" "hello"} {"body" "its"} {"body" "me"}]} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" [{"body" "I"} {"body" "am"} {"body" "hungry"}]}]
+clj꞉user꞉> 
+(defn unique-keys[els key]
+  (reduce (fn [acc item]
+            (conj acc (get item key)))
+          #{} els))
+#'user/unique-keys
+clj꞉user꞉> 
+(unique-keys sep1 "id")
+#{1 24 471 2}
+clj꞉user꞉> 
+(defn get-items-behind-val [els key val]
+  (reduce (fn [acc item]
+            (if (= (get item key) val)
+              (conj acc item)
+              acc)) [] els))
+#'user/get-items-behind-val
+clj꞉user꞉> 
+(get-items-behind-val sep1 "id" 1)
+[{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]
+clj꞉user꞉> 
+(defn grouping [unique-keys key els]
+  (reduce (fn [acc item]
+            (conj acc [item (get-items-behind-val els key item)]))
+          [] unique-keys))
+#'user/grouping
+clj꞉user꞉> 
+(grouping (unique-keys sep1 "id") "id" sep1)
+[[1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]] [24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]] [471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]] [2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]]]
+clj꞉user꞉> 
+(defn grouping [unique-keys key els]
+  (reduce (fn [acc item]
+            (conj acc [item (get-items-behind-val els key item)]))
+          [] unique-keys))
+#'user/grouping
+clj꞉user꞉> 
+(grouping (unique-keys sep1 "id") "id" sep1)
+[[1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]] [24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]] [471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]] [2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]]]
+clj꞉user꞉> 
+(defn grouping [key els]
+  (let [unique-keys (reduce (fn [acc item]
+                              (conj acc (get item key)))
+                            #{} els)]
+  (reduce (fn [acc item]
+            (conj acc [item (get-items-behind-val els key item)]))
+          [] unique-keys))
+    )
+#'user/grouping
+clj꞉user꞉> 
+(grouping "id" sep1)
+[[1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]] [24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]] [471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]] [2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]]]
+clj꞉user꞉> 
+(defn grouping [key els]
+  (let [unique-keys (reduce (fn [acc item]
+                              (->> 
+                               (get item key)
+                               (conj acc)))
+                            #{} els)]
+  (reduce (fn [acc item]
+            (conj acc [item (get-items-behind-val els key item)]))
+          [] unique-keys))
+    )
+#'user/grouping
+clj꞉user꞉> 
+(grouping "id" sep1)
+[[1 [{"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 1, "comment" "me"}]] [24 [{"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 24, "comment" "hungry"}]] [471 [{"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "I"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "am"} {"label" "bug", "description" "Huston we have a problem", "id" 471, "comment" "hungry"}]] [2 [{"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "hello"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "its"} {"label" "Issue", "description" "Huston we have lift off", "id" 2, "comment" "me"}]]]
+clj꞉user꞉> 

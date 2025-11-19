@@ -72,7 +72,7 @@ filteredGames
 
 
 all-games
-;;zad 1 [{.....}{.....}]
+;;zad 1 [{.....} {.....}]
 (defn filteredGamesBetter
   [els]
   (reduce (fn [acc item]
@@ -82,31 +82,108 @@ all-games
 (def newGames (filteredGamesBetter all-games))
 ;;zad 3 
 newGames
+(defn convert-in-map 
+  [els]
+  (reduce (fn [acc item]
+            (into acc item))
+          {} els))
+(def NEW-GAMES (convert-in-map newGames))
+NEW-GAMES
+
 (defn sumHours [els]
   (reduce (fn [acc item]
             (merge-with + acc item))
+          
           (first els) (rest els)))
 
+(defn sumHours2 [els]
+  (reduce (fn [acc item]
+            ;;refactor with assoc
+            (merge-with + acc item))
+          {} els))
+
+newGames
 (def FINAL-GAMES (sumHours newGames))
 FINAL-GAMES
+
+
+
+(assoc {:a 2} :a 4)
+
+(defn sumHoursAssoc
+  [els]
+  (reduce (fn [acc item];;tuk
+            (let [key (first item) points (second item)];destructure in func args 
+              (assoc acc key (+ (or (get acc key) 0) points))
+                 ;(prn (key points))
+              ;;   )
+              
+              )) {} els))
+
+NEW-GAMES
+(sumHoursAssoc NEW-GAMES)
 
 (first (vals {:a 1}))
 
 (filter (fn [item]
           (prn item)) FINAL-GAMES)
 
-(filter (fn [item]
-          (> (second item) 150)) FINAL-GAMES)
+;;into map {...}
+;;converting into a map
+(def finalFilterdGames (filter (fn [item]
+          (> (second item) 150)) FINAL-GAMES))
+finalFilterdGames
 
+(defn map-conversion[els]
+  (reduce (fn [acc item]
+            (assoc acc (first item) (second item))) {} els))
+
+(def FINAL-FINAL-GAMES (map-conversion finalFilterdGames))
+FINAL-FINAL-GAMES
+
+(defn unpack-final-games
+  [els]
+  (reduce (fn [acc item]
+            (into acc item))
+          [] els))
+
+(def filtered-games-one (unpack-final-games finalFilterdGames))
+filtered-games-one
 
 
 ;;zad 2 {..............}
+
 (defn GamesUnion [els]
   (reduce (fn [acc item]
             (into acc item))
           {} els))
-(def finalGames (GamesUnion newGames))
 
+(def finalGames (GamesUnion newGames))
 finalGames
 
 
+;;find least popular games - we will get the game with the fewest TimePlayed
+
+(defn find-least-popular-game
+  [els]
+  (reduce (fn [acc item]
+           ; (prn item))
+            (let [hours (second item)]
+              (if (> acc hours)
+                hours
+                acc)
+              )) (second (first els)) els))
+
+(find-least-popular-game FINAL-FINAL-GAMES)
+
+;;find the name of the least popular game
+(defn find-least-popular-game-with-name
+  [els]
+  (reduce (fn [acc item]
+           ; (prn item))
+            (let [hours (second item) hoursmin (second acc)]
+              (if (> hoursmin hours)
+                item
+                acc)))  (first els) els))
+
+(find-least-popular-game-with-name FINAL-FINAL-GAMES)

@@ -122,9 +122,9 @@ gamesFinal
 (gamesOver150 players)
 
 ;; find the cheapest game----------------------------------------------------------------------------------------------------------------------
-(def gameCol (let [ownedGames  #(get % "ownedGames")] (mapcat ownedGames players)))
+
 ;;i just changed ownedGames = #(get % "ownedGames")
-gameCol
+
 ;;first I define a new collection, because it will be easier to compare the prices if i create a new list
 ;;consisting only of the ownedGames
 (defn findCheapestGame
@@ -138,7 +138,9 @@ gameCol
                                 (first remaining);;else firts remainig has a lower price and we pass it
                                 )))))
 ;;here in the recur func we pass the rest of the remaining and if
-(findCheapestGame gameCol)
+(defn find-oldest-high-order
+  [els]
+  )
 ;; find the total playtime of each person-------------------------------------------------------------------------------------------------------
 ;;first we take map and then we get the key - (map key)
 (def hoursPerGamer (map
