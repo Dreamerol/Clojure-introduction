@@ -217,7 +217,7 @@ helper-three
 
 
 
-(defn lol [x]
+(defn lol [x] grouped-data
   (def y 7)
   (+ x y))
 
@@ -274,16 +274,16 @@ grouped-data
     ;;  (prn comments)
     (assoc (first each-group) "comment" comments)))
 
-
 (defn format-data [els]
   (reduce (fn [acc item]
             (prn item)
-            (->>
-             (second item)
-             (combine-comments-from-grouped-data)
-             (conj acc))
+            (->> item
+                 ;;ako ne podavam argumenti nqmam nujda ot skobi
+                 combine-comments-from-grouped-data
+                 ;;kato podavam dopylnitelen argument imam nujda ot skobi
+                 (conj acc))
          ;   (conj acc (combine-comments-from-grouped-data (second item)))
-  )[] els))
+            )[] (vals els)))
 
 
 (format-data grouped-data)
@@ -311,16 +311,16 @@ formatted-data
               (conj acc item)
               acc)) [] els))
 
+
 (defn grouping [key els]
   (let [unique-keys (reduce (fn [acc item]
-                              (->> 
+                              (->>
                                (get item key)
                                (conj acc)))
                             #{} els)]
-  (reduce (fn [acc item]
-            (conj acc [item (get-items-behind-val els key item)]))
-          [] unique-keys))
-    )
+    (reduce (fn [acc item]
+              (conj acc [item (get-items-behind-val els key item)]))
+            [] unique-keys)))
 
 
 (grouping "id" sep1)

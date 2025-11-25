@@ -115,6 +115,8 @@
 
 (prn 2)
 ;;calculating pow
+;;po-optimalno ot strana na pamet
+;;reduce - dopylnitelna pamet
 (defn pow [num n]
   (loop [acc 1 times n]
     (if (zero? times) acc
@@ -134,13 +136,24 @@
 
 (calculate-factorial 5)
 
-;;calculating exp = 1 + x/1! + x/2!.... to the nth number
+;;calculating exp = 1 + x/1! + x^2/2!.... to the nth number
 (defn calculate-exp [x]
   (loop [acc 0 times 10]
     (if (zero? times) acc
+        ;macro!!!!!!
         (recur (+ (/ (pow x times) (calculate-factorial times)) acc) (- times 1)))))
 
-(calculate-exp 11)
+(defn calculate-exp-with-macro [x]
+  (loop [acc 0 times 10]
+    (if (zero? times) acc
+        ;macro!!!!!!
+        (recur (+ (->
+                   (pow x times)
+                   (/ (calculate-factorial times)))
+                  acc)
+               (- times 1)))))
+
+(calculate-exp-with-macro 11)
 
 ;https://www.hackerrank.com/challenges/string-o-permute/problem?isFullScreen=true-link kym zadacha
 ;;swapping characters which are next to each other - abcd -> badc
@@ -150,7 +163,8 @@
     (loop [acc "" col1 second-els col2 els]
       (if (empty? col1)
         (str acc (first col2))
-        (recur (str acc (first col1) (first col2)) (rest col1) (rest (rest col2)))))))
+        ;;rest rest->drop n/last , macro!
+        (recur (str acc (first col1) (first col2)) (rest col1) (drop 2 col2))))))
 
 (first [])
 (swap-nbs "abcdfge")
@@ -189,6 +203,7 @@
 ;;find perimeter of polygon
 (defn helper-len-func [x y]
   (pow (- x y) 2))
+
 (helper-len-func 2 5)
 (defn helper-len-func-with-pred [fn p1 p2]
   (helper-len-func (fn p1) (fn p2)))
@@ -214,6 +229,7 @@
 ;;                       | y1 y2 |   | y2 y3 |.......
 ;
 (defn helper-determinants [point1 point2]
+  ;;let x1,x2....
   (- (->
       (first point1)
       (* (second point2)))
@@ -221,14 +237,24 @@
       (first point2)
       (* (second point1)))))
 
+(defn helper-determinants-better [point1 point2]
+  ;;let x1,x2...
+  (let [x1 (first point1) x2 (first point2) y1 (second point1) y2 (second point2)]
+    (- (* x1 y2) (* x2 y1))))
+
+(helper-determinants-better [0 1] [1 2])
+
+
 (helper-determinants [1 1] [2 2])
 (defn area-of-polygon
   [els]
   (let [helper-polygon (conj els (first els))]
-    (loop [acc 0 prev (first helper-polygon) curr (second helper-polygon) col (rest helper-polygon)]
+    (loop [acc 0 prev (first helper-polygon) curr (second helper-polygon) col (drop 2 helper-polygon)]
       (if (empty? col)
         (* 1/2 acc)
-        (recur (+ acc (helper-determinants prev curr)) curr (first (rest col)) (rest col))))))
+        ;;nth -> second
+        (recur (+ acc (helper-determinants prev curr)) curr (first col) (rest col))))))
+
 ;;calculate the area of the polygon
 (area-of-polygon [[1 2] [2 3] [0 0]])
 
@@ -237,6 +263,9 @@
 ;;task string mingling -> combining two strings into one P = p1p2p3 and Q = q1q2q3 -> p1q1p2q2p3q3
 ;;strings with equal length
 
+;;use regex!!!
+;;???
+(string/split "agaga" #".")
 (defn string-mingling [s1 s2]
   (loop [acc "" string1 s1 string2 s2]
     (if (empty? string1)
@@ -246,11 +275,16 @@
 
 (string-mingling "abscdf" "qwerty")
 
+
+(partition-by (fn [arg]
+                (subs arg 0 1)) "abcdf")
+
 ;;lets make the task more interesting -> what if the two strings are with different lengths
 (defn string-mingling-advanced [s1 s2]
   (loop [acc "" string1 s1 string2 s2]
     (if (empty? string1)
       ;; (do 
+
       (loop [help-acc acc help-string2 string2]
         (if (empty? help-string2) help-acc
             (recur (format "%s%s" help-acc (first help-string2)) (rest help-string2))))
@@ -445,15 +479,16 @@
 ;;function checking on each iteration whether count of color1 - color2 > 1
 ;;helper func1 to check for two colors if abs(col1 - col2) > 1
 (def count-colors {"R" 0 "G" 0 "B" 0 "Y" 0})
+
+;;helper func that returns whether the count of color1 - color2 > 1
 (defn helper-func-calc-colors [map color1 color2]
-  (if (> (abs (- (get map color1) (get map color2))) 1) 
-    false 
+  (if (> (abs (- (get map color1) (get map color2))) 1)
     true
-  )
-)
+    false))
 
 (helper-func-calc-colors {"R" 5 "G" 2 "Y" 0 "B" 0} "R" "G")
 
+;;if two of the colors have a diff count > 1 than we return false -> invalid string
 (defn help-func-counting-preffix [map col1 col2 col3 col4]
   (if (helper-func-calc-colors map col1 col2)
     false
@@ -461,23 +496,89 @@
       false
       true)))
 
-(help-func-counting-preffix {"R" 5 "G" 2 "Y" 0 "B" 0} "R" "G" "Y" "B")
+(help-func-counting-preffix {"R" 0 "G" 2 "Y" 0 "B" 0} "R" "G" "Y" "B")
+
+;; (defn find-count-colors [els]
+;;   (reduce (fn [acc item]
+;;             (prn (str item))
+;;             (let [key (str item)]
+;;               (if (help-func-counting-preffix acc "R" "G" "Y" "B")
+;;                 false
+;;                 true
+;;              ;; (assoc acc key (+ (get acc key) 1))
+;;                 )
+;;              ;; (if (> (get acc "R") 1) false true)
+;;               ;;(assoc acc "Red" 1)
+;;               ;; (if (help-func-counting-preffix acc "Y" "B" "R" "G")
+;;               ;;   false
+;;               ;;   true))
+;;               )
+;;             )
+;;           count-colors els)
+  
+  
+;;   )
+
+;; (help-func-counting-preffix {"R" 2 "G" 0 "B" 0 "Y" 0} "R" "G" "Y" "B")
+
+;; (defn find-count-colors [els]
+;;   (loop [acc count-colors remaining els] 
+;;             (let [key (str (first remaining))]
+;;               (if (empty? remaining) 
+;;                 (if (= (get acc "R") (get acc "G")) 
+;;                   (if (= (get acc "Y") (get acc "B"))
+;;                     true
+;;                     (prn acc))
+;;                   false)
+;;                 (if (help-func-counting-preffix acc "R" "G" "Y" "B")
+;;                   acc
+;;                   (recur (assoc acc key (+ (get acc key) 1)) (rest remaining))
+;;                 )
+;;           )
+;; )
+;;   )
+
+;;final working version
 (defn find-count-colors [els]
-  (reduce (fn [acc item]
-            (prn (str item))
-            (let [key (str item)]
-              (assoc acc key (+ (get acc key) 1))
-              ;;(assoc acc "Red" 1)
-              (if (help-func-counting-preffix acc "Y" "B" "R" "G")
-                false
-                true
-                )
-              )
-          
-          )
-          count-colors els
-          
+  (loop [acc count-colors remaining els]
+    (let [key (str (first remaining))]
+      (if (empty? remaining)
+        ;;in the end we check if the red ones = count of green ones
+        ;;and if count yellow = count blue ones 
+        (if (= (get acc "R") (get acc "G"))
+          (if (= (get acc "Y") (get acc "B"))
+            true false)
+          false)
+        (if (help-func-counting-preffix acc "R" "G" "Y" "B")
+          ;;if the func returns true -> that means that it is a valid prefix 
+          ;;so we perceed with the iterations
+        (recur (assoc acc key (+ (get acc key) 1)) (rest remaining))
+          false)
+        )
+      )
+    )
+)
+
+(find-count-colors "RGBY")
+
+;;Pentagonal numbers
+;;https://www.hackerrank.com/challenges/pentagonal-numbers/problem?isFullScreen=true
+;;find the count of the dots in a pentagon
+;;formula P(n) = n *(3n-1)/2
+
+(defn calculate-formula[n]
+  (->
+   (* 3 n)
+   (- 1)
+   (* n)
+   (/ 2)
+   ;;(* n (- (* 3 n) 1))
 )
 )
 
-(find-count-colors "RRRRRG")
+(defn print-N-pentagon-numbers[n]
+  (doseq [x (range n)]
+    (prn (calculate-formula x))))
+
+(print-N-pentagon-numbers 5)
+
