@@ -476,27 +476,67 @@
 ;; Y B
 ;; G R
 
+;;RRRG
+;;RGBY
 ;;function checking on each iteration whether count of color1 - color2 > 1
 ;;helper func1 to check for two colors if abs(col1 - col2) > 1
 (def count-colors {"R" 0 "G" 0 "B" 0 "Y" 0})
 
 ;;helper func that returns whether the count of color1 - color2 > 1
-(defn helper-func-calc-colors [map color1 color2]
-  (if (> (abs (- (get map color1) (get map color2))) 1)
-    true
-    false))
-
-(helper-func-calc-colors {"R" 5 "G" 2 "Y" 0 "B" 0} "R" "G")
+;;valid names !
 
 ;;if two of the colors have a diff count > 1 than we return false -> invalid string
-(defn help-func-counting-preffix [map col1 col2 col3 col4]
-  (if (helper-func-calc-colors map col1 col2)
-    false
-    (if (helper-func-calc-colors map col3 col4)
-      false
-      true)))
+;; (defn help-func-counting-preffix [map col1 col2 col3 col4]
+;;   ;;and!!!!
+;;   (and)
+;;   (if (helper-func-calc-colors map col1 col2)
+;;     false
+;;    ;; (if 
+;;      (not (helper-func-calc-colors map col3 col4))
+;;       ;; false
+;;       ;; true)
+;;     ))
 
-(help-func-counting-preffix {"R" 0 "G" 2 "Y" 0 "B" 0} "R" "G" "Y" "B")
+;;FINAL IMPROVED WORKING VERSION!!!
+(defn validate-for-two-colors [map color1 color2]
+  (< (abs (- (get map color1) (get map color2))) 2))
+
+(validate-for-two-colors {"R" 5 "G" 2 "Y" 0 "B" 0} "R" "G")
+(defn validate-all-colors [mp col1 col2 col3 col4]
+  (and (validate-for-two-colors mp col1 col2) (validate-for-two-colors mp col3 col4)))
+
+
+
+(validate-all-colors {"R" 0 "G" 0 "Y" 0 "B" 0} "R" "G" "Y" "B")
+
+(defn validate-string-colors [els]
+  (loop [acc count-colors remaining els]
+    (let [key (str (first remaining))]
+      (if (empty? remaining)
+        (cond
+          (not (= (get acc "R") (get acc "G"))) false
+          (not (= (get acc "Y") (get acc "B"))) false
+          :else true)
+
+        (cond
+          (validate-all-colors acc "R" "G" "Y" "B") (recur (assoc acc key (+ (get acc key) 1)) (rest remaining))
+          :else false)))))
+
+(validate-string-colors "RRRRRGBY")
+;; (if (empty? remaining)
+
+;;   (if (= (get acc "R") (get acc "G"))
+
+;;     (= (get acc "Y") (get acc "B"))
+;; (cond
+;;   (not (empty? remaining))
+;;   (= (get acc "R") (get acc "G")) 
+;;   )
+
+;;     false)
+;;   (if (validate-all-colors acc "R" "G" "Y" "B") 
+;;     (recur (assoc acc key (+ (get acc key) 1)) (rest remaining))
+;;     false)))))
 
 ;; (defn find-count-colors [els]
 ;;   (reduce (fn [acc item]
@@ -515,8 +555,8 @@
 ;;               )
 ;;             )
 ;;           count-colors els)
-  
-  
+
+
 ;;   )
 
 ;; (help-func-counting-preffix {"R" 2 "G" 0 "B" 0 "Y" 0} "R" "G" "Y" "B")
@@ -546,39 +586,122 @@
         ;;in the end we check if the red ones = count of green ones
         ;;and if count yellow = count blue ones 
         (if (= (get acc "R") (get acc "G"))
-          (if (= (get acc "Y") (get acc "B"))
-            true false)
+          ;;  (if
+          (= (get acc "Y") (get acc "B"))
+          ;; true false)
           false)
-        (if (help-func-counting-preffix acc "R" "G" "Y" "B")
+        (if (validate-all-colors acc "R" "G" "Y" "B")
           ;;if the func returns true -> that means that it is a valid prefix 
           ;;so we perceed with the iterations
-        (recur (assoc acc key (+ (get acc key) 1)) (rest remaining))
-          false)
-        )
-      )
-    )
-)
-
-(find-count-colors "RGBY")
+          (recur (assoc acc key (+ (get acc key) 1)) (rest remaining))
+          false)))))
+;;cond func
+;RRRG
+(find-count-colors "RRRRRGBY")
 
 ;;Pentagonal numbers
 ;;https://www.hackerrank.com/challenges/pentagonal-numbers/problem?isFullScreen=true
 ;;find the count of the dots in a pentagon
 ;;formula P(n) = n *(3n-1)/2
 
-(defn calculate-formula[n]
+(defn calculate-formula [n]
   (->
    (* 3 n)
    (- 1)
    (* n)
    (/ 2)
    ;;(* n (- (* 3 n) 1))
-)
-)
+   ))
 
-(defn print-N-pentagon-numbers[n]
+(defn print-N-pentagon-numbers [n]
   (doseq [x (range n)]
     (prn (calculate-formula x))))
 
 (print-N-pentagon-numbers 5)
 
+;;zad - definite integral
+(defn power [x n]
+  (loop [acc 1 times n]
+    (if (= times 0) acc
+        (recur (* acc x) (- times 1)))))
+
+(power 2 4)
+
+(defn calculating-part-rhiman-sum [coeff powi x1 x2]
+  (let [pow (+ powi 1) final-coeff (/ coeff pow)]
+    (->
+     (power x2 pow)
+     (- (power x1 pow))
+     (* final-coeff)))
+  )
+
+(calculating-part-rhiman-sum 1 1 3 4)
+
+(defn calculate-area-under-curve [coeffs pows x1 x2]
+  (loop [acc 0 curr-coef (first coeffs) curr-pow (first pows) rem-coeffs coeffs rem-pows pows]
+    (if (empty? rem-coeffs)
+      acc
+      (recur (+ acc (calculating-part-rhiman-sum curr-coef curr-pow x1 x2))
+             (first (rest rem-coeffs)) 
+             (first (rest rem-pows)) 
+             (rest rem-coeffs)
+             (rest rem-pows))))
+ 
+  )
+
+
+(defn calculate-area-under-curve-high-order-functions[coeffs pows x1 x2]
+  (map (fn [coef powi] 
+         (calculating-part-rhiman-sum coef powi x1 x2)) 
+       coeffs pows))
+
+
+
+(calculate-area-under-curve [1 1 1] [1 1 1] 2 3)
+(map (fn [el1 el2]
+          (+ el1 el2)) [1 2 3] [4 5 6])
+
+
+;; (defn [coeffs pows x1 x2]
+;;   (map (fn [el1 el2 x1 x2]
+;;          (+ (* el1 x1) (* el2 x2))) coeffs pows)
+  
+;;   )
+;;
+
+;; (require '[clojure.math.combinatorics :as combinatorics])
+;; (defn generate-all-subsets[els]
+;;   ())
+
+;; (defn power-set[s]
+;;   (loop [[f & r] (seq s) p '(())]
+;;     (if f (recur r (concat p (map (partial cons f) p)))
+;;         p)
+;;     )
+;; )
+
+;;Function for generating all subsets
+(defn power-set[s]
+  (loop [[current & remaining] (seq s) p '(())]
+    (if current
+      (recur remaining (concat p (map (partial cons current) p)))
+      p)))
+
+;;function for finding the subsets with sum > bigger than S
+(defn find-subarrays-greater-than-S[els S]
+  (let [subarrays (power-set els)]
+  (loop [acc [] subs subarrays]
+    (let [current (first subs)]
+      (if (empty? subs)
+        acc
+      (if (> (reduce + current) S)
+        (recur (conj acc current) (rest subs))
+         (recur acc (rest subs))
+      )
+    ))
+  )
+  )
+)
+
+(power-set [1 2 3 4])
+(find-subarrays-greater-than-S [1 2 3 4] 4)
