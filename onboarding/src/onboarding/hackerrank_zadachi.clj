@@ -705,3 +705,106 @@
 
 (power-set [1 2 3 4])
 (find-subarrays-greater-than-S [1 2 3 4] 4)
+
+;;zadachi - 28.11.2025 ------------------------------------------------------------------------------------------------------------------------------
+(defn convert-into-map [els]
+  (reduce (fn [acc item] 
+             (assoc acc item (-> (get acc item)
+                                 (or 0)
+                                 (+ 1))
+                    ) 
+            )
+          {} els) 
+  )
+
+(def acc 9)
+(= acc 4)
+
+(convert-into-map [1 1 1 2 2 3])
+;; (defn is-element-in-there[coll key val]
+;;   (reduce (fn [acc item]
+;;             (let [k (first item) v (second item)]
+;;               (cond 
+;;                 (and (= key k) (= val v)) true)
+;;               ;;(and (= key k) (= val v))
+;;               )) false coll)
+;;)
+
+(defn is-element-in-there [coll key val]
+ (loop [remaining coll]
+   (let [current (first remaining) k (first current) v (second current)]
+     (cond 
+       (and (= k key) (= v val)) true
+       (empty? remaining) false
+     :else (recur (rest remaining))))
+
+   )
+     )
+
+;;chernova
+  ;;  (if (empty? remaining)
+  ;;  acc
+  ;;  )
+;;(+ (or (get acc item) 0) 1)
+ ;; (prn mp2)
+    ;; (reduce (fn [acc item]
+    
+    ;;           (prn item)
+    ;;           )[] mp1)
+  ;; (prn (is-element-in-there ))
+                 ;;   (prn val)
+                 ;; (prn acc)
+
+;;getting all the numbers that are in A but not in B
+(is-element-in-there {1 2, 3 4,5 6} 1 1)
+(defn get-missing-numbers
+  [els1 els2]
+  (let [mp1 (convert-into-map els1) mp2 (convert-into-map els2)] 
+    (reduce (fn [acc item] 
+               (let [key (first item) val (second item)] 
+                 (if (is-element-in-there mp2 key val)
+                   acc
+                   (conj acc key) 
+                   )
+                 
+                 ))
+               [] mp1
+               )
+    
+
+    )
+
+)
+(concat [1 2 3] [ 5 6 7 8])
+(get-missing-numbers [1 2 3 4 5] [6 7 8 1 2 2 3])
+(defn get-diff-subset
+  [mp1 mp2]
+  
+    (reduce (fn [acc item]
+              (let [key (first item) val (second item)]
+                (if (is-element-in-there mp2 key val)
+                  acc
+                  (conj acc key))))
+            [] mp1))
+
+(defn get-symmetric-difference[els1 els2]
+  (let [mp1 (convert-into-map els1) mp2 (convert-into-map els2)]
+    (set (concat (get-diff-subset mp1 mp2) (get-diff-subset mp2 mp1)))
+    
+    ))
+
+;;i create a set with the symmetric difference from tha A and B into a set
+(get-symmetric-difference [1 2 3 4 5] [2 2 3 4])
+
+;;finding all the permutations
+(defn permutations [s]
+  ;;(lazy-seq 
+   (if (seq (rest s))
+     (apply concat (for [x s]
+                     (map #(cons x %) (permutations (remove #{x} s)))))
+     [s]
+     )
+   ;;)
+  )
+
+(permutations [1 2 4 3])
