@@ -1,7 +1,7 @@
 ;;zadachi - 20.11.2025
+(ns onboarding.hackerrank-zadachi)
 ;;1
 ;Print hello n times
-
 (defn hello_word_n_times [n]
   (doseq [x (range n)]
     (prn "Hello World")))
@@ -29,7 +29,6 @@
   (take-nth 2 els))
 
 (remove-els-odd-pos-nth [1 2 3 4 5])
-
 
 (defn string-compression
   [els]
@@ -707,7 +706,7 @@
 (find-subarrays-greater-than-S [1 2 3 4] 4)
 
 ;;zadachi - 28.11.2025 ------------------------------------------------------------------------------------------------------------------------------
-(defn convert-into-map [els]
+(defn convert-into-map-by-occurencies [els]
   (reduce (fn [acc item] 
              (assoc acc item (-> (get acc item)
                                  (or 0)
@@ -720,7 +719,7 @@
 (def acc 9)
 (= acc 4)
 
-(convert-into-map [1 1 1 2 2 3])
+(convert-into-map-by-occurencies [1 1 1 2 2 3])
 ;; (defn is-element-in-there[coll key val]
 ;;   (reduce (fn [acc item]
 ;;             (let [k (first item) v (second item)]
@@ -730,7 +729,10 @@
 ;;               )) false coll)
 ;;)
 
-(defn is-element-in-there [coll key val]
+2 3
+
+;;reduce->how to interrupt stop...
+(defn array-contains-occurencies-element [coll key val]
  (loop [remaining coll]
    (let [current (first remaining) k (first current) v (second current)]
      (cond 
@@ -740,6 +742,7 @@
 
    )
      )
+;;always
 
 ;;chernova
   ;;  (if (empty? remaining)
@@ -756,13 +759,13 @@
                  ;; (prn acc)
 
 ;;getting all the numbers that are in A but not in B
-(is-element-in-there {1 2, 3 4,5 6} 1 1)
+(array-contains-occurencies-element {1 2, 3 4,5 6} 1 1)
 (defn get-missing-numbers
   [els1 els2]
-  (let [mp1 (convert-into-map els1) mp2 (convert-into-map els2)] 
+  (let [mp1 (convert-into-map-by-occurencies els1) mp2 (convert-into-map-by-occurencies els2)] 
     (reduce (fn [acc item] 
                (let [key (first item) val (second item)] 
-                 (if (is-element-in-there mp2 key val)
+                 (if (array-contains-occurencies-element mp2 key val)
                    acc
                    (conj acc key) 
                    )
@@ -775,24 +778,34 @@
     )
 
 )
+;;[2 2 3 3 3] [2 3 3 3] -> 2
 (concat [1 2 3] [ 5 6 7 8])
 (get-missing-numbers [1 2 3 4 5] [6 7 8 1 2 2 3])
+
 (defn get-diff-subset
   [mp1 mp2]
   
     (reduce (fn [acc item]
               (let [key (first item) val (second item)]
-                (if (is-element-in-there mp2 key val)
+                (if (array-contains-occurencies-element mp2 key val)
                   acc
                   (conj acc key))))
             [] mp1))
 
 (defn get-symmetric-difference[els1 els2]
-  (let [mp1 (convert-into-map els1) mp2 (convert-into-map els2)]
+  (let [mp1 (convert-into-map-by-occurencies els1) mp2 (convert-into-map-by-occurencies els2)]
     (set (concat (get-diff-subset mp1 mp2) (get-diff-subset mp2 mp1)))
+    ;;macro
     
     ))
-
+;;with macro
+(defn get-symmetric-difference [els1 els2]
+  (let [mp1 (convert-into-map-by-occurencies els1) mp2 (convert-into-map-by-occurencies els2)]
+    ( -> (get-diff-subset mp1 mp2) 
+     (concat  (get-diff-subset mp2 mp1))
+         set)
+    ;;macro
+    ))
 ;;i create a set with the symmetric difference from tha A and B into a set
 (get-symmetric-difference [1 2 3 4 5] [2 2 3 4])
 
@@ -808,3 +821,212 @@
   )
 
 (permutations [1 2 4 3])
+
+(map + [1 2 3 4] [1 2 3])
+
+;;zadachi - 1.12.2025 -------------------------------------------------------------------------------------------------------------------------------------------------
+;;check for substring
+
+;;function to check whether the sliding window of chars is the same as the substring
+(defn sliding-window-check-string
+  [substring remaining]
+  (loop [res remaining substr substring]
+    
+    ;; (prn (first remaining))
+    (let [subch (first substr) strch (first res)]
+      (cond
+        
+        (empty? substr) true 
+        (not= subch strch)  false
+        :else (recur (rest res) (rest substr))
+        )) )
+)
+    (sliding-window-check-string "lop" "lopo")
+
+;;the main function for checking for substring
+(defn is-substring [string substring]
+     (if (< (count string) (count substring))
+       false
+         (loop [remaining string]
+           (cond
+             (empty? remaining) false
+             (sliding-window-check-string substring remaining) true
+             :else (recur (rest remaining))
+             )
+         )
+       
+         )
+)
+    (is-substring "computer" "dsiusiusgysygs")
+    
+    ;; (if (> (count substring) (count string)
+  ;;        false
+          ;;  (if (empty? remaining)
+          ;;    false
+          ;;    (sliding-window-check-string substring remaining)
+          ;;    )
+           ;; (do (map (fn [el1 el2]
+           ;;            (if (not= el1 el2)
+           ;;              false)) remaining substring)))
+           ;;(recur (rest remaining))
+           
+
+ 
+
+;; (isSubstr "ah" "ahah")
+
+;;task - superdigit 1234 -> 1 + 2 + 3 + 4 -> 10 -> 1 + 0 -> 1
+   (defn nums-to-collection-converter[number]
+     (map #(Character/getNumericValue %) (str number)))
+    
+    ;; (defn calculate-super-digit[number]
+    ;;   (if ( < (count (reduce + (nums-to-collection-converter number))) 10)
+    ;;     (reduce + (nums-to-collection-converter number))
+    ;;   (calculate-super-digit (reduce + (nums-to-collection-converter number))))
+    ;; )
+   
+     (defn calculate-super-digit [number]
+       (let [curr (reduce + (nums-to-collection-converter number))]
+         (if (< curr 10)
+           curr
+           ;;(prn curr)
+           (calculate-super-digit curr))
+         )
+       )
+      
+   (calculate-super-digit 256535)
+
+   ;;find greatest common divisor
+   (defn gcd [a b]
+     (if (= b 0)
+       a
+       (gcd b (mod a b)))
+   )
+     
+     (gcd 6 2)
+
+;;find least common delitel
+     (defn gcm[a b]
+       (->>
+        (gcd a b)
+        (/ a)
+        (* b)))
+   
+   (gcm 6 4)
+
+   (defn find-lcm-of-coll [els]
+     (reduce gcm els))
+   
+
+   (find-lcm-of-coll [1 2 3 4 58])
+     
+;;zad - reverse subarray list
+   (defn take-n [n els]
+   (take n els))
+   
+     ;;(if (> j i)
+   ;;els
+   ;;  (take i els)
+   ;;(take-n i els)
+   ;;)     
+;;(reduce into [1 2 3] [1 2] [3 4])
+  
+     ;;with this function we only revert the elements between i and j
+ (defn reverse-subarray [i j els]
+   (loop [remaining els acc '() cnt 0]
+     (if (> cnt (- j i))
+       acc
+       (recur (rest remaining) (conj acc (first remaining)) (+ cnt 1)))))
+   
+     (defn reverse-subarray-from-to [i j els] 
+   (cond 
+     (> i j) els
+     :else (into (into (into [] (take i els)) (reverse-subarray i j (drop i els))) (drop (+ j 1) els)))
+     )
+   
+;;here we combine all the different subarrays into an array
+   (defn reverse-subarray-with-macro[i j els]
+    (cond
+      (> i j) els
+      :else (-> (->>
+                 (take i els)
+                 (into []))
+                
+                (into (reverse-subarray i j (drop i els))) 
+               (into (drop (+ j 1) els))
+                )
+      ))
+     
+     (reverse-subarray-with-macro 2 4 [1 2 3 4 5 6])
+   
+   
+ (reverse-subarray-from-to 2 4 [1 2 3 4 5 6 7 8])
+ 
+ (take 2 [1 2 3 4 5]) 
+   
+ (drop 3 [1 2 3 5 ])
+ (reverse-subarray 2 6 [1 2 3 4 5 7 8])
+
+;; (defn get-from-j-els-to-end [j els]
+;;   (reduce (fn [acc item]
+;;             ())))
+   
+(partition 4 3 [1 2 3 4 5 7 8])
+
+   (take-n 2 [1 2 3])
+ (reverse-subarray-from-to 3 6 [1 2 3 4 5 7])
+   
+;;zadacha - determine whether a polygon is convex or concave
+
+;;chernova
+      ;;(
+   ;;(let [x1 (first point1) x2 (first point2) y1 (second point1) y2 (second point2)]
+    ;;  (map (fn [el1 el2]
+    ;;         (- el1 el2)) point1 point2)))
+     
+;;function to cenvert two points into vector
+     (defn convert-into-vector [point1 point2] 
+    (map - point2 point1) 
+)
+ ;;)
+ (map - [1 2 3] [4 5 6])
+ (convert-into-vector [1 2] [3 4])
+ (reduce * [1 2 3])
+   (->> (map * [1 2 3] [4 5 6]) (reduce +))
+
+(defn negative-angle [point1 point2 point3]
+  (let [col1 (convert-into-vector point1 point2) col2  (convert-into-vector point3 point1)
+    result (->> (map * col1 col2) (reduce +))]
+    (< result 0))
+  )
+     
+
+     (negative-angle [1 2] [1 3] [1 4])
+    
+(defn is-polygon-convex
+  [els]
+  (loop [remaining (-> (conj els (first els))
+                       (conj (second els))) prev (first els) curr (second els) next (second (rest els))]
+    
+    (cond 
+      (negative-angle prev curr next) false
+      (empty? (drop 2 els)) true
+      :else (do (prn prev)
+              (recur (rest remaining) curr next (second remaining)) 
+                )
+  )
+)
+)
+     
+(is-polygon-convex [[1 4] [1 3] [2 4]])
+;; (prn next)
+    ;; (if (empty? remaining)
+    ;;   true
+          ;;(prn curr)
+      ;; (if (negative-angle nil [0 1] [2 9])
+      ;;   ;; (prn (first els))
+      ;;   (recur (rest remaining) curr next (second remaining))
+      ;;   ))
+        ;;   )
+    
+    ;;   )
