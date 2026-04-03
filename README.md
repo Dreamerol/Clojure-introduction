@@ -24,3 +24,16 @@ All tasks are implemented in Clojure and focus on applying these principles to *
 
 ---
 
+## API Design and Data Transfer
+
+As part of this onboarding program, I have practiced **writing API descriptions and implementing functional interfaces** to handle **data transfer between systems**.  
+
+Key objectives:
+
+- Define **clear API specifications** for sending, receiving, and transforming data between applications.  
+- Use **functional programming principles** to implement **modular, reusable, and composable functions** for API endpoints.  
+- Ensure **data consistency and immutability** when processing and transferring information.  
+- Create **pipelines for data flow** using Clojure’s sequences, maps, and higher-order functions.  
+- Practice **error handling and validation** in a functional style to make APIs robust.  
+
+This approach allows you to **connect multiple systems reliably** while learning how FP concepts like pure functions, composition, and immutability improve API design and maintainability.
