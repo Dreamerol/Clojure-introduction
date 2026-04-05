@@ -1,5 +1,5 @@
 # 🌀 Functional Programming in Clojure
-### <p align="justify">
+## <p align="justify">
  *Mathematical and logical tasks performed with the Clojure functional language!*
 </p>
 
