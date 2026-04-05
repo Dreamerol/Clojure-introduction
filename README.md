@@ -1,7 +1,7 @@
 # 🌀 Functional Programming in Clojure
-# <p align="justify">
- *Mathematical and logical tasks performed with the Clojure functional language!*
-</p>
+<h3 align="justify">
+  <i>Mathematical and logical tasks performed with the Clojure functional language!</i>
+</h3>
 
 ![Functional Programming](https://github.com/Dreamerol/Dreamerol/blob/840ec1688c588786c6334d90d3de7183c9224893/clojure.jpg)
 ---
