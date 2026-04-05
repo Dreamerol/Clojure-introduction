@@ -1,5 +1,4 @@
-
-# 🌀 Functional Programming in Clojure
+# *🌀 Functional Programming in Clojure*
 
 ![Functional Programming](https://github.com/Dreamerol/Dreamerol/blob/840ec1688c588786c6334d90d3de7183c9224893/clojure.jpg)
 ---
