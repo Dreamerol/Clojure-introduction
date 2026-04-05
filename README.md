@@ -1,8 +1,9 @@
+
+
+![Functional Programming](https://github.com/Dreamerol/Dreamerol/blob/840ec1688c588786c6334d90d3de7183c9224893/clojure.jpg)
+---
 Mathematical and logical tasks performed with the Clojure functional language!
 # 🌀 Functional Programming in Clojure
-
-![Functional Programming](https://plus.unsplash.com/premium_photo-1661878193069-260470ba5da4?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
----
 
 ## 📖 Overview
 This repository contains exercises and projects for learning **functional programming** in Clojure, focusing on solving **mathematical and algorithmic tasks** using a functional approach.
