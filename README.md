@@ -29,46 +29,6 @@
 
 ---
 
-<h2 align="center">🚀 Practical Experience</h2>
-<p align="center">
-  <b><i>Hands-on exercises and projects applying FP concepts to mathematical and algorithmic challenges</i></b>
-</p>
-<ul>
-  <li>Write <b>clean, maintainable, and robust code</b></li>
-  <li>Develop a <b>functional mindset</b> for problem-solving</li>
-  <li>Build <b>scalable and composable solutions</b></li>
-  <li>Bridge theoretical knowledge with <b>real-world implementations</b></li>
-</ul>
-
----
-
-
-
-
-<h2 align="center">💡 Why This Matters</h2>
-<p align="center">
-  This repository demonstrates how functional programming concepts in Clojure can improve <b>system design, backend pipelines, and algorithmic thinking</b>. It is ideal for showcasing <b>internship and junior developer skills</b>, connecting academic learning with practical, production-ready experience.
-</p>
-
----
-
-<h2 align="center">⚡ Tech Stack & Skills</h2>
-<p align="center">
-  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
-  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
-  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Algorithms-Mathematical%20Logic-6A5ACD?style=for-the-badge" />
-</p>
-
-
-
-
-
-
-
-
-
-
 
 ---
 
@@ -169,8 +129,12 @@ The codes for APIs are confedential and cannot be post on my github account.
 
 ---
 
+
+<h2 align="center">⚡ Tech Stack & Skills</h2>
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
   <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
   <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Algorithms-Mathematical%20Logic-6A5ACD?style=for-the-badge" />
 </p>
+
