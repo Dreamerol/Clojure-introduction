@@ -29,7 +29,7 @@
 
 ---
 
-<h2 align="center">🌟 Core Functional Programming Concepts</h2>
+
 <p align="center">
   <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
   <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
@@ -54,7 +54,7 @@ Through these exercises, learners gain **hands-on experience** applying function
 ---
 
 
-<h2 align="center">🌟 Core Functional Programming Concepts</h2>
+
 <p align="center">
   <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
   <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
@@ -76,7 +76,7 @@ This repository is ideal for anyone looking to **bridge the gap between theoreti
 
 ---
 
-<h2 align="center">🌟 Core Functional Programming Concepts</h2>
+
 <p align="center">
   <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
   <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
@@ -101,7 +101,7 @@ The goal of this project is to practice functional programming concepts such as:
 
 ---
 
-<h2 align="center">🌟 Core Functional Programming Concepts</h2>
+
 <p align="center">
   <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
   <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
@@ -125,7 +125,7 @@ All tasks are implemented in Clojure and focus on applying these principles to *
 ---
 
 
-<h2 align="center">🌟 Core Functional Programming Concepts</h2>
+
 <p align="center">
   <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
   <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
@@ -154,7 +154,6 @@ This experience demonstrates how FP concepts can improve **system integration, m
 
 ---
 
-<h2 align="center">🌟 Core Functional Programming Concepts</h2>
 <p align="center">
   <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
   <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
@@ -173,7 +172,7 @@ During my onboarding program, I was part of a team working with **core algorithm
 
 ---
 
-<h2 align="center">🌟 Core Functional Programming Concepts</h2>
+
 <p align="center">
   <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
   <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
