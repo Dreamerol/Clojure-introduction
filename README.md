@@ -35,12 +35,6 @@
   <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
 </p>
 
----
-
-## 📖 Overview
-This repository represents a **personal learning journey** in functional programming using Clojure. It is carefully structured to guide learners through exercises and projects that challenge them to solve **mathematical and algorithmic problems** using a purely functional approach.  
-
-The goal is to **develop both technical expertise and problem-solving mindset**, making the learning process meaningful and impactful. Each concept is explored with practical exercises to help learners internalize functional programming principles.
 
 ---
 
