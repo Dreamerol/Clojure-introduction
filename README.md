@@ -134,11 +134,6 @@ This experience strengthened my understanding of **how AI and algorithms are app
 
 The codes for APIs are confedential and cannot be post on my github account.
 
----
-
-<p align="center">
-  <i>Mathematical Problem Solving | Algorithm Design | Real-World Functional Pipelines</i>
-</p>
 
 ---
 
@@ -151,3 +146,8 @@ The codes for APIs are confedential and cannot be post on my github account.
   <img src="https://img.shields.io/badge/Algorithms-Mathematical%20Logic-6A5ACD?style=for-the-badge" />
 </p>
 
+---
+
+<p align="center">
+  <b><i>Mathematical Problem Solving | Algorithm Design | Real-World Functional Pipelines</i></b>
+</p>
