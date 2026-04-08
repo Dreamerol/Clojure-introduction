@@ -26,13 +26,18 @@
 - **🎯 Higher-Order Functions** – Functions that accept other functions as arguments or return them as results, enabling **modular and composable logic**.  
 - **📚 Collections and Sequences** – Mastering lists, vectors, maps, and sets for **mathematical computations and functional data manipulation**.
 
+
 ---
 
+<h2 align="center">🌟 Core Functional Programming Concepts</h2>
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
-  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
-  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
 </p>
+
 
 ---
 
@@ -48,11 +53,16 @@ Through these exercises, learners gain **hands-on experience** applying function
 
 ---
 
+
+<h2 align="center">🌟 Core Functional Programming Concepts</h2>
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
-  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
-  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
 </p>
+
 
 ---
 
@@ -63,12 +73,16 @@ By completing this journey, learners not only improve their Clojure skills but a
 This repository is ideal for anyone looking to **bridge the gap between theoretical knowledge and real-world application**, making it a strong showcase for **internship or junior developer opportunities**.
 
 
+
 ---
 
+<h2 align="center">🌟 Core Functional Programming Concepts</h2>
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
-  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
-  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
 </p>
 
 
@@ -84,15 +98,21 @@ The goal of this project is to practice functional programming concepts such as:
 - **Higher-order functions** – functions that take other functions as arguments or return functions  
 - **Collections and sequences** – leveraging lists, vectors, maps, and sets for mathematical computations
 
+
 ---
 
+<h2 align="center">🌟 Core Functional Programming Concepts</h2>
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
-  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
-  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
 </p>
 
+
 ---
+
 
 All tasks are implemented in Clojure and focus on applying these principles to **mathematical problems**, such as:
 
@@ -104,11 +124,16 @@ All tasks are implemented in Clojure and focus on applying these principles to *
 
 ---
 
+
+<h2 align="center">🌟 Core Functional Programming Concepts</h2>
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
-  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
-  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
 </p>
+
 
 ---
 
@@ -126,28 +151,41 @@ Key objectives:
 
 This experience demonstrates how FP concepts can improve **system integration, maintainability, and rapid development of backend services**.
 
+
 ---
 
+<h2 align="center">🌟 Core Functional Programming Concepts</h2>
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
-  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
-  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
 </p>
 
+
 ---
+
 
 This approach allows you to **connect multiple systems reliably** while learning how FP concepts like pure functions, composition, and immutability improve API design and maintainability.
 During my onboarding program, I was part of a team working with **core algorithms** in a **product-oriented company**, gaining **real-world experience** in developing backend solutions.  
 
+
 ---
 
+<h2 align="center">🌟 Core Functional Programming Concepts</h2>
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
-  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
-  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
 </p>
 
+
 ---
+
+
 
 Key highlights of this experience:
 
