@@ -5,6 +5,15 @@
 </h2>
 
 ![Functional Programming](https://github.com/Dreamerol/Dreamerol/blob/840ec1688c588786c6334d90d3de7183c9224893/clojure.jpg)
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+</p>
+
 ---
 
 
