@@ -1,4 +1,6 @@
+<p align="center">
 # 🌀 JAVA, CLOJURE & API SYSTEM
+</p>
 
 <h1 align="center"><b><i>Functional Programming in Clojure: Math & Algorithm Challenges</i></b></h1>
 
