@@ -28,6 +28,14 @@
 
 ---
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+</p>
+
+---
+
 ### 🚀 Practical Experience
 
 Through these exercises, learners gain **hands-on experience** applying functional programming concepts to **real-world mathematical and algorithmic challenges**. This process strengthens the ability to:
@@ -37,6 +45,15 @@ Through these exercises, learners gain **hands-on experience** applying function
 - Build solutions that are **scalable and composable**  
 - Connect theoretical knowledge with **practical implementation**  
 
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+</p>
+
 ---
 
 ### 💡 Why This Matters
@@ -44,6 +61,15 @@ Through these exercises, learners gain **hands-on experience** applying function
 By completing this journey, learners not only improve their Clojure skills but also gain an appreciation for **functional programming paradigms** that are widely used in **backend development, data pipelines, and algorithmic systems**.  
 
 This repository is ideal for anyone looking to **bridge the gap between theoretical knowledge and real-world application**, making it a strong showcase for **internship or junior developer opportunities**.
+
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+</p>
 
 
 ---
