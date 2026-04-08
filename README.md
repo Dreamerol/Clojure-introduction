@@ -1,8 +1,6 @@
 # 🌀 JAVA, CLOJURE & API SYSTEM
 
-<h2 align="center">
-  <b><i><h1 align="center"><b><i>Functional Programming in Clojure: Math & Algorithm Challenges</i></b></h1></i></b>
-</h2>
+<h1 align="center"><b><i>Functional Programming in Clojure: Math & Algorithm Challenges</i></b></h1>
 
 ![Functional Programming](https://github.com/Dreamerol/Dreamerol/blob/840ec1688c588786c6334d90d3de7183c9224893/clojure.jpg)
 
