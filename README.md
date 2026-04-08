@@ -1,4 +1,4 @@
-# 🌀 Functional Programming in Clojure
+# 🌀 JAVA-CLOJURE-API-INTEGRATIONS
 <h3 align="justify">
   <i>Mathematical and logical tasks performed with the Clojure functional language!</i>
 </h3>
