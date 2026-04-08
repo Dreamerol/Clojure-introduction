@@ -25,7 +25,17 @@ The goal of this project is to practice functional programming concepts such as:
 - **Immutability** – avoiding mutable state  
 - **Recursion** – replacing loops with recursive calls  
 - **Higher-order functions** – functions that take other functions as arguments or return functions  
-- **Collections and sequences** – leveraging lists, vectors, maps, and sets for mathematical computations  
+- **Collections and sequences** – leveraging lists, vectors, maps, and sets for mathematical computations
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+</p>
+
+---
 
 All tasks are implemented in Clojure and focus on applying these principles to **mathematical problems**, such as:
 
