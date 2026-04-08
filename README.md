@@ -97,19 +97,6 @@ By completing this journey, learners not only improve their Clojure skills but a
 This repository is ideal for anyone looking to **bridge the gap between theoretical knowledge and real-world application**, making it a strong showcase for **internship or junior developer opportunities**.
 
 
-
----
-
-
-<p align="center">
-  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
-</p>
-
-
 ---
 
 
