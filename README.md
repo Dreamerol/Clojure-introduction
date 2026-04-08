@@ -37,6 +37,14 @@ All tasks are implemented in Clojure and focus on applying these principles to *
 
 ---
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+</p>
+
+---
+
 ## ⚡ API Integration & Data Transfer
 
 As part of the onboarding program, I practiced **designing APIs, rapid API description, and functional integration** to handle **data transfer between systems**.  
@@ -53,8 +61,26 @@ This experience demonstrates how FP concepts can improve **system integration, m
 
 ---
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+</p>
+
+---
+
 This approach allows you to **connect multiple systems reliably** while learning how FP concepts like pure functions, composition, and immutability improve API design and maintainability.
 During my onboarding program, I was part of a team working with **core algorithms** in a **product-oriented company**, gaining **real-world experience** in developing backend solutions.  
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+</p>
+
+---
 
 Key highlights of this experience:
 
@@ -66,3 +92,11 @@ Key highlights of this experience:
 This experience strengthened my understanding of **how AI and algorithms are applied in real products**, bridging theoretical knowledge with practical, production-ready implementations.
 
 The codes for APIs are confedential and cannot be post on my github account.
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+</p>
