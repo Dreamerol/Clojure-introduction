@@ -31,7 +31,6 @@ The goal of this project is to practice functional programming concepts such as:
 
 ---
 
-<h2 align="center">🌟 Core Functional Programming Concepts</h2>
 <p align="center">
   <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
   <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
