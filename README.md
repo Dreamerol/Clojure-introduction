@@ -1,4 +1,4 @@
-# 🌀 JAVA-CLOJURE-API-INTEGRATIONS
+# 🌀 JAVA, CLOJURE & API SYSTEM
 <h3 align="justify">
   <i>Mathematical and logical tasks performed with the Clojure functional language!</i>
 </h3>
