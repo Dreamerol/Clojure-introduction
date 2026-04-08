@@ -174,6 +174,6 @@ The codes for APIs are confedential and cannot be post on my github account.
 
 ---
 
-<p align="center">
+## <p align="center">
   <b><i>Mathematical Problem Solving | Algorithm Design | Real-World Functional Pipelines</i></b>
 </p>
