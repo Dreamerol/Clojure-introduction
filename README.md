@@ -1,7 +1,7 @@
 # 🌀 JAVA, CLOJURE & API SYSTEM
 
 <h2 align="center">
-  <b><i>Leveraging functional programming in Clojure I mathematical problem solving I algorithm design</i></b>
+  <b><i>Leveraging functional programming in Clojure I Mathematical problem solving I Algorithm design</i></b>
 </h2>
 
 ![Functional Programming](https://github.com/Dreamerol/Dreamerol/blob/840ec1688c588786c6334d90d3de7183c9224893/clojure.jpg)
