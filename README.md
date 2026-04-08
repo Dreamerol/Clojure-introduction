@@ -7,9 +7,6 @@
 ---
 
 
-<h1 align="center">
-  <b><i>Functional Programming in Clojure</i></b>
-</h1>
 <p align="center">
   <i>Mathematical Problem Solving | Algorithm Design | Real-World Functional Pipelines</i>
 </p>
