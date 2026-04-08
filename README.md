@@ -6,13 +6,6 @@
 
 ---
 
-
-<p align="center">
-  <i>Mathematical Problem Solving | Algorithm Design | Real-World Functional Pipelines</i>
-</p>
-
----
-
 <h2 align="center">🌟 Core Functional Programming Concepts</h2>
 <p align="center">
   <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
@@ -148,6 +141,12 @@ Key highlights of this experience:
 This experience strengthened my understanding of **how AI and algorithms are applied in real products**, bridging theoretical knowledge with practical, production-ready implementations.
 
 The codes for APIs are confedential and cannot be post on my github account.
+
+---
+
+<p align="center">
+  <i>Mathematical Problem Solving | Algorithm Design | Real-World Functional Pipelines</i>
+</p>
 
 ---
 
