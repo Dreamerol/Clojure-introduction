@@ -28,6 +28,18 @@ The goal of this project is to practice functional programming concepts such as:
 - **Higher-order functions** – functions that take other functions as arguments or return functions  
 - **Collections and sequences** – leveraging lists, vectors, maps, and sets for mathematical computations
 
+
+---
+
+<h2 align="center">🌟 Core Functional Programming Concepts</h2>
+<p align="center">
+  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
+</p>
+
 ---
 
 ### 🌟 Core Functional Programming Concepts
