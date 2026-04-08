@@ -18,6 +18,18 @@
 
 ---
 
+## 📖 Overview
+This repository contains exercises and projects for learning **functional programming** in Clojure, focusing on solving **mathematical and algorithmic tasks** using a functional approach.
+The goal of this project is to practice functional programming concepts such as:
+
+- **Pure functions** – functions without side effects  
+- **Immutability** – avoiding mutable state  
+- **Recursion** – replacing loops with recursive calls  
+- **Higher-order functions** – functions that take other functions as arguments or return functions  
+- **Collections and sequences** – leveraging lists, vectors, maps, and sets for mathematical computations
+
+---
+
 ### 🌟 Core Functional Programming Concepts
 
 - **⚡ Pure Functions** – Functions without side effects, producing predictable results every time.  
@@ -84,19 +96,6 @@ This repository is ideal for anyone looking to **bridge the gap between theoreti
   <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
   <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
 </p>
-
-
----
-
-## 📖 Overview
-This repository contains exercises and projects for learning **functional programming** in Clojure, focusing on solving **mathematical and algorithmic tasks** using a functional approach.
-The goal of this project is to practice functional programming concepts such as:
-
-- **Pure functions** – functions without side effects  
-- **Immutability** – avoiding mutable state  
-- **Recursion** – replacing loops with recursive calls  
-- **Higher-order functions** – functions that take other functions as arguments or return functions  
-- **Collections and sequences** – leveraging lists, vectors, maps, and sets for mathematical computations
 
 
 ---
