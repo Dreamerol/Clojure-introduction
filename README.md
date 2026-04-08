@@ -2,6 +2,8 @@
 
 <h1 align="center"><b><i>Functional Programming in Clojure: Math & Algorithm Challenges</i></b></h1>
 
+---
+
 ![Functional Programming](https://github.com/Dreamerol/Dreamerol/blob/840ec1688c588786c6334d90d3de7183c9224893/clojure.jpg)
 
 ---
@@ -210,3 +212,6 @@ The codes for APIs are confedential and cannot be post on my github account.
 
 
 <h2 align="center"><b><i>Mathematical Problem Solving | Algorithm Design | Real-World Functional Pipelines</i></b></h1>
+
+
+---
