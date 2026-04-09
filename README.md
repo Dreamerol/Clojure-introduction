@@ -9,12 +9,12 @@
 ---
 
 <h2 align="center">🌟 Core Functional Programming Concepts</h2>
+
 <p align="center">
-  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Algorithms-Mathematical%20Logic-6A5ACD?style=for-the-badge" />
 </p>
 
 
@@ -34,12 +34,12 @@ The goal of this project is to practice functional programming concepts such as:
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Algorithms-Mathematical%20Logic-6A5ACD?style=for-the-badge" />
 </p>
+
 
 ---
 
@@ -56,12 +56,12 @@ The goal of this project is to practice functional programming concepts such as:
 
 
 <p align="center">
-  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Algorithms-Mathematical%20Logic-6A5ACD?style=for-the-badge" />
 </p>
+
 
 
 ---
@@ -78,14 +78,11 @@ Through these exercises, learners gain **hands-on experience** applying function
 
 ---
 
-
-
 <p align="center">
-  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Algorithms-Mathematical%20Logic-6A5ACD?style=for-the-badge" />
 </p>
 
 
@@ -102,12 +99,12 @@ This repository is ideal for anyone looking to **bridge the gap between theoreti
 
 
 <p align="center">
-  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Algorithms-Mathematical%20Logic-6A5ACD?style=for-the-badge" />
 </p>
+
 
 
 ---
@@ -126,12 +123,12 @@ All tasks are implemented in Clojure and focus on applying these principles to *
 
 
 <p align="center">
-  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Algorithms-Mathematical%20Logic-6A5ACD?style=for-the-badge" />
 </p>
+
 
 
 ---
@@ -154,11 +151,10 @@ This experience demonstrates how FP concepts can improve **system integration, m
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Algorithms-Mathematical%20Logic-6A5ACD?style=for-the-badge" />
 </p>
 
 
@@ -172,13 +168,16 @@ During my onboarding program, I was part of a team working with **core algorithm
 ---
 
 
-<p align="center">
-  <img src="https://img.shields.io/badge/⚡_Pure_Functions-Predictable%20Results-00C853?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔒_Immutability-Safe%20State-1E90FF?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🔄_Recursion-Elegant%20Loops-FF8C00?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/🎯_Higher-Order_Functions-Composable%20Logic-8A2BE2?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/📚_Collections-Lists%2C%20Maps%2C%20Sets-6A5ACD?style=for-the-badge" />
+
+ <p align="center">
+  <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
+  <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/APIs-System%20Integration-009688?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Algorithms-Mathematical%20Logic-6A5ACD?style=for-the-badge" />
 </p>
+
+
+
 
 
 ---
@@ -201,6 +200,7 @@ The codes for APIs are confedential and cannot be post on my github account.
 
 
 <h2 align="center">⚡ Tech Stack & Skills</h2>
+
 <p align="center">
   <img src="https://img.shields.io/badge/Clojure-Functional%20Programming-5881D8?style=for-the-badge&logo=clojure&logoColor=white" />
   <img src="https://img.shields.io/badge/Java-Backend%20Development-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
