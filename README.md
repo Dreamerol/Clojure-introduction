@@ -196,9 +196,6 @@ This experience strengthened my understanding of **how AI and algorithms are app
 The codes for APIs are confedential and cannot be post on my github account.
 
 
----
-
-![Stats](https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=tokyonight)
 
 ----
 
